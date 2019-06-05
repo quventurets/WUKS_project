@@ -1,12 +1,9 @@
-# WUKS Project
+# WUKS_project
+This project was made to help Kosen Students to transfer into Universities and get better carrer.
 
-## Discription
-This project is made to help Kosen students to transfer into universities and get jobs.
 
-## Installation
-
-### For Bash on Windows
-#### Install bash
+## Installation for Bash on Windows
+### Install bash
 1. Click `Microsoft Store` from start menu, and search `Ubuntu` at search box.
 
 1. Click `Ubuntu`, and install.
@@ -32,7 +29,7 @@ This project is made to help Kosen students to transfer into universities and ge
    ```
    
 
-#### Install rbenv/ruby-build
+### Install rbenv/ruby-build
 1. Type below command.
    
    ```
@@ -59,7 +56,7 @@ This project is made to help Kosen students to transfer into universities and ge
    Auditing installed plugins: OK
    ```
 
-#### Install Ruby( = 2.5.0)
+### Install Ruby( = 2.5.0)
  1.  Type below command.
      ```
      $ rbenv install --list
@@ -87,7 +84,7 @@ This project is made to help Kosen students to transfer into universities and ge
     ruby 2.5.0p0 (2017-12-25 revision 61468) [x86_64-linux]
     ```
     
-#### Install Ruby on Rails
+### Install Ruby on Rails
 1. To install and start Rails, install some packages.
    ```
    $ sudo apt-get install libsqlite3-dev nodejs
@@ -99,12 +96,12 @@ This project is made to help Kosen students to transfer into universities and ge
    $ rails --version
    Rails 5.1.5
    ```
-#### Clone wuks_project
+### Clone wuks_project
    ```
    $ git clone https://github.com/quventurets/WUKS ./wuks_project
    ```
 
-#### Start wuks_project
+### Start wuks_project
   ```
   $ cd wuks_project
   $ rails server
