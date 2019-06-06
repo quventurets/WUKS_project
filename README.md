@@ -105,7 +105,6 @@ This project was made to help Kosen Students to transfer into Universities and g
   ```
   $ cd wuks_project
   $ rails server
-  $ rails server
   => Booting Puma
   => Rails 5.1.5 application starting in development 
   => Run `rails server -h` for more startup options
