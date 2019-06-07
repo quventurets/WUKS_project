@@ -5,11 +5,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag controller.controller_name, media: 'all' %>
+    
   </head>
 
   <body>
     <%= yield %>
+    <%= javascript_include_tag controller.controller_name %>
   </body>
 </html>
+
+<!--
+This sheet is shared with all the layout.
+-->

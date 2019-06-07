@@ -12,3 +12,15 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+
+Rails.application.config.assets.precompile += %w(  material-kit_css/material-kit.css )
+Rails.application.config.assets.precompile += %w(  demo/demo.css )
+
+Rails.application.config.assets.precompile += %w( material-kit_js/core/jquery.min )
+Rails.application.config.assets.precompile += %w( material-kit_js/core/popper.min )
+Rails.application.config.assets.precompile += %w( material-kit_js/core/bootstrap-material-design.min )
+Rails.application.config.assets.precompile += %w( material-kit_js/plugins/moment.min )
+Rails.application.config.assets.precompile += %w( material-kit_js/plugins/bootstrap-datetimepicker.js )
+Rails.application.config.assets.precompile += %w( material-kit_js/plugins/nouislider.min )
+#Rails.application.config.assets.precompile += %w( material-kit_js/material-kit.js?v=2.0.5 )
+Rails.application.config.assets.precompile += %w( material-kit_js/material-kit.js )
