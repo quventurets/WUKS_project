@@ -101,9 +101,14 @@ This project was made to help Kosen Students to transfer into Universities and g
    $ git clone https://github.com/quventurets/WUKS ./wuks_project
    ```
 
-### Start wuks_project
+### Activate React and Start wuks_project
   ```
   $ cd wuks_project
+  
+  $ npm install
+  $ sudo npm install -g webpack
+  $ npm run build
+  
   $ rails server
   => Booting Puma
   => Rails 5.1.5 application starting in development 
