@@ -17,24 +17,22 @@
   <%= stylesheet_link_tag "material-kit_css/material-kit.css?v=2.0.5",:media=> "all" %>
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <%= stylesheet_link_tag "demo/demo.css", :media => "all" %>
+  <!-- JS Files -->
+  <%= javascript_include_tag "material-kit_js/core/jquery.min.js" %>
+  <%= javascript_include_tag "material-kit_js/core/popper.min.js" %>
+  <%= javascript_include_tag "material-kit_js/core/bootstrap-material-design.min.js" %>
+  <%= javascript_include_tag "material-kit_js/plugins/moment.min.js" %>
+  <%= javascript_include_tag "material-kit_js/plugins/bootstrap-datetimepicker.js" %>
+  <%= javascript_include_tag "material-kit_js/plugins/nouislider.min.js" %>
+  <%= javascript_include_tag "material-kit_js/material-kit.js" %>
+  
 </head>
 <body class="index-page sidebar-collapse">
-<div class="page-header header-filter clear-filter purple-filter" data-parallax="true" style="background-image: url('./assets/img/bg2.jpg');">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 ml-auto mr-auto">
-          <div class="brand">
-            <h1>Material Kit.</h1>
-            <h3>A Badass Bootstrap 4 UI Kit based on Material Design.</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div><nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav"> 
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="https://demos.creative-tim.com/material-kit/index.html">
-          Material Kit </a>
+        <a class="navbar-brand" href="#">
+          WUKS project </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="sr-only">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
@@ -44,59 +42,54 @@
       </div>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
-          <li class="dropdown nav-item">
-            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-              <i class="material-icons">apps</i> Components
+          <li class="nav-item">
+            <a href="#pablo" class="nav-link">
+              Home
             </a>
-            <div class="dropdown-menu dropdown-with-icons">
-              <a href="./index.html" class="dropdown-item">
-                <i class="material-icons">layers</i> All Components
-              </a>
-              <a href="https://demos.creative-tim.com/material-kit/docs/2.1/getting-started/introduction.html" class="dropdown-item">
-                <i class="material-icons">content_paste</i> Documentation
-              </a>
-            </div>
           </li>
+          <li class="nav-item">
+            <a href="#pablo" class="nav-link">
+              Mission
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#pablo" class="nav-link">
+              Transfer
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#pablo" class="nav-link">
+              Career
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#pablo" class="nav-link">
+              About Us
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#pablo" class="nav-link">
+              Contact Us
+            </a>
+          </li>           
+          <!--
           <li class="nav-item">
             <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
               <i class="material-icons">cloud_download</i> Download
             </a>
           </li>
+          -->
           <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank" data-original-title="Follow us on Twitter">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank" data-original-title="Like us on Facebook">
-              <i class="fa fa-facebook-square"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank" data-original-title="Follow us on Instagram">
-              <i class="fa fa-instagram"></i>
+            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/UpWuks" target="_blank">
+              <i class="fa fa-twitter"></i>Follow us
             </a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  <div class="page-header header-filter clear-filter purple-filter" data-parallax="true" style="background-image: url('./assets/img/bg2.jpg');">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 ml-auto mr-auto">
-          <div class="brand">
-            <h1>Material Kit.</h1>
-            <h3>A Badass Bootstrap 4 UI Kit based on Material Design.</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
 <%= yield %>
-<footer class="footer" data-background-color="black">
+  <footer class="footer" data-background-color="black">
     <div class="container">
       <nav class="float-left">
         <ul>
@@ -131,5 +124,24 @@
       </div>
     </div>
   </footer>
+  <script>
+    $(document).ready(function() {
+      //init DateTimePickers
+      materialKit.initFormExtendedDatetimepickers();
+
+      // Sliders Init
+      materialKit.initSliders();
+    });
+
+
+    function scrollToDownload() {
+      if ($('.section-download').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('.section-download').offset().top
+        }, 1000);
+      }
+    }
+
+  </script>
 </body>
 </html>
