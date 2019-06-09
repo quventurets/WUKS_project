@@ -15,6 +15,8 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile += %w(  material-kit_css/material-kit.css )
 Rails.application.config.assets.precompile += %w(  demo/demo.css )
+Rails.application.config.assets.precompile += %w(  original/jumbotron.css )
+Rails.application.config.assets.precompile += %w(  original/full-width-pics.css )
 
 Rails.application.config.assets.precompile += %w( material-kit_js/core/jquery.min )
 Rails.application.config.assets.precompile += %w( material-kit_js/core/popper.min )

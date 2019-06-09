@@ -1,0 +1,66 @@
+/*!
+ * Start Bootstrap - Full Width Pics (https://startbootstrap.com/template-overviews/full-width-pics)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-full-width-pics/blob/master/LICENSE)
+ */
+
+body {
+  padding-top: 56px;
+}
+
+
+.bg-image-full {
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.navbar {
+    border: 0;
+    border-radius: 3px;
+    padding: 0.625rem 0;
+    margin-bottom: 0px;
+    color: #555;
+    background-color: #fff !important;
+    box-shadow: 0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15);
+}
+
+
+
+/*TO DISPLAY UNIVERSITYIES */
+
+.product {
+    margin-bottom: 20px;
+}
+
+.img-thumbnail {
+    max-height: 300px;
+}
+
+/*TO RESHAPE ALL THE IMAGES OF UNIVERSITY */
+.user-show-icon-cover {
+  border-radius: 5px;
+  height: 700px;
+  width: 1000px;
+  overflow: hidden;
+  position: relative;
+}
+.user-show-icon-information {
+ position: relative;
+ height: 700px;
+ width: 1000px;
+}
+.user_show_image {
+ height: auto;
+ width: 100%;
+ display: block;
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ border: solid 5px;
+ border-radius: 5px;
+}

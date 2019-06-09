@@ -17,6 +17,10 @@
   <%= stylesheet_link_tag "material-kit_css/material-kit.css?v=2.0.5",:media=> "all" %>
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <%= stylesheet_link_tag "demo/demo.css", :media => "all" %>
+  <%= stylesheet_link_tag "original/jumbotron.css", :media => "all"%>
+  <!--
+  <%= stylesheet_link_tag "original/full-width-pics.css", :media => "all"%>
+  -->
   <!-- JS Files -->
   <%= javascript_include_tag "material-kit_js/core/jquery.min.js" %>
   <%= javascript_include_tag "material-kit_js/core/popper.min.js" %>
@@ -31,7 +35,7 @@
   <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav"> 
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
           WUKS project </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="sr-only">Toggle navigation</span>
@@ -43,7 +47,7 @@
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a href="#pablo" class="nav-link">
+            <a href="/" class="nav-link">
               Home
             </a>
           </li>
@@ -53,12 +57,12 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#pablo" class="nav-link">
+            <a href="/transfer" class="nav-link">
               Transfer
             </a>
           </li>
           <li class="nav-item">
-            <a href="#pablo" class="nav-link">
+            <a href="/career" class="nav-link">
               Career
             </a>
           </li>
@@ -89,7 +93,7 @@
     </div>
   </nav>
 <%= yield %>
-  <footer class="footer" data-background-color="black">
+  <footer class="footer" data-background-color="white">
     <div class="container">
       <nav class="float-left">
         <ul>
