@@ -29,38 +29,16 @@ body {
 
 
 
-/*TO DISPLAY UNIVERSITYIES */
+/*TO DISPLAY UNIVERSITYIES EACHES */
 
 .product {
+    /*
     margin-bottom: 20px;
+    */
+    padding-top:20px;
+    padding-bottom:20px;
 }
 
 .img-thumbnail {
     max-height: 300px;
-}
-
-/*TO RESHAPE ALL THE IMAGES OF UNIVERSITY */
-.user-show-icon-cover {
-  border-radius: 5px;
-  height: 700px;
-  width: 1000px;
-  overflow: hidden;
-  position: relative;
-}
-.user-show-icon-information {
- position: relative;
- height: 700px;
- width: 1000px;
-}
-.user_show_image {
- height: auto;
- width: 100%;
- display: block;
- position: absolute;
- top: 0;
- left: 0;
- right: 0;
- bottom: 0;
- border: solid 5px;
- border-radius: 5px;
 }
