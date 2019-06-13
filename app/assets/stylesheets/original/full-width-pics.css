@@ -42,3 +42,11 @@ body {
 .img-thumbnail {
     max-height: 300px;
 }
+
+.product:hover{
+  color: #ff0000;
+}
+
+a, a:hover, a:visited, a:link, a:active {
+color: black;
+}
