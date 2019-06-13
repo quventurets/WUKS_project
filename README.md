@@ -56,7 +56,7 @@ This project was made to help Kosen Students to transfer into Universities and g
    Auditing installed plugins: OK
    ```
 
-### Install Ruby( = 2.5.0)
+### Install Ruby( = 2.5.0) and Other plugins needed for Ruby
  1.  Type below command.
      ```
      $ rbenv install --list
@@ -66,7 +66,10 @@ This project was made to help Kosen Students to transfer into Universities and g
      ~~~
        2.5.0
        2.6.0-dev
-
+     
+     $ sudo apt-get install make
+     $ sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev
+      
      $ rbenv install 2.5.0
      Downloading ruby-2.5.0.tar.bz2...
      -> https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.0.tar.bz2
