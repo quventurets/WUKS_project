@@ -15,8 +15,9 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile += %w(  material-kit_css/material-kit.css )
 Rails.application.config.assets.precompile += %w(  demo/demo.css )
-Rails.application.config.assets.precompile += %w(  original/jumbotron.css )
-Rails.application.config.assets.precompile += %w(  original/full-width-pics.css )
+
+Rails.application.config.assets.precompile += %w(  original/casting_shadow.css )
+Rails.application.config.assets.precompile += %w(  original/list_page.css )
 
 Rails.application.config.assets.precompile += %w( material-kit_js/core/jquery.min )
 Rails.application.config.assets.precompile += %w( material-kit_js/core/popper.min )
@@ -24,5 +25,4 @@ Rails.application.config.assets.precompile += %w( material-kit_js/core/bootstrap
 Rails.application.config.assets.precompile += %w( material-kit_js/plugins/moment.min )
 Rails.application.config.assets.precompile += %w( material-kit_js/plugins/bootstrap-datetimepicker.js )
 Rails.application.config.assets.precompile += %w( material-kit_js/plugins/nouislider.min )
-#Rails.application.config.assets.precompile += %w( material-kit_js/material-kit.js?v=2.0.5 )
 Rails.application.config.assets.precompile += %w( material-kit_js/material-kit.js )

@@ -17,7 +17,6 @@
   <%= stylesheet_link_tag "material-kit_css/material-kit.css?v=2.0.5",:media=> "all" %>
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <%= stylesheet_link_tag "demo/demo.css", :media => "all" %>
-  <%= stylesheet_link_tag "original/jumbotron.css", :media => "all"%>
   <%= stylesheet_link_tag "original/full-width-pics.css", :media => "all"%>
   <!-- JS Files -->
   <%= javascript_include_tag "material-kit_js/core/jquery.min.js" %>
@@ -45,18 +44,18 @@
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a href="/" class="nav-link">
-              Home
+            <a href="/" class="nav-link  mt-2">
+              <i class="material-icons">home</i> Home
             </a>
           </li>
-          <li class="nav-item">
-            <a href="/transfer" class="btn btn-rose btn-raised btn-round ">
-              Transfer
+          <li class="nav-item active  mt-2">
+            <a href="/transfer" class="nav-link">
+              <i class="material-icons">school</i> Transfer
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item  mt-2">
             <a href="/career" class="nav-link">
-              Career
+              <i class="material-icons">business</i> Career
             </a>
           </li>
           <!--
@@ -66,22 +65,18 @@
             </a>
           </li>
           -->
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/UpWuks" target="_blank">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-          <form class="form-inline ml-3">
-            <div class="form-group has-white bmd-form-group">
+          <form class="form-inline mt-2 ml-4">
+            <div class="form-group bmd-form-group">
                 <input type="text" class="form-control" placeholder="Search">
             </div>
                 <button type="submit" class="btn btn-white btn-raised btn-fab btn-round">
                 <i class="material-icons">search</i>
                 </button>
           </form>
-          <li class="nav-item">
-            <a href="/career" class="nav-link">
-              Registration
+          <li class="nav-item ml-5 mt-2">
+            <a href="/login" class="btn btn-rose btn-raised">
+                <i class="material-icons">vpn_key</i> LOGIN
+                <div class="ripple-container"></div>
             </a>
           </li>
         </ul>

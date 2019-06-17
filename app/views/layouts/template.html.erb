@@ -15,9 +15,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
   <%= stylesheet_link_tag "material-kit_css/material-kit.css?v=2.0.5",:media=> "all" %>
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <%= stylesheet_link_tag "demo/demo.css", :media => "all" %>
+  <!-- CSS for Top page-->
   <%= stylesheet_link_tag "original/jumbotron.css", :media => "all"%>
+  
   <!--
   <%= stylesheet_link_tag "original/full-width-pics.css", :media => "all"%>
   -->
@@ -78,7 +78,7 @@
           </li>
           <li class="nav-item">
             <a href="#pablo" class="nav-link">
-              Registration
+              Register
             </a>
           </li>              
           <!--
@@ -98,41 +98,6 @@
     </div>
   </nav>
 <%= yield %>
-  <footer class="footer" data-background-color="white">
-    <div class="container">
-      <nav class="float-left">
-        <ul>
-          <li>
-            <a href="https://www.creative-tim.com">
-              Creative Tim
-            </a>
-          </li>
-          <li>
-            <a href="https://creative-tim.com/presentation">
-              About Us
-            </a>
-          </li>
-          <li>
-            <a href="http://blog.creative-tim.com">
-              Blog
-            </a>
-          </li>
-          <li>
-            <a href="https://www.creative-tim.com/license">
-              Licenses
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div class="copyright float-right">
-        &copy;
-        <script>
-          document.write(new Date().getFullYear())
-        </script>, made with <i class="material-icons">favorite</i> by
-        <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
-      </div>
-    </div>
-  </footer>
   <script>
     $(document).ready(function() {
       //init DateTimePickers
@@ -144,13 +109,12 @@
 
 
     function scrollToDownload() {
-      if ($('.section-download').length != 0) {
+      if ($('.section-download').length != 0){
         $("html, body").animate({
           scrollTop: $('.section-download').offset().top
         }, 1000);
       }
     }
-
   </script>
 </body>
 </html>

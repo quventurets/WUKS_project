@@ -2,12 +2,10 @@
 
 one:
   name: MyString
-  schoolname: MyString
-  grade: 1
-  facluty: MyString
+  date: MyString
+  difficulty: MyString
 
 two:
   name: MyString
-  schoolname: MyString
-  grade: 1
-  facluty: MyString
+  date: MyString
+  difficulty: MyString
