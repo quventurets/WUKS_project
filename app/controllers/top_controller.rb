@@ -1,5 +1,5 @@
 class TopController < ApplicationController
-  layout 'template.html.erb'
+  layout 'template_top.html.erb'
   
   def index
   end

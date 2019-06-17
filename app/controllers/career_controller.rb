@@ -1,5 +1,5 @@
 class CareerController < ApplicationController
-  layout 'basic.html.erb'
+  layout 'template_listpage.html.erb'
   
   def index
   end

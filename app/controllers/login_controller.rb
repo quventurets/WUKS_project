@@ -1,5 +1,5 @@
 class LoginController < ApplicationController
-    layout 'template.html.erb'
+    layout 'template_top.html.erb'
     
     def login
     end
