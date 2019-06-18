@@ -9,19 +9,58 @@
 Univ.create(
   [
    {
-     name: '大阪大学',
-     date: '8月中旬，7月中旬',
-     difficulty: '難関',
+    name: '東京大学',
+    date_general: '7月上旬',
+
+    date_number: 7.0,
+    location: '東京都',
+    otherFac: 0,
+    examtypes: 0,
    },
    {
-     name: '東北大学',
-     date: '8月末',
-     difficulty: '難関',
+    name: '東京工業大学',
+    date_general: '8月下旬',
+    date_recommend: '6月中旬',
+    date_number: 8.7,
+    location: '東京都',
+    otherFac: 1,
+    examtypes: 1,
    },
    {
-     name: '京都大学',
-     date: '8月末',
-     difficulty: '最難関',
+    name: '電気通信大学',
+    date_general: '6月下旬',
+    date_recommend: '6月上旬',
+    date_number: 6.8,
+    location: '東京都',
+    otherFac: 0,
+    examtypes: 1,
+   },
+   {
+    name: '九州大学',
+    date_general: '8月中旬',
+    date_recommend: '6月上旬',
+    date_number: 8.2,
+    location: '福岡県',
+    otherFac: 1,
+    examtypes: 1,
+   },
+   {
+    name: '名古屋大学',
+    date_general: '8月上旬',
+
+    date_number: 8.0,
+    location: '愛知県',
+    otherFac: 1,
+    examtypes: 0,
+   },
+   {
+    name: '大阪大学',
+    date_general: '8月中旬',
+
+    date_number: 8.4,
+    location: '大阪府',
+    otherFac: 1,
+    examtypes: 0,
    }
     ]
 )

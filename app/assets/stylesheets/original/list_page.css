@@ -34,7 +34,8 @@ body {
 }
 
 .img-thumbnail {
-    max-height: 300px;
+    max-height: 200px;
+    max-width : 300px; 
 }
 
 .product:hover{
@@ -44,4 +45,13 @@ body {
 
 a, a:hover, a:visited, a:link, a:active {
   color: black;
+}
+
+.forbadge{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.nameUni{
+  font-weight: 700;
 }

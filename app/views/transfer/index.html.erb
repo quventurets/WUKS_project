@@ -61,19 +61,32 @@
   </div>
   </a>
   -->
-
   <div class="pt-5"></div>
 
   <% @univs.each do |univs| %>
     <a href ="/transfer/<%= univs.name %>">
     <div class="row product border">
       <div class="col-md-4">
-        <img src="assets/img/univ/<%= univs.id %>.jpg" alt="" class="img-thumbnail">
+      
+        <img src="assets/img/univ/<%= univs.name %>.jpg" alt="assets/img/wuks.png" class="img-thumbnail">
+      
+      <!-- <img src="assets/img/wuks.png" alt="" class="img-thumbnail">
+      -->
       </div>
       <div class="col-md-8">
-        <h2><%= univs.name %></h2>
-        <h4>編入難易度 :<%= univs.difficulty %><h4>
-        <h4>試験時期 :<%= univs.date %></h4>
+        <h2 class = "nameUni"><%= univs.name %></h2>
+        <h4 class = "forbadge"><span class="badge badge-pill badge-rose"><%= univs.location %></span></h4>
+        <% if univs.examtypes == 1 %>
+          <h4 class = "forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span> 
+              <span class="badge badge-pill badge-success"><%= univs.date_recommend %></span>
+              <span class="badge badge-pill badge-info">推薦入試あり</span>
+        <% else %>
+          <h4 class = "forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
+        <% end %>
+        <% if univs.otherFac == 1%>
+          <span class="badge badge-pill badge-warning">工学系以外も編入可</span>
+        <% end %>
+         </h4>
       </div>
     </div>
     </a>

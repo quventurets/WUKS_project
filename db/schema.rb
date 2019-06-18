@@ -10,14 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_16_185756) do
+ActiveRecord::Schema.define(version: 2019_06_18_060443) do
 
   create_table "univs", force: :cascade do |t|
     t.string "name"
-    t.string "date"
-    t.string "difficulty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "date_general"
+    t.string "date_recommend"
+    t.float "date_number"
+    t.string "location"
+    t.integer "otherFac"
+    t.integer "examtypes"
   end
 
 end
