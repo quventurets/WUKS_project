@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get '/transfer' => "transfer#index"
   get '/tansfer/:id' => "transfer#show"
   get '/transfer/test' => "transfer#test"
-
   
   get '/login' => "login#login"
   
