@@ -1,4 +1,8 @@
-<section class="py-5 bg-image-full" style="background-image: url('./assets/img/bg7.jpg');">
+<% content_for :title do %>
+進学 | WUKS
+<% end %>
+
+<section class="py-5 bg-image-full" style="background-image: url('../assets/img/bg7.jpg');">
     <div style="height: 150px;">
     <div class="container">
       <div class="row">
@@ -12,84 +16,36 @@
   </div>
 </section>
 <div class ="container">
-  <!--
-  <a href ="#">
-  <div class="row product mt-5 border">
-    <div class="col-md-4">
-      <img src="assets/img/univ/tokyo_univ.jpg" alt="" class="img-thumbnail">
-    </div>
-    <div class="col-md-8">
-      <h2>東京大学</h2>
-      <p>編入難易度</p>
-    </div>
-  </div>
-  </a>
-
-  <a href ="#">
-  <div class="row product border">
-    <div class="col-md-4">
-      <img src="assets/img/univ/tokyo_tech.jpg" alt="" class="img-thumbnail">
-    </div>
-    <div class="col-md-8">
-      <h2>東京工業大学</h2>
-      <p>編入難易度</p>
-    </div>
-  </div>
-  </a>
-
-  <a href ="#">
-  <div class="row product border">
-    <div class="col-md-4">
-      <img src="assets/img/univ/kyushu_univ.jpg" alt="" class="img-thumbnail">
-    </div>
-    <div class="col-md-8">
-      <h2>九州大学</h2>
-      <p>編入難易度</p>
-    </div>
-  </div>
-  </a>
-
-  <a href ="#">
-  <div class="row product border">
-    <div class="col-md-4">
-      <img src="assets/img/univ/nagoya_univ.jpg" alt="" class="img-thumbnail">
-    </div>
-    <div class="col-md-8">
-      <h2>名古屋大学</h2>
-      <p>編入難易度</p>
-    </div>
-  </div>
-  </a>
-  -->
   <div class="pt-5"></div>
-
   <% @univs.each do |univs| %>
-    <a href ="/transfer/<%= univs.name %>">
-    <div class="row product border">
-      <div class="col-md-4">
-      
-        <img src="assets/img/univ/<%= univs.name %>.jpg" alt="assets/img/wuks.png" class="img-thumbnail">
-      
-      <!-- <img src="assets/img/wuks.png" alt="" class="img-thumbnail">
-      -->
+    <!--<a href ="/transfer/<%= univs.name %>"> -->
+    <%= link_to transfer_show_path(id:univs.id) do %>
+      <div class="row product border">
+        <div class="col-md-4">
+        
+          <img src="assets/img/univ/<%= univs.name %>.jpg" alt="url('/assets/img/bg7.jpg');" class="img-thumbnail">
+        
+        <!-- <img src="assets/img/wuks.png" alt="" class="img-thumbnail">
+        -->
+        </div>
+        <div class="col-md-8">
+          <h2 class = "nameUni"><%= univs.name %></h2>
+          <h4 class = "forbadge"><span class="badge badge-pill badge-rose"><%= univs.location %></span></h4>
+          <% if univs.examtypes == 1 %>
+            <h4 class = "forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span> 
+                <span class="badge badge-pill badge-success"><%= univs.date_recommend %></span>
+                <span class="badge badge-pill badge-info">推薦入試あり</span>
+          <% else %>
+            <h4 class = "forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
+          <% end %>
+          <% if univs.otherFac == 1%>
+            <span class="badge badge-pill badge-warning">工学系以外も編入可</span>
+          <% end %>
+          </h4>
+        </div>
       </div>
-      <div class="col-md-8">
-        <h2 class = "nameUni"><%= univs.name %></h2>
-        <h4 class = "forbadge"><span class="badge badge-pill badge-rose"><%= univs.location %></span></h4>
-        <% if univs.examtypes == 1 %>
-          <h4 class = "forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span> 
-              <span class="badge badge-pill badge-success"><%= univs.date_recommend %></span>
-              <span class="badge badge-pill badge-info">推薦入試あり</span>
-        <% else %>
-          <h4 class = "forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
-        <% end %>
-        <% if univs.otherFac == 1%>
-          <span class="badge badge-pill badge-warning">工学系以外も編入可</span>
-        <% end %>
-         </h4>
-      </div>
-    </div>
-    </a>
+    <% end %>
+    <!--</a>-->
   <% end %>
 </div>
 
