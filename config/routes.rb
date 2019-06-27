@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :univs
+
+      root to: "univs#index"
+    end
   get '/career' => "career#index"
   get '/transfer' => "transfer#index"
   get '/tansfer/:id' => "transfer#show"

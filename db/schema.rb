@@ -24,4 +24,13 @@ ActiveRecord::Schema.define(version: 2019_06_18_060443) do
     t.integer "examtypes"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "schoolname"
+    t.integer "grade"
+    t.string "facluty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
