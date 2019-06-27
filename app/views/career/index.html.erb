@@ -2,118 +2,44 @@
 就職 | WUKS
 <% end %>
 
-<div class="page-header header-filter clear-filter" data-parallax="true" style="background-image: url('./assets/img/profile_city.jpg');">
-  <div class="container">
+<section class="py-5 bg-image-full" style="background-image: url('../assets/img/profile_city.jpg');">
+    <div style="height: 150px;">
+    <div class="container">
       <div class="row">
-        <div class="col-md-10 ml-auto mr-auto">
+        <div class="col-md-8 ml-auto mr-auto">
           <div class="brand">
-            <h1>企業情報</h1>
-            <h4>高専生を求める企業の求人や、インターンシップの情報を確認しよう。<br>様々な企業情報を手に入れ、将来の選択肢を増やそう。</h4>
+            <h1>企業情報一覧</h1>
           </div>
         </div>
       </div>
+    </div>
   </div>
+</section>
+<div class ="container">
+  <div class="pt-5"></div>
+  <% @comps.each do |comps| %>
+    <%= link_to career_show_path(id:comps.id) do %>
+      <div class="row product border">
+        <div class="col-md-4">
+        
+          <img src="assets/img/comp/<%=comps.name%>.jpg" alt="" class="img-thumbnail">
+        
+        <!-- <img src="assets/img/wuks.png" alt="" class="img-thumbnail">
+        -->
+        </div>
+        <div class="col-md-8">
+          <h2 class="nameCom"><%= comps.name %></h2>
+          <h4 class = "forbadge">
+            <span class="badge badge-pill badge-rose"><%= comps.place %></span>
+          </h4>
+          <h4 class = "forbadge">
+            <span class="badge badge-pill badge-success"><%= comps.area %></span>
+            <span class="badge badge-pill badge-info"><%= comps.scale %></span>
+          </h4>
+        </div>
+      </div>
+    <% end %>
+    <!--</a>-->
+  <% end %>
 </div>
-<div class="section section-tabs">
-    <div class="container">
-    <div id="nav-tabs">
-        <div class="row">
-        <div class="col-md-12">
-            <div class="card card-nav-tabs">
-            <div class="card-header card-header-text card-header-primary">
-                <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
-                <div class="nav-tabs-navigation">
-                <div class="nav-tabs-wrapper">
-                    <ul class="nav nav-tabs justify-content-center nav-fill" data-tabs="tabs" >
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#recruit" data-toggle="tab">
-                        <h3><i class="material-icons">people</i> 求人情報</h3>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#intern" data-toggle="tab">
-                        <h3><i class="material-icons">work</i> インターンシップ情報</h3>
-                        </a>
-                    </li>
-                    </ul>
-                </div>
-                </div>
-            </div>
 
-            <div class="card-body ">
-                <div class="tab-content text-center">
-                <div class="tab-pane active" id="recruit">  
-                    <br>
-                    <p style="font-size:25px;"><br>ここから、高専生を求める様々な企業の求人情報を確認しましょう。<br>
-                    就職した先輩の声を聞くこともできます。</p>
-                    <div class="container">
-                        <div class="section">
-                            <div class="container text-center">
-                            <div class="row">
-                                <div class="card">
-                                    <div class="col-md-2">
-                                        <img src="assets/img/firm/nintendo.jpg" alt="" class="img-thumbnail">
-                                    </div>
-                                    <div class="col-md-10">
-                                        <h3>任天堂</h3>
-                                        <h4>内容</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="card">
-                                    <div class="col-md-2">
-                                        <img src="assets/img/firm/nintendo.jpg" alt="" class="img-thumbnail">
-                                    </div>
-                                    <div class="col-md-10">
-                                        <h3>任天堂</h3>
-                                        <h4>内容</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                </div>
-                <div class="tab-pane" id="intern">
-                    <br>
-                    <p style="font-size:25px;"><br>ここから、インターンシップの日程や内容を確認しましょう。<br>
-                    先輩の体験談を見ることもできます。</p>
-                    <div class="container">
-                        <div class="section">
-                            <div class="container text-center">
-                            <div class="row">
-                                <div class="card">
-                                    <div class="col-md-2">
-                                        <img src="assets/img/firm/sony.jpg" alt="" class="img-thumbnail">
-                                    </div>
-                                    <div class="col-md-10">
-                                        <h3>ソニー</h3>
-                                        <h4>内容</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="card">
-                                    <div class="col-md-2">
-                                        <img src="assets/img/firm/sony.jpg" alt="" class="img-thumbnail">
-                                    </div>
-                                    <div class="col-md-10">
-                                        <h3>ソニー</h3>
-                                        <h4>内容</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </div>
-            <!-- End Tabs with icons on Card -->
-        </div>
-        </div>
-    </div>
-    </div>
-</div>

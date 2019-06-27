@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/transfer' => "transfer#index"
 
   get '/transfer/:id' => "transfer#show", as: :transfer_show
-
+  get '/career/:id' => "career#show", as: :career_show
 
 
 
