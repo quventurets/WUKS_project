@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_18_060443) do
+ActiveRecord::Schema.define(version: 2019_06_27_085921) do
+
+  create_table "comps", force: :cascade do |t|
+    t.string "name"
+    t.string "area"
+    t.string "scale"
+    t.string "place"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "univs", force: :cascade do |t|
     t.string "name"
@@ -22,15 +31,6 @@ ActiveRecord::Schema.define(version: 2019_06_18_060443) do
     t.string "location"
     t.integer "otherFac"
     t.integer "examtypes"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "schoolname"
-    t.integer "grade"
-    t.string "facluty"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
