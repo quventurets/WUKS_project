@@ -1,6 +1,76 @@
 .heading{
-padding: 10px;
-color:#FFF;
-background: #777;
-border-left:5px solid #FF9100;
+    padding: 10px;
+    margin:0px;
+    padding-left:20px;
+    background: #f6f6f6;
+    border-left:10px solid #861273;
+}
+
+.nav-tabs .nav-item .nav-link {
+    color: #fff;
+    border: 0;
+    margin: 0;
+    border-radius: 3px;
+    line-height: 24px;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding: 10px 15px;
+    background-color: transparent;
+    transition: 0.3s background-color 0s;
+}
+
+.sub {
+  position: relative;
+  padding: .25em 0 .5em .75em;
+  border-left: 6px solid #861273;
+  background-color: #f6f6f6;
+}
+
+sub::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  content: '';
+  width: 100%;
+  height: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.card-doby{
+    padding-bottom: 0px;
+}
+
+.card{
+    margin-bottom: 0px;
+}
+
+.msr_box01 {
+  background-color: #1B73BA;
+  width: 230px;
+}
+.msr_box01 a{
+  background-color: #FFFFFF;
+  border: 1px solid #B9B9B9;
+  box-sizing: border-box;
+  color:#000000;
+  display:block;
+  padding: 8px;
+  transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+}
+.msr_box01 img{
+  margin:0 0 5px;
+}
+.msr_box01 .ttl {
+  font-size: 16px;
+  line-height: 1.6;
+}
+.msr_box01 p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.msr_box01 a:hover{
+  opacity: 0.8;
 }
