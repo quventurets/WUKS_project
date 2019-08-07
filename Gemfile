@@ -74,3 +74,5 @@ gem 'jquery-rails'
 gem 'autoprefixer-rails'
 
 gem "administrate"
+
+gem 'bcrypt'
