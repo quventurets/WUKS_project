@@ -72,10 +72,17 @@
                 </button>
           </form>
           <li class="nav-item ml-5 mt-2">
-            <a href="/login" class="btn btn-rose btn-raised">
-                <i class="material-icons">vpn_key</i> LOGIN
-                <div class="ripple-container"></div>
-            </a>
+            <% if @current_user==nil %>
+              <a href="/login" class="btn btn-rose btn-raised">
+                  <i class="material-icons">vpn_key</i> LOGIN
+                  <div class="ripple-container"></div>
+              </a>
+            <% else %>
+              <a href="/logout" class="btn btn-info btn-raised">
+                  <i class="material-icons">vpn_key</i> LOGOUT
+                  <div class="ripple-container"></div>
+              </a>
+            <% end %>
           </li>
         </ul>
       </div>

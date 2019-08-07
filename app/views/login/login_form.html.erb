@@ -1,11 +1,17 @@
+<% content_for :title do %>
+ログイン
+<% end %>
+
+
 <div class="page-header header-filter" style="background-image: url('./assets/img/bg7.jpg'); background-size: cover; background-position: top center;">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+          <%= form_tag("/login") do %>
           <div class="card card-login">
             <form class="form" method="" action="">
               <div class="card-header card-header-primary text-center">
-                <h4 class="card-title">Login</h4>
+                <h3 class="card-title">WUKSにログイン</h3>
                 <div class="social-line">
                   <a href="#pablo" class="btn btn-just-icon btn-link">
                     <i class="fa fa-facebook-square"></i>
@@ -18,23 +24,21 @@
                   </a>
                 </div>
               </div>
-              <p class="description text-center">Or Be Classical</p>
               <div class="card-body">
-                <span class="bmd-form-group"><div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="material-icons">face</i>
-                    </span>
-                  </div>
-                  <input type="text" class="form-control" placeholder="First Name...">
-                </div></span>
-                <span class="bmd-form-group"><div class="input-group">
+              <div class="text-center">
+                <% if @error_message %>
+                  <h4 style="color:red;">
+                    <%= @error_message %>
+                  </h4>
+                <% end %>
+              </div>
+               <span class="bmd-form-group"><div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text">
                       <i class="material-icons">mail</i>
                     </span>
                   </div>
-                  <input type="email" class="form-control" placeholder="Email...">
+                  <input name="email" type="email" class="form-control" placeholder="Email..." value="<%= @email %>">
                 </div></span>
                 <span class="bmd-form-group"><div class="input-group">
                   <div class="input-group-prepend">
@@ -42,14 +46,17 @@
                       <i class="material-icons">lock_outline</i>
                     </span>
                   </div>
-                  <input type="password" class="form-control" placeholder="Password...">
+                  <input name="password" type="password" class="form-control" placeholder="Password..." value="<%= @password %>">
                 </div></span>
               </div>
               <div class="footer text-center">
-                <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">Get Started</a>
+                <h4><input type="submit" value="ログイン" class="btn btn-primary"></h4>
+                <br>
+                <a href="/registar" class="btn btn-primary btn-link btn-link btn-wd">新規登録</a>
               </div>
             </form>
           </div>
+          <% end %>
         </div>
       </div>
     </div>

@@ -74,3 +74,15 @@ sub::after {
 .msr_box01 a:hover{
   opacity: 0.8;
 }
+
+.main-content .content-area {
+  padding: 20px 15px;
+}
+
+.sidebar aside {
+    padding: 20px;
+    margin-bottom: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
