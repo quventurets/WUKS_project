@@ -1,0 +1,2 @@
+class Facltie < ApplicationRecord
+end

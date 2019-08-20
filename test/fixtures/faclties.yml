@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  s_name: MyString
+  f_name: MyString
+  date_general: MyString
+  date_recomend: MyString
+
+two:
+  s_name: MyString
+  f_name: MyString
+  date_general: MyString
+  date_recomend: MyString

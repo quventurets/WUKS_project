@@ -10,13 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_15_100236) do
+ActiveRecord::Schema.define(version: 2019_08_20_142131) do
 
   create_table "comps", force: :cascade do |t|
     t.string "name"
     t.string "area"
     t.string "scale"
     t.string "place"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "faclties", force: :cascade do |t|
+    t.string "s_name"
+    t.string "f_name"
+    t.string "date_general"
+    t.boolean "isThereRec"
+    t.string "date_recomend"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
