@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kosen_id: 1
+  kosen_name: MyString
+
+two:
+  kosen_id: 1
+  kosen_name: MyString

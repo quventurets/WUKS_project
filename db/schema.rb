@@ -10,13 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_142131) do
+ActiveRecord::Schema.define(version: 2019_08_20_140937) do
 
   create_table "comps", force: :cascade do |t|
     t.string "name"
     t.string "area"
     t.string "scale"
     t.string "place"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "employees"
+    t.string "address"
+    t.integer "founded_year"
+    t.integer "founded_month"
+    t.text "what"
+    t.text "why"
+    t.text "how"
+  end
+
+  create_table "kosens", force: :cascade do |t|
+    t.integer "kosen_id"
+    t.string "kosen_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,7 +63,7 @@ ActiveRecord::Schema.define(version: 2019_08_20_142131) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
-    t.string "kosen"
+    t.integer "kosen_id"
   end
 
 end
