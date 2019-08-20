@@ -50,11 +50,11 @@
                         <i class="material-icons">school</i>
                         </span>
                     </div>                    
-                    <select name="kosen" class="form-control" value="<%= @password %>">                  
+                    <select name="kosen_id" class="form-control" value="<%= @password %>">                  
                       <option value="">（高専名を選択してください）</option>
-                      <option value="福井工業高等専門学校">福井工業高等専門学校</option>
-                      <option value="鹿児島工業高等専門学校">鹿児島工業高等専門学校</option>
-                      <!--高専名追加していく必要あり-->
+                      <% @kosen.each do |kosen| %>
+                        <option value= "<%= kosen.kosen_id %>" ><%= kosen.kosen_name %></option>
+                      <% end %>
                     </select>
                     </div></span>
                 </div>

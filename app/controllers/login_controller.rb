@@ -6,6 +6,7 @@ class LoginController < ApplicationController
 
     def show
       @user = User.find_by(id: params[:id])
+      @kosen = Kosen.find_by(kosen_id: @user.kosen_id)
     end
 
     def login_form
@@ -26,15 +27,17 @@ class LoginController < ApplicationController
     end
 
     def new
+      @kosen = Kosen.all
       @user = User.new
     end
 
-    def create    
+    def create
+      @kosen = Kosen.all
       @user = User.new(
         name: params[:name],
         email: params[:email],
         password: params[:password],
-        kosen: params[:kosen]
+        kosen_id: params[:kosen_id]
       )
       if @user.save
         session[:user_id] = @user.id
@@ -45,7 +48,7 @@ class LoginController < ApplicationController
         @name = params[:name]
         @email = params[:email]
         @password = params[:password]
-        @kosen = params[:kosen]
+        @kosen_id = params[:kosen_id]
         render("/login/new")
       end
     end
