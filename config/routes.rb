@@ -6,14 +6,14 @@ Rails.application.routes.draw do
       resources :users
       resources :kosens
       root to: "univs#index"
-    end
+    end       
   get '/career' => "career#index"
   get '/transfer' => "transfer#index"
 
   get '/transfer/:id' => "transfer#show", as: :transfer_show
   get '/career/:id' => "career#show", as: :career_show
 
-
+  get '/coming_soon' => "top#coming_soon"
 
   get '/login/:id' => "login#show"
   get '/login' => "login#login_form"
