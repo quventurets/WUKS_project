@@ -28,8 +28,12 @@ class UnivDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :name,
-    :created_at,
-    :updated_at,
+    :date_general,
+    :date_recommend,
+    :date_number,
+    :location,
+    :otherFac,
+    :examtypes,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -37,8 +41,6 @@ class UnivDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :name,
-    :created_at,
-    :updated_at,
     :date_general,
     :date_recommend,
     :date_number,

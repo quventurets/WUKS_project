@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_140937) do
+ActiveRecord::Schema.define(version: 2019_08_20_152750) do
 
   create_table "comps", force: :cascade do |t|
     t.string "name"
@@ -28,19 +28,19 @@ ActiveRecord::Schema.define(version: 2019_08_20_140937) do
     t.text "how"
   end
 
-  create_table "kosens", force: :cascade do |t|
-    t.integer "kosen_id"
-    t.string "kosen_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "faclties", force: :cascade do |t|
+  create_table "faculties", force: :cascade do |t|
     t.string "s_name"
     t.string "f_name"
     t.string "date_general"
     t.boolean "isThereRec"
     t.string "date_recomend"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "kosens", force: :cascade do |t|
+    t.integer "kosen_id"
+    t.string "kosen_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

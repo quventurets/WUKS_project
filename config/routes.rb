@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   namespace :admin do
       resources :univs
-
+      resources :faculties
+      resources :comps
+      resources :users
+      resources :kosens
       root to: "univs#index"
     end
   get '/career' => "career#index"
@@ -20,6 +23,7 @@ Rails.application.routes.draw do
   get '/logout' => "login#logout"
  
   resources :univs
+  
   root 'top#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

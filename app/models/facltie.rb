@@ -1,2 +1,0 @@
-class Facltie < ApplicationRecord
-end

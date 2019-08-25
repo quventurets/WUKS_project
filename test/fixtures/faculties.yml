@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  s_name: MyString
+  f_name: MyString
+  date_general: MyString
+  isThereRec: false
+  date_recomend: MyString
+  created_at: 2019-08-21 00:27:50
+  updated_at: 2019-08-21 00:27:50
+
+two:
+  s_name: MyString
+  f_name: MyString
+  date_general: MyString
+  isThereRec: false
+  date_recomend: MyString
+  created_at: 2019-08-21 00:27:50
+  updated_at: 2019-08-21 00:27:50
