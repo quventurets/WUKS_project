@@ -20,22 +20,57 @@
     </div>
   </div>
 </section>
-<div class="article-space">
-<h1 class ="heading">企業情報</h1>
-  <div class="article-heading">なにをやっているのか</div>
-    <%= simple_format(@comp.what) %>
-  <div class="article-heading">なぜやっているのか</div>
-    <%= simple_format(@comp.why) %>
-  <div class="article-heading">どうやっているのか</div>
-    <%= simple_format(@comp.how) %>
-  <div class="article-heading">その他の情報</div>
-    <div class="other-info">
-      <%= @comp.name %><br>
-      <i class="material-icons">flag</i><%= @comp.founded_year %>/<%= @comp.founded_month %>に設立<br>
-      <i class="material-icons">people</i><%= @comp.employees %>人のメンバー<br>
-      <i class="material-icons">place</i>
-      <a href="javascript:;" 
-      onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @comp.address %>'));
-      return false;"><u><%= @comp.address %></u></a><br>
+
+<div class ="container main-content">
+  <div class="pt-3">
+  <div class ="row">
+    <div class ="col-md-8 content-area">
+      <h2 class ="heading">企業情報</h2>
+        <div class="card-header card-header-primary">
+          <div class="card-body">
+            <div class="tab-content pl-3">
+              <h4 class="sub">なにをやっているのか</h4>
+                <%= simple_format(@comp.what) %>
+              <h4 class="sub">なぜやっているのか</h4>
+                <%= simple_format(@comp.why) %>
+              <h4 class="sub">どうやっているのか</h4>
+                <%= simple_format(@comp.how) %>
+              <h4 class="sub">その他の情報</h4>
+                <div class="other-info">
+                  <%= @comp.name %><br>
+                  <i class="material-icons">flag</i><%= @comp.founded_year %>/<%= @comp.founded_month %>に設立<br>
+                  <i class="material-icons">people</i><%= @comp.employees %>人のメンバー<br>
+                  <i class="material-icons">place</i>
+                  <a href="javascript:;" 
+                  onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @comp.address %>'));
+                  return false;"><u><%= @comp.address %></u></a><br>
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
+  <div class ="col-md-4 sidebar">
+    <aside>
+      <h3 class ="heading">最近見た企業</h3>
+      <div class="card-header card-header-primary">
+        <ul class>
+          <li>株式会社マイテック</li>
+          <li>株式会社京製メック</li>
+          <li>株式会社Gizumo</li>
+          <li>伊勢化学工業株式会社</li>
+        </ul>
+      </div>
+    </aside>
+    <aside>
+     <h3 class ="heading">最新記事</h3>
+      <div class="card-header card-header-primary">
+        <ul class>
+          <li>株式会社マイテック</li>
+          <li>株式会社京製メック</li>
+          <li>株式会社Gizumo</li>
+          <li>伊勢化学工業株式会社</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
 </div>
