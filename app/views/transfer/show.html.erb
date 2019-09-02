@@ -57,23 +57,25 @@
                   <h4 class="sub">試験時期</h4>
                   <ul>
                     <% if facluties.isThereRec %>
-                    <li>推薦入試：<%= facluties.date_recomend %> </li>
+                    <% array_result_rec = facluties.date_recomend.split(",") %>
+                    <li>推薦入試：<%= array_result_rec[0] %></li>
                     <% end %>
-                    <li>一般入試：<%= facluties.date_general %></li>
+                    <% array_result_gen = facluties.date_general.split(",") %>
+                    <li>一般入試：<%= array_result_gen[0] %></li>
                   </ul>
                   <h4 class="sub">合格発表</h4>
                   <ul>
-                    <li>推薦入試：6月末</li>
-                    <li>一般入試：9月初旬</li>
+                    <% if facluties.isThereRec %>
+                    <li>推薦入試：<%= array_result_rec[1] %></li>
+                    <% end %>
+                    <li>一般入試：<%= array_result_gen[1] %></li>
                   </ul>
                   <h4 class="sub">募集学科</h4>
+                  <% array_department = facluties.department.split(",") %>
                   <ul class>
-                    <li>建築学科</li>
-                    <li>電気情報工学科</li>
-                    <li>物質科学工学科</li>
-                    <li>地球環境工学科</li>
-                    <li>エネルギー科学科</li>
-                    <li>機械航空工学科</li>
+                    <% array_department.each do |department| %>
+                    <li><%= department %></li>
+                    <% end %>
                   </ul>
                   <div class="text-center">
                     <a href="/coming_soon">
@@ -88,20 +90,23 @@
                   <h4 class="sub">試験時期</h4>
                   <ul>
                     <% if facluties.isThereRec %>
-                    <li>推薦入試：<%= facluties.date_recomend %> </li>
+                    <% array_result_rec = facluties.date_recomend.split(",") %>
+                    <li>推薦入試：<%= array_result_rec[0] %> </li>
                     <% end %>
-                    <li>一般入試：<%= facluties.date_general %></li>
+                    <% array_result_gen = facluties.date_general.split(",") %>
+                    <li>一般入試：<%= array_result_gen[0] %></li>
                   </ul>
                   <h4 class="sub">合格発表</h4>
                   <ul class>
-                    <li>推薦入試：6月末</li>
-                    <li>一般入試：9月初旬</li>
+                    <li>推薦入試：<%= array_result_rec[1] %></li>
+                    <li>一般入試：<%= array_result_gen[1] %></li>
                   </ul>
                   <h4 class="sub">募集学科</h4>
+                  <% array_department = facluties.department.split(",") %>
                   <ul class>
-                    <li>建築学科</li>
-                    <li>エネルギー科学科</li>
-                    <li>機械航空工学科</li>
+                    <% array_department.each do |department| %>
+                    <li><%= department %></li>
+                    <% end %>
                   </ul>
                   <div class="text-center">
                     <a href="/coming_soon">
@@ -114,74 +119,6 @@
                 <% end %>
                 <% @count = @count + 1 %>
                 <% end %>
-                <!--
-                <div class="tab-pane" id="理学部">
-                  <h4 class ="sub">試験時期</h4>
-                  <ul class>
-                    <li>一般入試：7月初旬</li>
-                  </ul>
-                  <h4 class ="sub">合格発表</h4>
-                  <ul class>
-                    <li>一般入試：7月中旬</li>
-                  </ul>
-                  <h4 class="sub">募集学科</h4>
-                  <ul class>
-                    <li>物理学科</li>
-                    <li>数学科</li>
-                  </ul>
-                  <div class ="text-center">
-                    <button class="btn btn-primary">もっと詳しく見る
-                      <div class="ripple-container"></div>
-                    </button>
-                  </div>
-                </div>
-                -->
-                <!--
-                <div class="tab-pane" id="経済学部">
-                  <h4 class ="sub">試験時期</h4>
-                  <ul class>
-                    <li>推薦入試：6月末</li>
-                  </ul>
-                  <h4 class ="sub">合格発表</h4>
-                  <ul class>
-                    <li>推薦入試：7月末</li>
-                  </ul>
-                  <h4 class="sub">募集学科</h4>
-                  <ul class>
-                    <li>経済工学科</li>
-                  </ul>
-                  <div class ="text-center">
-                    <button class="btn btn-primary">もっと詳しく見る
-                      <div class="ripple-container"></div>
-                    </button>
-                  </div>
-                </div>
-                -->
-                <!--
-                <div class="tab-pane" id="芸術工学部">
-                  <h4 class ="sub">試験時期</h4>
-                  <ul class>
-                    <li>一般入試：7月初旬</li>
-                  </ul>
-                  <h4 class ="sub">合格発表</h4>
-                  <ul class>
-                    <li>一般入試：7月末</li>
-                  </ul>
-                  <h4 class="sub">募集学科</h4>
-                  <ul class>
-                    <li>環境設計学科</li>
-                    <li>工業設計学科</li>
-                    <li>画像設計学科</li>
-                    <li>音響設計学科</li>
-                    <li>芸術情報設計学科</li>
-                  </ul>
-                  <div class ="text-center">
-                    <button class="btn btn-primary">もっと詳しく見る
-                      <div class="ripple-container"></div>
-                    </button>
-                  </div>
-                </div>
-                -->
               </div>
             </div>
           </div>
