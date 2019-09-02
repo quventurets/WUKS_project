@@ -7,14 +7,17 @@
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title><%= content_for?(:title) ? yield(:title) : "デフォルトタイトル"%></title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+    name='viewport' />
   <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
   <%= stylesheet_link_tag "material-kit_css/material-kit.css",:media=> "all" %>
   <!-- CSS for Top page-->
   <%= stylesheet_link_tag "original/casting_shadow.css", :media => "all"%>
+  <%= stylesheet_link_tag "original/footer.css",:media=> "all" %>
   <!-- JS Files -->
   <%= javascript_include_tag "material-kit_js/core/jquery.min.js" %>
   <%= javascript_include_tag "material-kit_js/core/popper.min.js" %>
@@ -23,15 +26,18 @@
   <%= javascript_include_tag "material-kit_js/plugins/bootstrap-datetimepicker.js" %>
   <%= javascript_include_tag "material-kit_js/plugins/nouislider.min.js" %>
   <%= javascript_include_tag "material-kit_js/material-kit.js" %>
-  
+
 </head>
+
 <body class="index-page sidebar-collapse">
-  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav"> 
+  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100"
+    id="sectionsNav">
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="/">
           WUKS project </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
+          aria-label="Toggle navigation">
           <span class="sr-only">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
           <span class="navbar-toggler-icon"></span>
@@ -81,18 +87,18 @@
               Log Out
             </a>
           </li>
-          <% else %>   
+          <% else %>
           <li class="nav-item">
             <a href="/login" class="nav-link">
               Log In
             </a>
-          </li>          
+          </li>
           <li class="nav-item">
             <a href="/registar" class="nav-link">
               Register
             </a>
           </li>
-          <% end %>          
+          <% end %>
           <!--
           <li class="nav-item">
             <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
@@ -101,7 +107,8 @@
           </li>
           -->
           <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/UpWuks" target="_blank">
+            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/UpWuks"
+              target="_blank">
               <i class="fa fa-twitter"></i>Follow us
             </a>
           </li>
@@ -109,9 +116,55 @@
       </div>
     </div>
   </nav>
-<%= yield %>
+  <%= yield %>
+ <footer>
+   <div class="container">
+     <div class="row">
+
+       <div class="col-md-4 col-xs-12">
+         <img src="assets/img/favicon.png" width="180" height="180">
+       </div>
+
+       <div class="col-md-4 col-xs-12">
+         <ul class="menu">
+           <span>Menu</span>
+           <li>
+             <a href="/">Home</a>
+           </li>
+
+           <li>
+             <a href="/transfer">Transfer</a>
+           </li>
+
+           <li>
+             <a href="/career">Career</a>
+           </li>
+
+           <li>
+             <a href="/coming_soon">About</a>
+           </li>
+         </ul>
+       </div>
+
+       <div class="col-md-4 col-xs-12">
+         <ul class="address">
+           <span>Contact</span>
+           <li>
+             <i class="fa fa-phone" aria-hidden="true"></i> <a href="#">Phone</a>
+           </li>
+           <li>
+             <i class="fa fa-map-marker" aria-hidden="true"></i> <a href="#">Adress</a>
+           </li>
+           <li>
+             <i class="fa fa-envelope" aria-hidden="true"></i> <a href="#">Email</a>
+           </li>
+         </ul>
+       </div>
+     </div>
+   </div>
+ </footer>
   <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
       //init DateTimePickers
       materialKit.initFormExtendedDatetimepickers();
 
@@ -121,7 +174,7 @@
 
 
     function scrollToDownload() {
-      if ($('.section-download').length != 0){
+      if ($('.section-download').length != 0) {
         $("html, body").animate({
           scrollTop: $('.section-download').offset().top
         }, 1000);
@@ -129,4 +182,5 @@
     }
   </script>
 </body>
+
 </html>

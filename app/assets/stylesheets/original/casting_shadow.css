@@ -17,3 +17,20 @@ a, a:visited, a:link, a:active {
   width: 250px;
   margin-top: 20px;
 }
+
+html {
+  font-size: 75%;
+}
+
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  html {
+    font-size: 100%;
+  }
+}
+

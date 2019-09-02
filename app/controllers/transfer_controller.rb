@@ -6,6 +6,7 @@ class TransferController < ApplicationController
   end
 
   def show
-    @univ = Univ.find(params[:id])
+    @univ = Univ.find_by(name: params[:name])
+    @facluties = Faculty.where(s_name: params[:name])
   end
 end

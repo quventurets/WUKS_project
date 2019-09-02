@@ -16,6 +16,7 @@ class FacultyDashboard < Administrate::BaseDashboard
     date_recomend: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    department: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -30,6 +31,7 @@ class FacultyDashboard < Administrate::BaseDashboard
     :date_general,
     :isThereRec,
     :date_recomend,
+    :department,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -43,6 +45,7 @@ class FacultyDashboard < Administrate::BaseDashboard
     :date_recomend,
     :created_at,
     :updated_at,
+    :department,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -54,6 +57,7 @@ class FacultyDashboard < Administrate::BaseDashboard
     :date_general,
     :isThereRec,
     :date_recomend,
+    :department,
   ].freeze
 
   # Overwrite this method to customize how faculties are displayed

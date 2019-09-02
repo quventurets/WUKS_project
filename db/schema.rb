@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_152750) do
+ActiveRecord::Schema.define(version: 2019_09_01_180550) do
 
   create_table "comps", force: :cascade do |t|
     t.string "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_08_20_152750) do
     t.string "date_recomend"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "department"
   end
 
   create_table "kosens", force: :cascade do |t|

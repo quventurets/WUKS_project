@@ -6,11 +6,15 @@ Rails.application.routes.draw do
       resources :users
       resources :kosens
       root to: "univs#index"
-    end       
+  end
+
+  resources :univs #param: :name
+  resources :faculties #param: :s_name
+
   get '/career' => "career#index"
   get '/transfer' => "transfer#index"
 
-  get '/transfer/:id' => "transfer#show", as: :transfer_show
+  get '/transfer/:name' => "transfer#show", as: :transfer_show
   get '/career/:id' => "career#show", as: :career_show
 
   get '/coming_soon' => "top#coming_soon"
@@ -21,8 +25,6 @@ Rails.application.routes.draw do
   get '/registar' => "login#new"
   post '/registar' => "login#create"
   get '/logout' => "login#logout"
- 
-  resources :univs
   
   root 'top#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

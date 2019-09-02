@@ -19,6 +19,7 @@ Rails.application.config.assets.precompile += %w(  demo/demo.css )
 Rails.application.config.assets.precompile += %w(  original/casting_shadow.css )
 Rails.application.config.assets.precompile += %w(  original/list_page.css )
 Rails.application.config.assets.precompile += %w(  original/show_page.css )
+Rails.application.config.assets.precompile += %w(  original/footer.css )
 
 Rails.application.config.assets.precompile += %w( material-kit_js/core/jquery.min )
 Rails.application.config.assets.precompile += %w( material-kit_js/core/popper.min )

@@ -50,8 +50,8 @@ body {
 }
 
 .img-thumbnail {
-    max-height: 200px;
-    max-width : 300px; 
+    height: auto; 
+    max-width: 100%;
 }
 
 .product:hover{
@@ -74,4 +74,20 @@ a, a:hover, a:visited, a:link, a:active {
 
 .nameCom{
   font-weight: 700;
+}
+
+html {
+  font-size: 75%;
+}
+
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  html {
+    font-size: 100%;
+  }
 }
