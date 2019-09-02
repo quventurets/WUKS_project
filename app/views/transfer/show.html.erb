@@ -98,7 +98,9 @@
                   </ul>
                   <h4 class="sub">合格発表</h4>
                   <ul class>
+                    <% if facluties.isThereRec %>
                     <li>推薦入試：<%= array_result_rec[1] %></li>
+                    <% end %>
                     <li>一般入試：<%= array_result_gen[1] %></li>
                   </ul>
                   <h4 class="sub">募集学科</h4>
