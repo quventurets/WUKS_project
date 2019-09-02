@@ -18,7 +18,7 @@
 <div class="container">
   <div class="pt-5"></div>
   <% @comps.each do |comps| %>
-  <%= link_to career_show_path(id:comps.id) do %>
+  <%= link_to career_show_path(name:comps.name) do %>
   <div class="row product border">
     <div class="col-md-4">
       <img src="assets/img/comp/<%= comps.name %>.jpg" alt="" class="img-thumbnail">

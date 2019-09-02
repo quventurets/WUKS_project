@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get '/transfer' => "transfer#index"
 
   get '/transfer/:name' => "transfer#show", as: :transfer_show
-  get '/career/:id' => "career#show", as: :career_show
+  get '/career/:name' => "career#show", as: :career_show
 
   get '/coming_soon' => "top#coming_soon"
 
