@@ -9,10 +9,7 @@
         <div class="col-md-8 ml-auto mr-auto">
           <div class="brand">
             <h2 class="forbadge">
-              <span class="badge badge-pill badge-rose"><%= @comp.place %></span>
-              <span class="badge badge-pill badge-success"><%= @comp.area %></span>
-              <span class="badge badge-pill badge-info"><%= @comp.scale %></span>
-              <h2><%= @comp.name %></h2>
+              <h1><%= @comp.name %></h1>
             </h2>
           </div>
         </div>
@@ -20,22 +17,35 @@
     </div>
   </div>
 </section>
-<div class="article-space">
-<h2 class ="heading">企業情報</h2>
-  <div class="article-heading">なにをやっているのか</div>
-    <%= simple_format(@comp.what) %>
-  <div class="article-heading">なぜやっているのか</div>
-    <%= simple_format(@comp.why) %>
-  <div class="article-heading">どうやっているのか</div>
-    <%= simple_format(@comp.how) %>
-  <div class="article-heading">その他の情報</div>
-    <div class="other-info">
-      <%= @comp.name %><br>
-      <i class="material-icons">flag</i><%= @comp.founded_year %>/<%= @comp.founded_month %>に設立<br>
-      <i class="material-icons">people</i><%= @comp.employees %>人のメンバー<br>
-      <i class="material-icons">place</i>
-      <a href="javascript:;" 
-      onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @comp.address %>'));
-      return false;"><u><%= @comp.address %></u></a><br>
+
+<div class ="container main-content">
+  <div class="pt-5">
+    <div class ="row">
+      <div class="container">
+        <h2 class="heading"> 企業情報</h2>
+        <div class="card-header card-header-primary">
+          <div class ="col-md-8 content-area">
+          <div class="card-body">
+            <div class="tab-content pl-1">
+              <h4 class="sub">なにをやっているのか</h4>
+                <%= simple_format(@comp.what) %>
+              <h4 class="sub">なぜやっているのか</h4>
+                <%= simple_format(@comp.why) %>
+              <h4 class="sub">どうやっているのか</h4>
+                <%= simple_format(@comp.how) %>
+              <h4 class="sub">その他の情報</h4>
+                <div class="other-info">
+                  <%= @comp.name %><br>
+                  <i class="material-icons">flag</i><%= @comp.founded_year %>/<%= @comp.founded_month %>に設立<br>
+                  <i class="material-icons">people</i><%= @comp.employees %>人のメンバー<br>
+                  <i class="material-icons">place</i>
+                  <a href="javascript:;" 
+                  onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @comp.address %>'));
+                  return false;"><u><%= @comp.address %></u></a><br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
 </div>
