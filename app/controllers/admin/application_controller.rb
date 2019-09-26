@@ -6,6 +6,7 @@
 # you're free to overwrite the RESTful controller actions.
 module Admin
   class ApplicationController < Administrate::ApplicationController
+    http_basic_authenticate_with name: ENV['BASIC_ADMIN_USERNAME'], password: ENV['BASIC_ADMIN_PASSWORD'] if Rails.env == "production"
     before_action :authenticate_admin
 
     def authenticate_admin
