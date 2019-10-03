@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get '/career' => "career#index"
   get '/transfer' => "transfer#index"
+  post '/transfer' => "transfer#index"
 
   get '/transfer/:name' => "transfer#show", as: :transfer_show
   get '/career/:name' => "career#show", as: :career_show

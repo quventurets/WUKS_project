@@ -3,7 +3,7 @@
 <% end %>
 
 <section class="py-5 bg-image-full" style="background-image: url('../assets/img/bg_univ.jpg');">
-    <div style="height: 150px;">
+  <div style="height: 150px;">
     <div class="container">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
@@ -15,37 +15,58 @@
     </div>
   </div>
 </section>
-<div class ="container">
+<div class="container">
+  <%= form_with(url: transfer_path) do |form| %>
+    <label class="badge badge-pill badge-info">
+      <%= form.check_box('examtypes', {:checked => (params["examtypes"] == "1")})%> 推薦入試あり
+    </label>
+    <label class="badge badge-pill badge-warning">
+      <%= form.check_box('otherFac', {:checked => (params["otherFac"] == "1")})%> 工学系以外も編入可
+    </label>
+    <br/>
+    <%= form.check_box('hokkaido', {:checked => !(params["hokkaido"] == "0")})%> 北海道
+    <%= form.check_box('tohoku', {:checked => !(params["tohoku"] == "0")})%> 東北
+    <%= form.check_box('hokuriku', {:checked => !(params["hokuriku"] == "0")})%> 北陸
+    <%= form.check_box('kanto', {:checked => !(params["kanto"] == "0")})%> 関東
+    <%= form.check_box('chubu', {:checked => !(params["chubu"] == "0")})%> 中部
+    <%= form.check_box('kinki', {:checked => !(params["kinki"] == "0")})%> 近畿
+    <%= form.check_box('chugoku', {:checked => !(params["chugoku"] == "0")})%> 中国
+    <%= form.check_box('sikoku', {:checked => !(params["sikoku"] == "0")})%> 四国
+    <%= form.check_box('kyushu', {:checked => !(params["kyushu"] == "0")})%> 九州・沖縄
+    <%= form.submit 'Search', name: nil%>
+  <% end %>
   <div class="pt-5"></div>
+  <% if @univs.length <= 0 %>
+    <h2>条件に合致する大学はありません</h2>
+  <% end %>
   <% @univs.each do |univs| %>
-    <!--<a href ="/transfer/<%= univs.name %>"> -->
-    <%= link_to transfer_show_path(name:univs.name) do %>
-      <div class="row product border">
-        <div class="col-md-4">
-        
-          <img src="assets/img/univ/<%= univs.name %>.jpg" alt="url('/assets/img/bg7.jpg');" class="img-thumbnail">
-        
-        <!-- <img src="assets/img/wuks.png" alt="" class="img-thumbnail">
-        -->
-        </div>
-        <div class="col-md-8">
-          <h2 class = "nameUni"><%= univs.name %></h2>
-          <h4 class = "forbadge"><span class="badge badge-pill badge-rose"><%= univs.location %></span></h4>
-          <% if univs.examtypes == 1 %>
-            <h4 class = "forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span> 
-                <span class="badge badge-pill badge-success"><%= univs.date_recommend %></span>
-                <span class="badge badge-pill badge-info">推薦入試あり</span>
-          <% else %>
-            <h4 class = "forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
-          <% end %>
+  <!--<a href ="/transfer/<%= univs.name %>"> -->
+  <%= link_to transfer_show_path(name:univs.name) do %>
+  <div class="row product border">
+    <div class="col-md-4">
+
+      <img src="assets/img/univ/<%= univs.name %>.jpg" alt="url('/assets/img/bg7.jpg');" class="img-thumbnail">
+
+      <!-- <img src="assets/img/wuks.png" alt="" class="img-thumbnail">
+          -->
+    </div>
+    <div class="col-md-8">
+      <h2 class="nameUni"><%= univs.name %></h2>
+      <h4 class="forbadge"><span class="badge badge-pill badge-rose"><%= univs.location %></span></h4>
+      <% if univs.examtypes == 1 %>
+        <h4 class="forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
+          <span class="badge badge-pill badge-success"><%= univs.date_recommend %></span>
+          <span class="badge badge-pill badge-info">推薦入試あり</span>
+      <% else %>
+        <h4 class="forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
+      <% end %>
           <% if univs.otherFac == 1%>
             <span class="badge badge-pill badge-warning">工学系以外も編入可</span>
           <% end %>
-          </h4>
-        </div>
-      </div>
-    <% end %>
-    <!--</a>-->
+        </h4>
+    </div>
+  </div>
+  <% end %>
+  <!--</a>-->
   <% end %>
 </div>
-

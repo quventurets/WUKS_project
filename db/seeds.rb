@@ -5,6 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "csv"
+
+CSV.foreach('db/Univ.csv', headers: true) do |row|
+    Univ.create(
+    :name => row['name'],
+    :date_general => row['date_general'],
+    :date_recommend => row['date_recommend'],
+    :date_number => row['date_number'],
+    :location => row['location'],
+    :otherFac => row['otherFac'],
+    :examtypes => row['examtypes']
+    )
+  end
 
 Comp.create(
   [
