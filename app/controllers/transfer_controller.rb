@@ -24,12 +24,15 @@ class TransferController < ApplicationController
     chugoku = (params["chugoku"] == "0") ? [] : CHUGOKU
     sikoku = (params["sikoku"] == "0") ? [] : SIKOKU
     kyushu = (params["kyushu"] == "0") ? [] : KYUSHU
+
+    order_by = params["order_by"] ? params["order_by"] : "id"
+    order = !(params["order"] == "DESC")? "ASC" : "DESC"
     
     @univs = Univ.where(
       examtypes: examtypes, 
       otherFac: otherFac, 
       location: [hokkaido, tohoku, hokuriku, chubu, kanto, kinki, chugoku, sikoku, kyushu].reduce([], :concat)
-    )
+    ).order(order_by + ' ' + order)
   end
 
   def show

@@ -33,6 +33,11 @@
     <%= form.check_box('chugoku', {:checked => !(params["chugoku"] == "0")})%> 中国
     <%= form.check_box('sikoku', {:checked => !(params["sikoku"] == "0")})%> 四国
     <%= form.check_box('kyushu', {:checked => !(params["kyushu"] == "0")})%> 九州・沖縄
+    <br />
+    並び替え <%= form.select :order_by, [["デフォルト", "id"], ["試験日", "date_number"], ["名前", "rubi"]], selected: params["order_by"]?params["order_by"]:"id"%>
+    <%= form.radio_button :order, "ASC", {:checked => !(params["order"] == "DESC")}%>昇順
+    <%= form.radio_button :order, "DESC", {:checked => (params["order"] == "DESC")}%>降順
+
     <%= form.submit 'Search', name: nil%>
   <% end %>
   <div class="pt-5"></div>

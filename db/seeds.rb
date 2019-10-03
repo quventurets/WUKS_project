@@ -15,7 +15,8 @@ CSV.foreach('db/Univ.csv', headers: true) do |row|
     :date_number => row['date_number'],
     :location => row['location'],
     :otherFac => row['otherFac'],
-    :examtypes => row['examtypes']
+    :examtypes => row['examtypes'],
+    :rubi => row['rubi']
     )
   end
 
