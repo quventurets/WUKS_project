@@ -29,7 +29,7 @@
   <%= javascript_include_tag "material-kit_js/material-kit.js" %>
 
 </head>
-
+<!--
 <body class="index-page sidebar-collapse">
   <nav class="navbar navbar-inverse navbar-expand-lg bg-dark fixed-top" role="navigation-demo">
     <div class="container">
@@ -86,64 +86,123 @@
       </div>
     </div>
   </nav>
-  <%= yield %>
-  <div class ="pt-5">
-  <div class="pt-5">
-  <footer>
+  -->
+
+<body class="index-page sidebar-collapse">
+  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100"
+    id="sectionsNav">
     <div class="container">
-      <div class="row">
-
-        <div class="col-md-4 col-xs-12">
-          <img src="/assets/img/favicon.png" width="180" height="180">
-        </div>
-
-        <div class="col-md-4 col-xs-12">
-          <ul class="menu">
-            <span>Menu</span>
-            <li>
-              <a href="/">Home</a>
-            </li>
-
-            <li>
-              <a href="/transfer">Transfer</a>
-            </li>
-
-            <li>
-              <a href="/career">Career</a>
-            </li>
-
-            <li>
-              <a href="/coming_soon">About</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="col-md-4 col-xs-12">
-          <ul class="address">
-            <span>Contact</span>
-            <li>
-              <i class="fa fa-phone" aria-hidden="true"></i> <a href="#">Phone</a>
-            </li>
-            <li>
-              <i class="fa fa-map-marker" aria-hidden="true"></i> <a href="#">Adress</a>
-            </li>
-            <li>
-              <i class="fa fa-envelope" aria-hidden="true"></i> <a href="#">Email</a>
-            </li>
-          </ul>
-        </div>
+      <div class="navbar-translate">
+        <a class="navbar-brand" href="/">
+          WUKS project </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="/" class="nav-link  mt-2">
+              <i class="material-icons">home</i> Home
+            </a>
+          </li>
+          <li class="nav-item  mt-2">
+            <a href="/transfer" class="nav-link">
+              <i class="material-icons">school</i> Transfer
+            </a>
+          </li>
+          <li class="nav-item  mt-2">
+            <a href="/career" class="nav-link">
+              <i class="material-icons">business</i> Career
+            </a>
+          </li>
+          <form class="form-inline mt-2 ml-4">
+            <div class="form-group bmd-form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-white btn-raised btn-fab btn-round">
+              <i class="material-icons">search</i>
+            </button>
+          </form>
+          <li class="nav-item ml-5 mt-2">
+            <% if @current_user==nil %>
+            <a href="/login" class="btn btn-rose btn-raised">
+              <i class="material-icons">vpn_key</i> LOGIN
+              <div class="ripple-container"></div>
+            </a>
+            <% else %>
+            <a href="/logout" class="btn btn-info btn-raised">
+              <i class="material-icons">vpn_key</i> LOGOUT
+              <div class="ripple-container"></div>
+            </a>
+            <% end %>
+          </li>
+        </ul>
       </div>
     </div>
-  </footer>
-  <script>
-    function scrollToDownload() {
-      if ($('.section-download').length != 0) {
-        $("html, body").animate({
-          scrollTop: $('.section-download').offset().top
-        }, 1000);
-      }
-    }
-  </script>
+  </nav>
+  <%= yield %>
+  <div class="pt-5">
+    <div class="pt-5">
+      <footer>
+        <div class="container">
+          <div class="row">
+
+            <div class="col-md-4 col-xs-12">
+              <img src="/assets/img/favicon.png" width="180" height="180">
+            </div>
+
+            <div class="col-md-4 col-xs-12">
+              <ul class="menu">
+                <span>Menu</span>
+                <li>
+                  <a href="/">Home</a>
+                </li>
+
+                <li>
+                  <a href="/transfer">Transfer</a>
+                </li>
+
+                <li>
+                  <a href="/career">Career</a>
+                </li>
+
+                <li>
+                  <a href="/coming_soon">About</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-md-4 col-xs-12">
+              <ul class="address">
+                <span>Contact</span>
+                <li>
+                  <i class="fa fa-phone" aria-hidden="true"></i> <a href="#">Phone</a>
+                </li>
+                <li>
+                  <i class="fa fa-map-marker" aria-hidden="true"></i> <a href="#">Adress</a>
+                </li>
+                <li>
+                  <i class="fa fa-envelope" aria-hidden="true"></i> <a href="#">Email</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <script>
+        function scrollToDownload() {
+          if ($('.section-download').length != 0) {
+            $("html, body").animate({
+              scrollTop: $('.section-download').offset().top
+            }, 1000);
+          }
+        }
+      </script>
 </body>
 
 </html>
