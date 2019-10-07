@@ -11,7 +11,7 @@ a, a:visited, a:link, a:active {
 .link_to_top a{
   color: blue;
   text-decoration: underline;
-  font-size: 25px;
+  font-size: 20px;
   margin: auto;
   display: block;
   width: 250px;

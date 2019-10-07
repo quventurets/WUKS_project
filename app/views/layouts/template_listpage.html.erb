@@ -61,6 +61,8 @@
               <i class="material-icons">business</i> Career
             </a>
           </li>
+          <% isREADY = FALSE %>
+          <% if isREADY %>
           <form class="form-inline mt-2 ml-4">
             <div class="form-group bmd-form-group">
               <input type="text" class="form-control" placeholder="Search">
@@ -80,6 +82,7 @@
               <i class="material-icons">vpn_key</i> LOGOUT
               <div class="ripple-container"></div>
             </a>
+            <% end %>
             <% end %>
           </li>
         </ul>
