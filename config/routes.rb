@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :comps
       resources :users
       resources :kosens
+      resources :news
       root to: "univs#index"
   end
 
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
 
   get '/career' => "career#index"
   get '/transfer' => "transfer#index"
+  get '/news' => "news#index"
 
   get '/transfer/:name' => "transfer#show", as: :transfer_show
   get '/career/:name' => "career#show", as: :career_show
