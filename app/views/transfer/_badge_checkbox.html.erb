@@ -1,0 +1,17 @@
+<label 
+  class="badge badge-pill label-checkbox 
+    <%if checked %>
+      <%= badge_class %>
+    <%else%>
+      badge-secondary
+    <%end%>" 
+  id=<%= id %>
+>
+  <%= form.check_box(name, {
+    :checked => checked, 
+    :autocomplete => 'off', 
+    :onChange => ("handleChangeBadge(event,'#" + id + "','" + badge_class + "')").html_safe,
+    :class => 'button-checkbox'
+  })%>
+    <%= badge_text %>
+</label>

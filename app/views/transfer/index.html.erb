@@ -16,31 +16,59 @@
   </div>
 </section>
 <div class="container">
-  <%= form_with(url: transfer_path) do |form| %>
-    <label class="badge badge-pill badge-info">
-      <%= form.check_box('examtypes', {:checked => (params["examtypes"] == "1")})%> 推薦入試あり
-    </label>
-    <label class="badge badge-pill badge-warning">
-      <%= form.check_box('otherFac', {:checked => (params["otherFac"] == "1")})%> 工学系以外も編入可
-    </label>
-    <br/>
-    <%= form.check_box('hokkaido', {:checked => !(params["hokkaido"] == "0")})%> 北海道
-    <%= form.check_box('tohoku', {:checked => !(params["tohoku"] == "0")})%> 東北
-    <%= form.check_box('hokuriku', {:checked => !(params["hokuriku"] == "0")})%> 北陸
-    <%= form.check_box('kanto', {:checked => !(params["kanto"] == "0")})%> 関東
-    <%= form.check_box('chubu', {:checked => !(params["chubu"] == "0")})%> 中部
-    <%= form.check_box('kinki', {:checked => !(params["kinki"] == "0")})%> 近畿
-    <%= form.check_box('chugoku', {:checked => !(params["chugoku"] == "0")})%> 中国
-    <%= form.check_box('sikoku', {:checked => !(params["sikoku"] == "0")})%> 四国
-    <%= form.check_box('kyushu', {:checked => !(params["kyushu"] == "0")})%> 九州・沖縄
-    <br />
-    並び替え <%= form.select :order_by, [["デフォルト", "id"], ["試験日", "date_number"], ["名前", "rubi"]], selected: params["order_by"]?params["order_by"]:"id"%>
-    <%= form.radio_button :order, "ASC", {:checked => !(params["order"] == "DESC")}%>昇順
-    <%= form.radio_button :order, "DESC", {:checked => (params["order"] == "DESC")}%>降順
+  <input type="button" value="絞り込み" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
+  <div class="collapse" id="collapseFilter">
+    <%= form_with(url: transfer_path) do |form| %>
+      表示条件：
+      <%= render :partial => "badge_checkbox", :locals => { 
+        name: 'examtypes', badge_text: '推薦入試あり', badge_class: 'badge-info', id: 'labelExamTypes', checked: (params['examtypes'] == '1'), form: form
+      } %>
+      <%= render :partial => "badge_checkbox", :locals => { 
+        name: 'otherFac', badge_text: '工学系以外も編入可', badge_class: 'badge-warning', id: 'labelOtherFac', checked: (params['otherFac'] == '1'), form: form
+      } %>
+      <br/>
+      表示地域：
+      <%= render :partial => "badge_checkbox", :locals => { 
+        name: 'hokkaido', badge_text: '北海道', badge_class: 'badge-rose', id: 'labelHokkaido', checked: !(params['hokkaido'] == '0'), form: form
+      } %>
+      <%= render :partial => "badge_checkbox", :locals => { 
+        name: 'tohoku', badge_text: '東北', badge_class: 'badge-rose', id: 'labelTohoku', checked: !(params['tohoku'] == '0'), form: form
+      } %>
+      <%= render :partial => "badge_checkbox", :locals => { 
+        name: 'hokuriku', badge_text: '北陸', badge_class: 'badge-rose', id: 'labelHokuriku', checked: !(params['hokuriku'] == '0'), form: form
+      } %>
+      <%= render :partial => "badge_checkbox", :locals => { 
+        name: 'kanto', badge_text: '関東', badge_class: 'badge-rose', id: 'labelKanto', checked: !(params['kanto'] == '0'), form: form
+      } %>
+      <%= render :partial => "badge_checkbox", :locals => { 
+        name: 'chubu', badge_text: '中部', badge_class: 'badge-rose', id: 'labelChubu', checked: !(params['chubu'] == '0'), form: form
+      } %>
+      <%= render :partial => "badge_checkbox", :locals => { 
+        name: 'kinki', badge_text: '近畿', badge_class: 'badge-rose', id: 'labelKinki', checked: !(params['kinki'] == '0'), form: form
+      } %>
+      <%= render :partial => "badge_checkbox", :locals => { 
+        name: 'chugoku', badge_text: '中国', badge_class: 'badge-rose', id: 'labelChugoku', checked: !(params['chugoku'] == '0'), form: form
+      } %>
+      <%= render :partial => "badge_checkbox", :locals => { 
+        name: 'sikoku', badge_text: '四国', badge_class: 'badge-rose', id: 'labelSikoku', checked: !(params['sikoku'] == '0'), form: form
+      } %>
+      <%= render :partial => "badge_checkbox", :locals => { 
+        name: 'kyushu', badge_text: '九州', badge_class: 'badge-rose', id: 'labelKyushu', checked: !(params['kyushu'] == '0'), form: form
+      } %>
+      <br />
+      並び替え：<%= form.select :order_by, [["デフォルト", "id"], ["試験日", "date_number"], ["名前", "rubi"]], {:selected => params["order_by"]?params["order_by"]:"id"}, {:class => ""}%>
+      <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-dark btn-sm <% if !(params["order"] == "DESC")%>active<% end %>">
+          <%= form.radio_button :order, "ASC", {:checked => !(params["order"] == "DESC"), :autocomplete => "off", :class => "radio-order"}%>昇順
+        </label>
+        <label class="btn btn-dark btn-sm <% if (params["order"] == "DESC")%>active<% end %>">
+          <%= form.radio_button :order, "DESC", {:checked => (params["order"] == "DESC"), :autocomplete => "off", :class => "radio-order"}%>降順
+        </label>
+      </div>
 
-    <%= form.submit 'Search', name: nil%>
-  <% end %>
-  <div class="pt-5"></div>
+      <input type="submit" value="絞り込む" class="btn btn-success btn-sm">
+    <% end %>
+  </div>
   <% if @univs.length <= 0 %>
     <h2>条件に合致する大学はありません</h2>
   <% end %>
@@ -75,3 +103,6 @@
   <!--</a>-->
   <% end %>
 </div>
+<script>
+  const handleChangeBadge = (e,id,cl) => $(id).toggleClass("badge-secondary",!e.target.checked).toggleClass(cl,e.target.checked)
+</script>

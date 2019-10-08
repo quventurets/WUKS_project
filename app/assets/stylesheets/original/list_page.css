@@ -76,6 +76,18 @@ a, a:hover, a:visited, a:link, a:active {
   font-weight: 700;
 }
 
+.label-checkbox {
+  user-select:none
+}
+
+.button-checkbox {
+  display: none
+}
+
+.radio-order {
+  display: none
+}
+
 html {
   font-size: 75%;
 }
