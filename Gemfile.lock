@@ -142,6 +142,7 @@ GEM
     momentjs-rails (2.20.1)
       railties (>= 3.1)
     msgpack (1.2.10)
+    mysql2 (0.5.2)
     nio4r (2.3.1)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
@@ -257,6 +258,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  mysql2
   puma (~> 3.11)
   rails (~> 5.2.3)
   sass-rails (>= 3.2)
@@ -273,4 +275,4 @@ RUBY VERSION
    ruby 2.5.0p0
 
 BUNDLED WITH
-   2.0.1
+   2.0.2

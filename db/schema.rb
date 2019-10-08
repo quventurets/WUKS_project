@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_09_01_180550) do
 
-  create_table "comps", force: :cascade do |t|
+  create_table "comps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "area"
     t.string "scale"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_09_01_180550) do
     t.text "how"
   end
 
-  create_table "faculties", force: :cascade do |t|
+  create_table "faculties", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "s_name"
     t.string "f_name"
     t.string "date_general"
@@ -39,14 +39,14 @@ ActiveRecord::Schema.define(version: 2019_09_01_180550) do
     t.string "department"
   end
 
-  create_table "kosens", force: :cascade do |t|
+  create_table "kosens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "kosen_id"
     t.string "kosen_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "univs", force: :cascade do |t|
+  create_table "univs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2019_09_01_180550) do
     t.integer "examtypes"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", null: false
