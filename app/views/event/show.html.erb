@@ -1,0 +1,49 @@
+<% content_for :title do %>
+<%= @event.name %> | イベント
+<% end %>
+
+<section class="py-5 bg-image-full" style="background-image: url('/assets/img/city.jpg');">
+  <div style="height: 150px;">
+  <div class="pt-5">
+  </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <div class="brand">
+            <h2 class="forbadge">
+              <h1><%= @event.name %></h1>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class ="container main-content">
+  <div class="pt-5">
+    <div class ="row">
+      <div class="container">
+        <h2 class="heading"> イベント情報</h2>
+          <div class="card-header card-header-primary">
+            <span class="badge badge-pill badge-rose"><%= @event.pref %></span>
+            <span class="badge badge-pill badge-info"><%= @event.event_type %></span>
+            <span class="badge badge-pill badge-danger">交通費支給</span>
+            <h3 class="sub">場所</h3>
+              <a href="javascript:;" 
+                onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @event.place %>'));
+                return false;"><u><%= @event.place %></u>
+              </a>
+              <br>
+            <h3 class="sub">日時</h3>
+              <%= @event.date.strftime("%Y年%m月%d日") %>
+              18:00～
+            <h3 class="sub">イベントの概要</h3>
+              <%= simple_format(@event.outline) %>
+            <h3 class="sub">その他の情報</h3>
+              <%= simple_format(@event.otherinfo) %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

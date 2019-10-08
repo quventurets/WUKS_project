@@ -45,6 +45,12 @@ a, a:visited, a:link, a:active {
   align-items: center;
 }
 
+.listImg img{
+  /* object-fit: cover; */
+  width: 100%;
+  max-height: 100%;
+}
+
 .listImg span{
   position: absolute;
   top: 10px;

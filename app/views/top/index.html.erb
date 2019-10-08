@@ -71,9 +71,49 @@ WUKSproject
 
 <div class="listBlocks">
   <div class="row">
+    <% @events.each do |events| %>
+      <div class="col-md-3 col-sm-6" style="margin-bottom: 15px;">
+        <%= link_to event_show_path(name:events.name) do %>
+          <div class="card" style="height: 90%; margin-bottom: 5px;">
+            <div class="listImg">
+              <img src="assets/img/city.jpg" alt="">
+              <% if events.status == 0 %>
+                <span class="badge badge-pill badge-default">応募終了</span>
+              <% elsif events.status == 1 %>
+                <span class="badge badge-pill badge-warning">募集中</span>
+              <% end %>
+            </div>
+            <div class="listContent">
+              <div class="listTitle">
+                <%= events.name %>
+              </div>
+              <div class="contentDetail">
+                場所: 
+                <span class="eventPlace"><%= events.place %></span>
+                <br>
+                日時: 
+                <span class="eventDate"><%= events.date.strftime("%Y年%m月%d日") %></span>
+              </div>
+              <div class="tagArea">
+              <span class="badge badge-pill badge-rose"><%= events.pref %></span>
+              <span class="badge badge-pill badge-info"><%= events.event_type %></span>
+              <span class="badge badge-pill badge-danger">交通費支給</span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+
+<!--
+<div class="listBlocks">
+  <div class="row">
 
     <div class="col-md-3 col-sm-6">
-      <div class="card">
+      <div class="card" style="height:90%">
         <a href="/">
           <div class="listImg">
             <span class="badge badge-pill badge-warning">募集中</span>
@@ -99,97 +139,11 @@ WUKSproject
         </a>
       </div>
     </div>
-
-    <div class="col-md-3 col-sm-6">
-      <div class="card">
-        <a href="/">
-          <div class="listImg">
-            <span class="badge badge-pill badge-default">応募終了</span>
-          </div>
-          <div class="listContent">
-            <div class="listTitle">
-              イベントタイトルをここに書きます。
-            </div>
-            <div class="contentDetail">
-              場所: 
-              <span class="eventPlace">イベントを開催する場所をここに書きます。</span>
-              <br>
-              日時: 
-              <span class="eventDate">イベントを開催する日時をここに書きます。</span>
-            </div>
-            <div class="tagArea">
-              <span class="badge badge-pill badge-rose">場所</span>
-              <span class="badge badge-pill badge-success">分野</span>
-              <span class="badge badge-pill badge-info">規模</span>
-              <span class="badge badge-pill badge-danger">交通費支給</span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <div class="col-md-3 col-sm-6">
-      <div class="card">
-        <a href="/">
-          <div class="listImg">
-            <span class="badge badge-pill badge-default">応募終了</span>
-          </div>
-          <div class="listContent">
-            <div class="listTitle">
-              イベントタイトルをここに書きます。
-            </div>
-            <div class="contentDetail">
-              場所: 
-              <span class="eventPlace">イベントを開催する場所をここに書きます。</span>
-              <br>
-              日時: 
-              <span class="eventDate">イベントを開催する日時をここに書きます。</span>
-            </div>
-            <div class="tagArea">
-              <span class="badge badge-pill badge-rose">場所</span>
-              <span class="badge badge-pill badge-success">分野</span>
-              <span class="badge badge-pill badge-info">規模</span>
-              <span class="badge badge-pill badge-danger">交通費支給</span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <div class="col-md-3 col-sm-6">
-      <div class="card">
-        <a href="/">
-          <div class="listImg">
-            <span class="badge badge-pill badge-default">応募終了</span>
-          </div>
-          <div class="listContent">
-            <div class="listTitle">
-              イベントタイトルをここに書きます。
-            </div>
-            <div class="contentDetail">
-              場所: 
-              <span class="eventPlace">イベントを開催する場所をここに書きます。</span>
-              <br>
-              日時: 
-              <span class="eventDate">イベントを開催する日時をここに書きます。</span>
-            </div>
-            <div class="tagArea">
-              <span class="badge badge-pill badge-rose">場所</span>
-              <span class="badge badge-pill badge-success">分野</span>
-              <span class="badge badge-pill badge-info">規模</span>
-              <span class="badge badge-pill badge-danger">交通費支給</span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-  </div>
-</div>
+-->
 
 <!-- イベント一覧ページへのリンクボタン -->
 <div class="text-center">
-  <a href="/">
+  <a href="event">
     <button class="btn btn-primary" style="font-size: 14px;">イベント情報を詳しく見る
       <div class="ripple-container"></div>
     </button>

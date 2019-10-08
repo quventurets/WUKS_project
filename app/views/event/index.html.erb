@@ -1,0 +1,58 @@
+<% content_for :title do %>
+イベント | WUKS
+<% end %>
+
+<section class="py-5 bg-image-full" style="background-image: url('../assets/img/bg2.jpg');">
+  <div style="height: 150px;">
+    <div class="pt-5">
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <div class="brand">
+            <h1>イベント情報一覧</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="listBlocks">
+  <div class="row">
+    <% @events.each do |events| %>
+      <div class="col-md-3 col-sm-6">
+        <%= link_to event_show_path(name:events.name) do %>
+          <div class="card" style="height: 90%;">
+            <div class="listImg">
+              <img src="assets/img/city.jpg" alt="">
+              <% if events.status == 0 %>
+                <span class="badge badge-pill badge-default">応募終了</span>
+              <% elsif events.status == 1 %>
+                <span class="badge badge-pill badge-warning">募集中</span>
+              <% end %>
+            </div>
+            <div class="listContent">
+              <div class="listTitle">
+                <%= events.name %>
+              </div>
+              <div class="contentDetail">
+                場所: 
+                <span class="eventPlace"><%= events.place %></span>
+                <br>
+                日時: 
+                <span class="eventDate"><%= events.date.strftime("%Y年%m月%d日")%></span>
+              </div>
+              <div class="tagArea">
+              <span class="badge badge-pill badge-rose"><%= events.pref %></span>
+              <span class="badge badge-pill badge-info"><%= events.event_type %></span>
+              <span class="badge badge-pill badge-danger">交通費支給</span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
