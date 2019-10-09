@@ -19,6 +19,7 @@
   <%= stylesheet_link_tag "original/list_page.css", :media => "all"%>
   <%= stylesheet_link_tag "original/show_page.css", :media => "all"%>
   <%= stylesheet_link_tag "original/footer.css",:media=> "all" %>
+  <%= stylesheet_link_tag "original/top_page.css",:media=> "all" %> <!-- なんか見た目おかしくなったらこれが原因かも -->
   <!-- JS Files -->
   <%= javascript_include_tag "material-kit_js/core/jquery.min.js" %>
   <%= javascript_include_tag "material-kit_js/core/popper.min.js" %>
@@ -60,6 +61,16 @@
             <a href="/career" class="nav-link">
               <i class="material-icons">business</i> Career
             </a>
+          </li>
+          <li class="nav-item  mt-2">
+            <a href="/event" class="nav-link">
+              <i class="material-icons">record_voice_over</i> Event
+            </a>
+          </li>
+          <li class="nav-item mt-2">
+             <a href="/news" class="nav-link">
+               <i class="material-icons">list_alt</i> News
+             </a>
           </li>
           <% isREADY = FALSE %>
           <% if isREADY %>
@@ -113,6 +124,10 @@
 
                 <li>
                   <a href="/career">Career</a>
+                </li>
+
+                <li>
+                  <a href="/event">Event</a>
                 </li>
 
                 <li>

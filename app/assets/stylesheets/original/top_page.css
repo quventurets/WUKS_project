@@ -8,6 +8,10 @@
     padding: 10px 0 0 0;
 }
 
+.pad50 {
+    padding: 50px 0 0 0;
+}
+
 .content_body {
     background: #ffffff;
     border-radius: 10px 10px 10px 10px;

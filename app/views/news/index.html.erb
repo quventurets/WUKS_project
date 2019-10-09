@@ -2,7 +2,7 @@
 お知らせ | WUKS
 <% end %>
 
-<section class="py-5 bg-image-full" style="background-image: url('../assets/img/bg_univ.jpg');">
+<section class="py-5 bg-image-full" style="background-image: url('../assets/img/bg_news.jpg');">
     <div style="height: 150px;">
         <div class="pt-5">
         </div>
@@ -17,3 +17,19 @@
         </div>
     </div>
 </section>
+
+<div class="container">
+    <div class="wrap">
+        <div class="pad50">
+        </div>
+        <ul id="notic_list">
+            <% @news.each do |news| %>
+            <li>
+                <div>
+                    <p class="date"><%= news.date %></p>
+                    <p class="title"><a href="/news"><%= news.content %></a></p>
+                </div>
+            </li>
+            <% end %>
+    </div>
+</div>

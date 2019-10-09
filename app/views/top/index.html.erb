@@ -61,92 +61,124 @@ WUKSproject
           </div>
         </div>
       </div>
+    </div>
+    <div class="pad25">
+      <!-- イベント情報を新しいものから4つ並べる -->
+      <div class="topTitle">
+        <h2>イベント情報</h2>
       </div>
-      <div class="content_body pad25">
-        <div class="wrap">
-          <h2>お知らせ</h2>
-          <div class ="pad10">
+
+      <div class="listBlocks">
+        <div class="row">
+          <% @events.each do |events| %>
+          <div class="col-md-3 col-sm-6" style="margin-bottom: 15px;">
+            <%= link_to event_show_path(name:events.name) do %>
+            <div class="card" style="height: 90%; margin-bottom: 5px;">
+              <div class="listImg">
+                <img src="assets/img/city.jpg" alt="">
+                <% if events.status == 0 %>
+                <span class="badge badge-pill badge-default">応募終了</span>
+                <% elsif events.status == 1 %>
+                <span class="badge badge-pill badge-warning">募集中</span>
+                <% end %>
+              </div>
+              <div class="listContent">
+                <div class="listTitle">
+                  <%= events.name %>
+                </div>
+                <div class="contentDetail">
+                  場所:
+                  <span class="eventPlace"><%= events.place %></span>
+                  <br>
+                  日時:
+                  <span class="eventDate"><%= events.date.strftime("%Y年%m月%d日") %></span>
+                </div>
+                <div class="tagArea">
+                  <span class="badge badge-pill badge-rose"><%= events.pref %></span>
+                  <span class="badge badge-pill badge-info"><%= events.event_type %></span>
+                  <span class="badge badge-pill badge-danger">交通費支給</span>
+                </div>
+              </div>
+            </div>
+            <% end %>
           </div>
-          <ul id="notic_list">
-            <li>
-              <div>
-                <p class="date">2019.09.13</p>
-                <p class="title"><a href="http://www.si.t.u-tokyo.ac.jp/news/201909131724/">システム創成学科卒業式</a></p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="date">2019.09.10</p>
-                <p class="title"><a
-                    href="http://www.si.t.u-tokyo.ac.jp/news/201909101690/">【2.3.4年生】2019年A1A2タームの時間割</a></p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="date">2019.06.4</p>
-                <p class="title"><a
-                    href="http://www.si.t.u-tokyo.ac.jp/news/201906041491/">【1.2年生】丁友会学科ガイダンス6/12(水)のお知らせ</a></p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="date">2019.05.8</p>
-                <p class="title"><a
-                    href="http://www.si.t.u-tokyo.ac.jp/news/201905081286/">【五月祭】船舶模型実験公開　[5月18日(土)・19日(日)]</a></p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="date">2019.04.26</p>
-                <p class="title"><a href="http://www.si.t.u-tokyo.ac.jp/news/201904261216/">【1.2年生】進学選択特設ページ　</a></p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="date">2019.04.15</p>
-                <p class="title"><a href="http://www.si.t.u-tokyo.ac.jp/news/201904151212/">【新領域】2020年度環境システム学専攻
-                    入試（日程A）のご案内</a></p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="date">2019.04.12</p>
-                <p class="title"><a
-                    href="http://www.si.t.u-tokyo.ac.jp/news/201904121188/">【新領域】2020年度海洋技術環境学専攻大学院入試について</a></p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="date">2019.04.10</p>
-                <p class="title"><a href="http://www.si.t.u-tokyo.ac.jp/news/201904101159/">【入試】システム創成学専攻入試説明会案内</a></p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="date">2019.04.3</p>
-                <p class="title"><a
-                    href="http://www.si.t.u-tokyo.ac.jp/news/20190403997/">【1･2年生】進学選択ガイダンスを2019年4月24日(水)に開催します。</a></p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="date">2019.04.2</p>
-                <p class="title"><a href="http://www.si.t.u-tokyo.ac.jp/news/20190402957/">【3年生】進学ガイダンスのお知らせ</a></p>
-              </div>
-            </li>
-          </ul>
-          <div class="text-center">
-            <a href="/news">
-              <button class="btn btn-primary btn-lg">すべてのお知らせを見る
-                <div class="ripple-container"></div>
-              </button>
-            </a>
-          </div>
+          <% end %>
+
         </div>
+      </div>
+
+      <!--
+      <div class="listBlocks">
+        <div class="row">
+
+          <div class="col-md-3 col-sm-6">
+            <div class="card" style="height:90%">
+              <a href="/">
+                <div class="listImg">
+                  <span class="badge badge-pill badge-warning">募集中</span>
+                </div>
+                <div class="listContent">
+                  <div class="listTitle">
+                    イベントタイトルをここに書きます。
+                  </div>
+                  <div class="contentDetail">
+                    場所: 
+                    <span class="eventPlace">イベントを開催する場所をここに書きます。</span>
+                    <br>
+                    日時: 
+                    <span class="eventDate">イベントを開催する日時をここに書きます。</span>
+                  </div>
+                  <div class="tagArea">
+                    <span class="badge badge-pill badge-rose">場所</span>
+                    <span class="badge badge-pill badge-success">分野</span>
+                    <span class="badge badge-pill badge-info">規模</span>
+                    <span class="badge badge-pill badge-danger">交通費支給</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+      -->
+
+      <!-- イベント一覧ページへのリンクボタン -->
+      <div class="text-center">
+        <a href="event">
+          <button class="btn btn-primary btn-lg" style="font-size: 14px;">イベント情報を詳しく見る
+            <div class="ripple-container"></div>
+          </button>
+        </a>
       </div>
     </div>
     <div class="pt-3">
+    </div>
+    <div class="content_body pad25">
+      <div class="wrap">
+        <h2>お知らせ</h2>
+        <div class="pad10">
+        </div>
+        <ul id="notic_list">
+          <% @news.each do |news| %>
+           <li>
+             <div>
+               <p class="date"><%= news.date %></p>
+               <p class="title"><a href="/"><%= news.content %></a></p>
+             </div>
+           </li>
+          <% end %>
+        </ul>
+        <div class="text-center">
+          <a href="/news">
+            <button class="btn btn-primary btn-lg">すべてのお知らせを見る
+              <div class="ripple-container"></div>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<div class="pt-3">
+
+
+<div class="pt-5"></div>
 </div>
+<div class="pt-3"></div>
