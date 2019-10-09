@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_03_063441) do
+ActiveRecord::Schema.define(version: 2019_10_08_173608) do
 
   create_table "comps", force: :cascade do |t|
     t.string "name"
@@ -28,6 +28,19 @@ ActiveRecord::Schema.define(version: 2019_10_03_063441) do
     t.text "how"
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.string "place"
+    t.datetime "date"
+    t.string "pref"
+    t.string "event_type"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "outline"
+    t.text "otherinfo"
+  end
+
   create_table "faculties", force: :cascade do |t|
     t.string "s_name"
     t.string "f_name"
@@ -42,6 +55,13 @@ ActiveRecord::Schema.define(version: 2019_10_03_063441) do
   create_table "kosens", force: :cascade do |t|
     t.integer "kosen_id"
     t.string "kosen_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "news", force: :cascade do |t|
+    t.date "date"
+    t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
