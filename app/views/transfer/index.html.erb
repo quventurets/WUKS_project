@@ -4,6 +4,8 @@
 
 <section class="py-5 bg-image-full" style="background-image: url('../assets/img/bg_univ.jpg');">
   <div style="height: 150px;">
+    <div class="pt-5">
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
@@ -16,6 +18,7 @@
   </div>
 </section>
 <div class="container">
+  <div class="pt-3">
   <input type="button" value="絞り込み" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
   <div class="collapse" id="collapseFilter">
     <%= form_with(url: transfer_path) do |form| %>
@@ -69,9 +72,11 @@
       <input type="submit" value="絞り込む" class="btn btn-success btn-sm">
     <% end %>
   </div>
+  <div class ="pt-3">
   <% if @univs.length <= 0 %>
     <h2>条件に合致する大学はありません</h2>
   <% end %>
+
   <% @univs.each do |univs| %>
   <!--<a href ="/transfer/<%= univs.name %>"> -->
   <%= link_to transfer_show_path(name:univs.name) do %>
@@ -94,7 +99,7 @@
         <h4 class="forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
       <% end %>
           <% if univs.otherFac == 1%>
-            <span class="badge badge-pill badge-warning">工学系以外も編入可</span>
+          <span class="badge badge-pill badge-warning">工学系以外も編入可</span>
           <% end %>
         </h4>
     </div>

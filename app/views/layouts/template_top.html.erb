@@ -18,6 +18,7 @@
   <!-- CSS for Top page-->
   <%= stylesheet_link_tag "original/casting_shadow.css", :media => "all"%>
   <%= stylesheet_link_tag "original/footer.css",:media=> "all" %>
+  <%= stylesheet_link_tag "original/top_page.css",:media=> "all" %>
   <!-- JS Files -->
   <%= javascript_include_tag "material-kit_js/core/jquery.min.js" %>
   <%= javascript_include_tag "material-kit_js/core/popper.min.js" %>
@@ -48,22 +49,34 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a href="/" class="nav-link">
-              Home
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/coming_soon" class="nav-link">
-              Mission
+              <i class="material-icons">home</i> Home
             </a>
           </li>
           <li class="nav-item">
             <a href="/transfer" class="nav-link">
-              Transfer
+              <i class="material-icons">school</i> Transfer
             </a>
           </li>
           <li class="nav-item">
             <a href="/career" class="nav-link">
-              Career
+              <i class="material-icons">business</i> Career
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/event" class="nav-link">
+              <i class="material-icons">record_voice_over</i> Event
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/news" class="nav-link">
+              <i class="material-icons">list_alt</i> News
+            </a>
+          </li>
+          <% isREADY = FALSE %>
+          <% if isREADY %>
+          <li class="nav-item">
+            <a href="/coming_soon" class="nav-link">
+              Mission
             </a>
           </li>
           <li class="nav-item">
@@ -99,6 +112,7 @@
             </a>
           </li>
           <% end %>
+          <% end %>        
           <!--
           <li class="nav-item">
             <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
@@ -107,7 +121,7 @@
           </li>
           -->
           <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/UpWuks"
+            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/eNM20677180"
               target="_blank">
               <i class="fa fa-twitter"></i>Follow us
             </a>
@@ -138,6 +152,10 @@
 
            <li>
              <a href="/career">Career</a>
+           </li>
+
+           <li>
+             <a href="/event">Event</a>
            </li>
 
            <li>

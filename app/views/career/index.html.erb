@@ -4,6 +4,8 @@
 
 <section class="py-5 bg-image-full" style="background-image: url('../assets/img/profile_city.jpg');">
   <div style="height: 150px;">
+    <div class="pt-5">
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
@@ -15,6 +17,8 @@
     </div>
   </div>
 </section>
+
+<!--
 <div class="container">
   <div class="pt-5"></div>
   <% @comps.each do |comps| %>
@@ -35,6 +39,37 @@
     </div>
   </div>
   <% end %>
-  <!--</a>-->
   <% end %>
+</div>
+-->
+
+<div class="listBlocks">
+  <div class="row">
+
+    <% @comps.each do |comps| %>
+      <div class="col-md-3 col-sm-6">
+        <%= link_to career_show_path(name:comps.name) do %>
+          <div class="card">
+            <div class="listImg">
+              <img src="assets/img/comp/<%= comps.name %>.jpg" alt="">
+            </div>
+            <div class="listContent">
+              <div class="listTitle">
+                <%= comps.name %>
+              </div>
+              <div class="contentDetail">
+                なんか一言あった方がいいかも（キャッチコピー的な）
+              </div>
+              <div class="tagArea">
+                <span class="badge badge-pill badge-rose"><%= comps.place %></span>
+                <span class="badge badge-pill badge-success"><%= comps.area %></span>
+                <span class="badge badge-pill badge-info"><%= comps.scale %></span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>   
+
+  </div>
 </div>
