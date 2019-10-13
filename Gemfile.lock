@@ -249,7 +249,6 @@ DEPENDENCIES
   mysql2
   puma (~> 3.11)
   rails (~> 5.2.3)
-  rake (= 13.0.0)
   sass-rails (>= 3.2)
   selenium-webdriver
   spring
@@ -261,7 +260,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 RUBY VERSION
-   ruby 2.5.5p157
+   ruby 2.6.2p47
 
 BUNDLED WITH
-   1.17.3
+   1.17.2
