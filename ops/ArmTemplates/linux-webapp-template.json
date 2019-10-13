@@ -13,7 +13,7 @@
         },
         "sku": {
             "type": "string",
-            "defaultValue": "Basic B1"
+            "defaultValue": "Standard S1"
         },
         "linuxFxVersion": {
             "type": "string",
