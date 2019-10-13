@@ -11,6 +11,8 @@ gem 'sqlite3', group: [:development, :test]
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 
+gem 'rake', '13.0.0'
+
 #gem 'sass-rails', '~> 5.0'
 
 # Use Uglifier as compressor for JavaScript assets
