@@ -23,8 +23,8 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: <%= ENV['MYSQL_DATABASE'] || 'enm_wuks' %>
+  database: <%= ENV['MYSQLCONNSTR_DATABASE'] || 'enm_wuks' %>
   pool: 5
-  username: <%= ENV['MYSQL_USERNAME'] || 'enm_wuks' %>
-  password: <%= ENV['MYSQL_PASSWORD'] || 'Ietora1147' %>
-  host: <%= ENV['MYSQL_HOST'] || 'localhost' %> 
+  username: <%= ENV['MYSQLCONNSTR_USERNAME'] || 'enm_wuks' %>
+  password: <%= ENV['MYSQLCONNSTR_PASSWORD'] || 'Ietora1147' %>
+  host: <%= ENV['MYSQLCONNSTR_HOST'] || 'localhost' %> 
