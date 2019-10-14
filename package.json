@@ -6,9 +6,9 @@
     "watch": "webpack -w",
     "start": "rails server",
     "start:prd": "/bin/bash -c 'source .env.prd && rails server -e production'",
-    "assets:precompile:prd": "bundle exec rake --trace assets:precompile",
-    "db:migrate:prd": "/bin/bash -c 'source .env.prd && bundle exec rake db:migrate RAILS_ENV=production'",
-    "db:create:prd": "/bin/bash -c 'source .env.prd && bundle exec rake db:create RAILS_ENV=production'"
+    "assets:precompile:prd": "/bin/bash -c 'bundle exec rake --trace assets:precompile'",
+    "db:migrate:prd": "/bin/bash -c 'source .env.prd && bundle exec rake db:migrate'",
+    "db:create:prd": "/bin/bash -c 'source .env.prd && bundle exec rake db:create'"
   },
   "dependencies": {
     "@material-ui/core": "^4.0.2",
