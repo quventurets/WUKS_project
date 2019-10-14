@@ -28,3 +28,4 @@ production:
   username: <%= ENV['MYSQLCONNSTR_USERNAME'] || 'enm_wuks' %>
   password: <%= ENV['MYSQLCONNSTR_PASSWORD'] || 'Ietora1147' %>
   host: <%= ENV['MYSQLCONNSTR_HOST'] || 'localhost' %> 
+  ssl_mode: :required
