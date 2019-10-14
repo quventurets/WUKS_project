@@ -23,11 +23,11 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: <%= ENV['MYSQLCONNSTR_DATABASE'] || 'enm_wuks' %>
-  pool: 5
-  username: <%= ENV['MYSQLCONNSTR_USERNAME'] || 'enm_wuks' %>
-  password: <%= ENV['MYSQLCONNSTR_PASSWORD'] || 'Ietora1147' %>
-  host: <%= ENV['MYSQLCONNSTR_HOST'] || 'localhost' %> 
+  database: <%= ENV.fetch("MYSQLCONNSTR_DATABASE") { "enm_wuks" } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV.fetch("MYSQLCONNSTR_USERNAME") { "enm_wuks" } %>
+  password: <%= ENV.fetch("MYSQLCONNSTR_PASSWORD") { "Ietora1147" } %>
+  host: <%= ENV.fetch("MYSQLCONNSTR_HOST") { "localhost" } %> 
   port: 3306
   sslca: Rails.root.join('BaltimoreCyberTrustRoot.crt.pem')
   sslverify: false
