@@ -29,6 +29,6 @@ production:
   password: <%= ENV.fetch("MYSQLCONNSTR_PASSWORD") { "Ietora1147" } %>
   host: <%= ENV.fetch("MYSQLCONNSTR_HOST") { "localhost" } %> 
   port: 3306
-  sslca: Rails.root.join('BaltimoreCyberTrustRoot.crt.pem')
+  ssl_mode: REQUIRED
   sslverify: false
   sslcipher: AES256-SHA
