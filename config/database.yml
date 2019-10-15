@@ -8,23 +8,27 @@ default: &default
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-
+ 
 development:
   <<: *default
   database: db/development.sqlite3
-
+ 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
   database: db/test.sqlite3
-
+ 
 production:
   adapter: mysql2
   encoding: utf8
-  database: enm_wuks
-  pool: 5
-  username: enm_wuks
-  password: Ietora1147
-  host: localhost
+  database: <%= ENV.fetch("MYSQLCONNSTR_DATABASE") { "enm_wuks" } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV.fetch("MYSQLCONNSTR_USERNAME") { "enm_wuks" } %>
+  password: <%= ENV.fetch("MYSQLCONNSTR_PASSWORD") { "Ietora1147" } %>
+  host: <%= ENV.fetch("MYSQLCONNSTR_HOST") { "localhost" } %> 
+  port: 3306
+  ssl_mode: REQUIRED
+  sslverify: false
+  sslcipher: AES256-SHA
