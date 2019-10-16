@@ -79,7 +79,8 @@ a, a:hover, a:visited, a:link, a:active {
 }
 
 .label-checkbox {
-  user-select:none
+  user-select:none;
+  /*font-size: 100%;*/
 }
 
 .button-checkbox {
