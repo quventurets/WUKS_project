@@ -49,7 +49,7 @@
     <% @comps.each do |comps| %>
       <div class="col-md-3 col-sm-6">
         <%= link_to career_show_path(name:comps.name) do %>
-          <div class="card">
+          <div class="card" id="career">
             <div class="listImg">
               <img src="assets/img/comp/<%= comps.name %>.jpg" alt="">
             </div>

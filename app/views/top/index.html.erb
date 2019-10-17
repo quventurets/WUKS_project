@@ -105,7 +105,7 @@ WUKSproject
       <% @events.each do |events| %>
       <div class="col-md-3 col-sm-6" style="margin-bottom: 15px;">
         <%= link_to event_show_path(name:events.name) do %>
-        <div class="card" style="height: 90%; margin-bottom: 5px;">
+        <div class="card" id="event" style="height: 90%; margin-bottom: 0px;">
           <div class="listImg">
             <img src="assets/img/city.jpg" alt="">
             <% if events.status == 0 %>

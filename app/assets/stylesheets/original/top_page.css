@@ -20,9 +20,22 @@
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
+/* page topのボタン用 */
+#scrollTop {
+    display: none;  /* 最初は非表示にしておく */
+    font-size: 20px;
+    line-height: 100%;
+    background: radial-gradient(deepskyblue,royalblue);
+    border-radius: 30px;
+    bottom: 10px;
+    right: 10px;
+    padding: 4px;
+    position: fixed;  /* 位置は右下で固定 */
+    z-index: 10;      /* cardより前面に表示したいので */
+    box-shadow:0 3px 3px rgba(0,0,0,0.5);
+  }
 
-
-/* --------------------------------------------------
+  /* --------------------------------------------------
  03: Wrapper Style
  -------------------------------------------------- */
 .wrap {
