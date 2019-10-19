@@ -2,7 +2,7 @@
 進学 | WUKS
 <% end %>
 
-<section class="py-5 bg-image-full" style="background-image: url('../assets/img/bg_univ.jpg');">
+<section class="py-5 bg-image-full" style="background-image: url(<%= asset_path('img/bg_univ.jpg') %>);">
   <div style="height: 150px;">
     <div class="pt-5">
     </div>
@@ -90,7 +90,7 @@
   <div class="row product border">
     <div class="col-md-4">
 
-      <img src="assets/img/univ/<%= univs.name %>.jpg" alt="url('/assets/img/bg7.jpg');" class="img-thumbnail">
+      <img src=<%= asset_path("img/univ/#{univs.name}.jpg") %> alt="url('/assets/img/bg7.jpg');" class="img-thumbnail">
 
       <!-- <img src="assets/img/wuks.png" alt="" class="img-thumbnail">
           -->

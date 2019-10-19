@@ -2,7 +2,7 @@
 <%= @comp.name %> | 就職
 <% end %>
 
-<section class="py-5 bg-image-full" style="background-image: url('/assets/img/comp/<%= @comp.name %>.jpg');">
+<section class="py-5 bg-image-full" style="background-image: url(<%= asset_path("img/comp/#{@comp.name}.jpg") %>);">
   <div style="height: 150px;">
   <div class="pt-5">
   </div>
