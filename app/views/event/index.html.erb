@@ -2,7 +2,7 @@
 イベント | WUKS
 <% end %>
 
-<section class="py-5 bg-image-full" style="background-image: url('../assets/img/bg2.jpg');">
+<section class="py-5 bg-image-full" style="background-image: url(<%= asset_path('img/bg2.jpg') %>);">
   <div style="height: 150px;">
     <div class="pt-5">
     </div>
@@ -23,9 +23,9 @@
     <% @events.each do |events| %>
       <div class="col-md-3 col-sm-6">
         <%= link_to event_show_path(name:events.name) do %>
-          <div class="card" style="height: 90%;">
+          <div class="card" id="event" style="height: 90%;">
             <div class="listImg">
-              <img src="assets/img/city.jpg" alt="">
+              <img src=<%= asset_path('img/city.jpg') %> alt="">
               <% if events.status == 0 %>
                 <span class="badge badge-pill badge-default">応募終了</span>
               <% elsif events.status == 1 %>

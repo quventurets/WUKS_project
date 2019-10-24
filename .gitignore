@@ -19,6 +19,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/vedor/cache
 
 # Ignore uploaded files in development
 /storage/*

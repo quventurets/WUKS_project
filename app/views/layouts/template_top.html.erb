@@ -131,12 +131,17 @@
     </div>
   </nav>
   <%= yield %>
+  <div id="scrollTop">
+    <a href="/">
+      <i class="material-icons">double_arrow</i>
+      </a>
+  </div>
  <footer>
    <div class="container">
      <div class="row">
 
        <div class="col-md-4 col-xs-12">
-         <img src="assets/img/favicon.png" width="180" height="180">
+         <img src=<%= asset_path('img/favicon.png') %> width="180" height="180">
        </div>
 
        <div class="col-md-4 col-xs-12">
@@ -182,6 +187,29 @@
    </div>
  </footer>
   <script>
+    $(function () {
+      // 上に戻るボタンの初期化
+      let topBtn = $('#scrollTop');
+      topBtn.hide();
+    
+      // ある程度スクロールされたら、上に戻るボタンを表示する
+      $(window).scroll(function() {
+        if ($(this).scrollTop() > 800) {
+          topBtn.fadeIn(); // フェードインで表示
+        } else {
+          topBtn.fadeOut();  // フェードアウトで非表示
+        }
+      });
+    
+      // クリックで上に戻るボタン
+      topBtn.click(function(event) {
+        event.preventDefault(); // ページ内リンクの挙動をキャンセル
+        $('body,html').animate({
+          scrollTop: 0
+        }, 300);
+      });
+    });
+
     $(document).ready(function () {
       //init DateTimePickers
       materialKit.initFormExtendedDatetimepickers();

@@ -2,7 +2,7 @@
 <%= @comp.name %> | 就職
 <% end %>
 
-<section class="py-5 bg-image-full" style="background-image: url('/assets/img/comp/<%= @comp.name %>.jpg');">
+<section class="py-5 bg-image-full" style="background-image: url(<%= asset_path("img/comp/#{@comp.name}.jpg") %>);">
   <div style="height: 150px;">
   <div class="pt-5">
   </div>
@@ -27,11 +27,11 @@
         <h2 class="heading"> 企業情報</h2>
           <div class="card-header card-header-primary">
             <h3 class="sub">なにをやっているのか</h3>
-              <%= simple_format(@comp.what) %>
+              <%= simple_format(@comp.what, {}, wrapper_tag: "div") %>
             <h3 class="sub">なぜやっているのか</h3>
-              <%= simple_format(@comp.why) %>
+              <%= simple_format(@comp.why, {}, wrapper_tag: "div") %>
             <h3 class="sub">どうやっているのか</h3>
-              <%= simple_format(@comp.how) %>
+              <%= simple_format(@comp.how, {}, wrapper_tag: "div") %>
             <h3 class="sub">その他の情報</h3>
               <div class="other-info">
                 <%= @comp.name %><br>
