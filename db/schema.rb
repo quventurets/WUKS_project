@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_19_074100) do
+ActiveRecord::Schema.define(version: 2019_10_25_123459) do
 
   create_table "comps", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,10 @@ ActiveRecord::Schema.define(version: 2019_10_19_074100) do
     t.text "what"
     t.text "why"
     t.text "how"
+    t.text "mission"
+    t.text "occupation"
+    t.text "want"
+    t.text "comment"
   end
 
   create_table "events", force: :cascade do |t|

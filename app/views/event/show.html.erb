@@ -31,22 +31,24 @@
             <span class="badge badge-pill badge-info"><%= @event.event_type %></span>
             <span class="badge badge-pill badge-danger">交通費支給</span>
             <h3 class="sub">イベントの概要</h3>
-              <%= simple_format(@event.outline, {}, wrapper_tag: "div") %>
+              <%= simple_format(@event.outline, {}, wrapper_tag: "div class='article'") %>
             <% if @event.event_type == "企業座談会" %>
             <h3 class="sub">参加企業</h3>
-              <%= @event.guestComp %>
+              <div class="article"><%= @event.guestComp %></div>
             <% end %>
             <h3 class="sub">対象</h3>
-              <%= @event.target %>
+              <div class="article"><%= @event.target %></div>
             <h3 class="sub">日時・場所</h3>
-              <%= @event.date.strftime("%Y年%m月%d日") %> <%= @event.startTime %>～<%= @event.finishTime %>
-              <br>
-              <a href="javascript:;" 
-                onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @event.place %>'));
-                return false;"><u><%= @event.place %></u>
-              </a>
+              <div class="article">
+                <%= @event.date.strftime("%Y年%m月%d日") %> <%= @event.startTime %>～<%= @event.finishTime %>
+                <br>
+                <a href="javascript:;" 
+                  onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @event.place %>'));
+                  return false;"><u><%= @event.place %></u>
+                </a>
+              </div>
             <h3 class="sub">その他の情報</h3>
-              <%= simple_format(@event.otherinfo, {}, wrapper_tag: "div") %>
+              <%= simple_format(@event.otherinfo, {}, wrapper_tag: "div class='article'") %>
           </div>
       </div>
     </div>
