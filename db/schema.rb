@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_08_173608) do
+ActiveRecord::Schema.define(version: 2019_10_25_123459) do
 
   create_table "comps", force: :cascade do |t|
     t.string "name"
@@ -26,12 +26,16 @@ ActiveRecord::Schema.define(version: 2019_10_08_173608) do
     t.text "what"
     t.text "why"
     t.text "how"
+    t.text "mission"
+    t.text "occupation"
+    t.text "want"
+    t.text "comment"
   end
 
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.string "place"
-    t.datetime "date"
+    t.date "date"
     t.string "pref"
     t.string "event_type"
     t.integer "status"
@@ -39,6 +43,10 @@ ActiveRecord::Schema.define(version: 2019_10_08_173608) do
     t.datetime "updated_at", null: false
     t.text "outline"
     t.text "otherinfo"
+    t.string "startTime"
+    t.string "finishTime"
+    t.string "guestComp"
+    t.string "target"
   end
 
   create_table "faculties", force: :cascade do |t|
