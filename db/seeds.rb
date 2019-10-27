@@ -159,3 +159,37 @@ end
 #    }
 #   ]
 # )
+
+CSV.foreach('db/eventData.csv', headers: true) do |row|
+  event = Event.find_by(name: row['name'])
+  if !event.nil?
+    event.update(
+      :place => row['place'],
+      :date => row['date'],
+      :pref => row['pref'],
+      :event_type => row['event_type'],
+      :status => row['status'].to_i,
+      :outline => row['outline'],
+      :otherinfo => row['otherinfo'],
+      :startTime => row['startTime'],
+      :finishTime => row['finishTime'],
+      :guestComp => row['guestComp'],
+      :target => row['target']
+    )
+  else
+    Event.create(
+      :name => row['name'],
+      :place => row['place'],
+      :date => row['date'],
+      :pref => row['pref'],
+      :event_type => row['event_type'],
+      :status => row['status'].to_i,
+      :outline => row['outline'],
+      :otherinfo => row['otherinfo'],
+      :startTime => row['startTime'],
+      :finishTime => row['finishTime'],
+      :guestComp => row['guestComp'],
+      :target => row['target']
+    )
+  end
+end
