@@ -89,37 +89,73 @@ CSV.foreach('db/univData.csv', headers: true) do |row|
   end
 end
 
-Comp.create(
-  [
-   {
-     name: '株式会社マイテック',
-     area: '電気系',
-     scale: '中小企業',
-     place: '東京都',
-   },
-   {
-     name: '株式会社京製メック',
-     area: '機械系',
-     scale: '中小企業',
-     place: '大分県',
-   },
-   {
-     name: '株式会社Gizumo',
-     area: '情報系',
-     scale: 'ベンチャー企業',
-     place: '東京都',
-   },
-   {
-     name: '伊勢化学工業株式会社',
-     area: '化学系',
-     scale: '中小企業',
-     place: '東京都',
-   },
-   {
-     name: '株式会社シービーケー',
-     area: '土木・建築系',
-     scale: '中小企業',
-     place: '東京都',
-   }
-  ]
-)
+CSV.foreach('db/compData.csv', headers: true) do |row|
+  comp = Comp.find_by(name: row['name'])
+  if !comp.nil?
+    comp.update(
+      :area => row['area'],
+      :scale => row['scale'],
+      :place => row['place'],
+      :employees => row['employees'].to_i,
+      :address => row['address'],
+      :founded_year => row['founded_year'].to_i,
+      :founded_month => row['founded_month'].to_i,
+      :what => row['what'],
+      :mission => row['mission'],
+      :occupation => row['occupation'],
+      :want => row['want'],
+      :comment => row['comment']
+    )
+  else
+    Comp.create(
+      :name => row['name'],
+      :area => row['area'],
+      :scale => row['scale'],
+      :place => row['place'],
+      :employees => row['employees'].to_i,
+      :address => row['address'],
+      :founded_year => row['founded_year'].to_i,
+      :founded_month => row['founded_month'].to_i,
+      :what => row['what'],
+      :mission => row['mission'],
+      :occupation => row['occupation'],
+      :want => row['want'],
+      :comment => row['comment']
+    )
+  end
+end
+											
+# Comp.create(
+#   [
+#    {
+#      name: '株式会社マイテック',
+#      area: '電気系',
+#      scale: '中小企業',
+#      place: '東京都',
+#    },
+#    {
+#      name: '株式会社京製メック',
+#      area: '機械系',
+#      scale: '中小企業',
+#      place: '大分県',
+#    },
+#    {
+#      name: '株式会社Gizumo',
+#      area: '情報系',
+#      scale: 'ベンチャー企業',
+#      place: '東京都',
+#    },
+#    {
+#      name: '伊勢化学工業株式会社',
+#      area: '化学系',
+#      scale: '中小企業',
+#      place: '東京都',
+#    },
+#    {
+#      name: '株式会社シービーケー',
+#      area: '土木・建築系',
+#      scale: '中小企業',
+#      place: '東京都',
+#    }
+#   ]
+# )
