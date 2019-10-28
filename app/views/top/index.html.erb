@@ -3,7 +3,7 @@ WUKSproject
 <% end %>
 
 <div class="page-header header-filter clear-filter" data-parallax="true"
-  style="background-image: url('./assets/img/Home.jpg');">
+  style="background-image: url(<%= asset_path('img/Home.jpg') %>);">
   <div class="container">
     <div class="row">
       <div class="col-md-8 ml-auto mr-auto">
@@ -107,7 +107,7 @@ WUKSproject
         <%= link_to event_show_path(name:events.name) do %>
         <div class="card" id="event" style="height: 90%; margin-bottom: 0px;">
           <div class="listImg">
-            <img src="assets/img/city.jpg" alt="">
+            <img src=<%= asset_path('img/city.jpg') %> alt="">
             <% if events.status == 0 %>
             <span class="badge badge-pill badge-default">応募終了</span>
             <% elsif events.status == 1 %>

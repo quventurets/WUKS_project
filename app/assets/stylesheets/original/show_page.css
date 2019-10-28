@@ -36,6 +36,12 @@ sub::after {
   border-bottom: 1px solid #ccc;
 }
 
+.article {
+  padding-left: 25px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
 .card-doby{
     padding-bottom: 0px;
 }
@@ -86,10 +92,6 @@ sub::after {
     padding-right: 0px;
 }
 
-.other-info {
-  line-height: 2.0;
-  font-size: 16px;
-}
 
 html {
   font-size: 75%;
