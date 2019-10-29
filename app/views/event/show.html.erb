@@ -2,7 +2,7 @@
 <%= @event.name %> | イベント
 <% end %>
 
-<section class="py-5 bg-image-full" style="background-image: url(<%= asset_path('img/city.jpg') %>);">
+<section class="py-5 bg-image-full" style="background-image: url(<%= asset_path("img/event/#{@event.name}.jpg") %>);">
   <div style="height: 150px;">
   <div class="pt-5">
   </div>
@@ -11,7 +11,7 @@
         <div class="col-md-8 ml-auto mr-auto">
           <div class="brand">
             <h2 class="forbadge">
-              <h2><%= @event.name %></h2>
+              <h2><b><%= @event.name %></b></h2>
             </h2>
           </div>
         </div>
