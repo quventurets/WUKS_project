@@ -107,7 +107,7 @@ WUKSproject
         <%= link_to event_show_path(name:events.name) do %>
         <div class="card" id="event" style="height: 90%; margin-bottom: 0px;">
           <div class="listImg">
-            <img src=<%= asset_path('img/city.jpg') %> alt="">
+            <img src=<%= asset_path("img/event/#{events.name}.jpg") %> alt="">
             <% if events.status == 0 %>
             <span class="badge badge-pill badge-default">応募終了</span>
             <% elsif events.status == 1 %>
