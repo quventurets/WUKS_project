@@ -49,7 +49,7 @@ CSV.foreach('db/univData.csv', headers: true) do |row|
         :date_recommend => get_date_text(row['date_recommend']),
         :date_number => row['date_general'],
         :location => row['location'],
-        :otherFac => row['other_fac'] || 0,
+        :otherFac => row['other_faculty'] || 0,
         :examtypes => row['exam_types'] || 0
       )
     else
@@ -59,7 +59,7 @@ CSV.foreach('db/univData.csv', headers: true) do |row|
         :date_recommend => get_date_text(row['date_recommend']),
         :date_number => row['date_general'],
         :location => row['location'],
-        :otherFac => row['other_fac'] || 0,
+        :otherFac => row['other_faculty'] || 0,
         :examtypes => row['exam_types'] || 0,
         :rubi => row['rubi']
       )
