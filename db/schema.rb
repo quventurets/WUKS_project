@@ -32,18 +32,10 @@ ActiveRecord::Schema.define(version: 2019_10_30_091343) do
     t.text "comment"
   end
 
-  create_table "contacts", force: :cascade do |t|
-    t.string "email"
-    t.text "contact_type"
-    t.text "message"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.string "place"
-    t.datetime "date"
+    t.date "date"
     t.string "pref"
     t.string "event_type"
     t.integer "status"
