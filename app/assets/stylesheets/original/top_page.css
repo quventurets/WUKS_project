@@ -144,7 +144,7 @@ ul#notic_list li>div .title a {
     ul#notic_list {
         display: block;
         clear: both;
-        width: 815px;
+        width: 100%;
         margin: 0 auto 30px;
         border-top: 1px dotted #666;
     }
@@ -175,7 +175,9 @@ ul#notic_list li>div .title a {
         display: table-cell;
         padding: 22px 20px 22px 0;
         font-size: 1.2rem;
-        letter-spacing: 2px
+        letter-spacing: 2px;
+        text-align: left;
+          
     }
 
     ul#notic_list li>div .title a {
@@ -189,7 +191,11 @@ ul#notic_list li>div .title a {
         margin: 0 auto 20px;
     }
 
-    ul#notic_list li {}
+    ul#notic_list li {
+        display: block;
+        border-bottom: 1px dotted #666;
+        position: relative;
+    }
 
     ul#notic_list li>div {
         display: table;
