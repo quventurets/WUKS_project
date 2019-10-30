@@ -1,0 +1,36 @@
+<% content_for :title do %>
+<%= @news.name %> | お知らせ
+<% end %>
+
+<section class="py-5 bg-image-full" style="background-image: url(<%= asset_path('img/bg_news.jpg') %>);">
+  <div style="height: 150px;">
+  <div class="pt-5">
+  </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <div class="brand">
+            <h2 class="forbadge">
+              <h2><b><%= @news.name %></b></h2>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class ="container main-content">
+  <div class="pt-5">
+    <div class ="row">
+      <div class="container">
+        <h2 class="heading"> お知らせ</h2>
+          <div class="card-header card-header-primary">
+            <h4><%= @news.date %></h4>
+            <h3><%= @news.name %></h3>
+              <%= simple_format(@news.content, {}, wrapper_tag: "div class='article'") %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

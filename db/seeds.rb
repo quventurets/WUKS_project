@@ -7,50 +7,189 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "csv"
 
-CSV.foreach('db/Univ.csv', headers: true) do |row|
-    Univ.create(
-    :name => row['name'],
-    :date_general => row['date_general'],
-    :date_recommend => row['date_recommend'],
-    :date_number => row['date_number'],
-    :location => row['location'],
-    :otherFac => row['otherFac'],
-    :examtypes => row['examtypes'],
-    :rubi => row['rubi']
+def get_date_text (num_texts)
+  if !num_texts
+    return ''
+  end
+  text = num_texts.split(',').map do |num_text|
+    num = num_text.to_f
+    month = num.floor
+    date = num - num.floor
+    month.to_s << '月' << (date <= 0.1 ? '上旬' : date <= 0.2 ? '中旬' : '下旬')
+  end
+  return text.join('/')
+end
+
+def get_faculty_date_text (num_texts)
+  if !num_texts
+    return ''
+  end
+  text = num_texts.split(',').map do |num_text|
+    num = num_text.to_f
+    month = num.floor
+    date = num - num.floor
+    month.to_s << '月' << ((date*100).round).to_s << '日'
+  end
+  return text.join('/')
+end
+
+def get_date_num (num_texts)
+  if !num_texts
+    return ''
+  end
+  return num_texts.split(',')[0]
+end
+
+CSV.foreach('db/univData.csv', headers: true) do |row|
+  if row['main'] == "1"
+    univ = Univ.find_by(name: row['name'])
+    if !univ.nil?
+      univ.update(
+        :date_general => get_date_text(row['date_general']),
+        :date_recommend => get_date_text(row['date_recommend']),
+        :date_number => row['date_general'],
+        :location => row['location'],
+        :otherFac => row['other_faculty'] || 0,
+        :examtypes => row['exam_types'] || 0
+      )
+    else
+      Univ.create(
+        :name => row['name'],
+        :date_general => get_date_text(row['date_general']),
+        :date_recommend => get_date_text(row['date_recommend']),
+        :date_number => row['date_general'],
+        :location => row['location'],
+        :otherFac => row['other_faculty'] || 0,
+        :examtypes => row['exam_types'] || 0,
+        :rubi => row['rubi']
+      )
+    end
+  end
+  faculty = Faculty.find_by(s_name: row['name'], f_name: row["faculty"])
+
+  if !faculty.nil?
+    if faculty.department.index(row['department']).nil?
+      faculty.department << ',' << row['department']
+      faculty.save
+    end
+    faculty.update(
+      :date_general => get_faculty_date_text(row['date_general']),
+      :isThereRec => row['exam_types'],
+      :date_recomend => get_faculty_date_text(row['date_recommend'])
+    )
+  else
+    Faculty.create(
+      :s_name => row['name'],
+      :f_name => row["faculty"],
+      :date_general => get_faculty_date_text(row['date_general']),
+      :isThereRec => row['exam_types'] || 0,
+      :date_recomend => get_faculty_date_text(row['date_recommend']),
+      :department => row['department']
     )
   end
+end
 
-Comp.create(
-  [
-   {
-     name: '株式会社マイテック',
-     area: '電気系',
-     scale: '中小企業',
-     place: '東京都',
-   },
-   {
-     name: '株式会社京製メック',
-     area: '機械系',
-     scale: '中小企業',
-     place: '大分県',
-   },
-   {
-     name: '株式会社Gizumo',
-     area: '情報系',
-     scale: 'ベンチャー企業',
-     place: '東京都',
-   },
-   {
-     name: '伊勢化学工業株式会社',
-     area: '化学系',
-     scale: '中小企業',
-     place: '東京都',
-   },
-   {
-     name: '株式会社シービーケー',
-     area: '土木・建築系',
-     scale: '中小企業',
-     place: '東京都',
-   }
-  ]
-)
+# CSV.foreach('db/compData.csv', headers: true) do |row|
+#   comp = Comp.find_by(name: row['name'])
+#   if !comp.nil?
+#     comp.update(
+#       :area => row['area'],
+#       :scale => row['scale'],
+#       :place => row['place'],
+#       :employees => row['employees'].to_i,
+#       :address => row['address'],
+#       :founded_year => row['founded_year'].to_i,
+#       :founded_month => row['founded_month'].to_i,
+#       :what => row['what'],
+#       :mission => row['mission'],
+#       :occupation => row['occupation'],
+#       :want => row['want'],
+#       :comment => row['comment']
+#     )
+#   else
+#     Comp.create(
+#       :name => row['name'],
+#       :area => row['area'],
+#       :scale => row['scale'],
+#       :place => row['place'],
+#       :employees => row['employees'].to_i,
+#       :address => row['address'],
+#       :founded_year => row['founded_year'].to_i,
+#       :founded_month => row['founded_month'].to_i,
+#       :what => row['what'],
+#       :mission => row['mission'],
+#       :occupation => row['occupation'],
+#       :want => row['want'],
+#       :comment => row['comment']
+#     )
+#   end
+# end
+											
+# Comp.create(
+#   [
+#    {
+#      name: '株式会社マイテック',
+#      area: '電気系',
+#      scale: '中小企業',
+#      place: '東京都',
+#    },
+#    {
+#      name: '株式会社京製メック',
+#      area: '機械系',
+#      scale: '中小企業',
+#      place: '大分県',
+#    },
+#    {
+#      name: '株式会社Gizumo',
+#      area: '情報系',
+#      scale: 'ベンチャー企業',
+#      place: '東京都',
+#    },
+#    {
+#      name: '伊勢化学工業株式会社',
+#      area: '化学系',
+#      scale: '中小企業',
+#      place: '東京都',
+#    },
+#    {
+#      name: '株式会社シービーケー',
+#      area: '土木・建築系',
+#      scale: '中小企業',
+#      place: '東京都',
+#    }
+#   ]
+# )
+
+CSV.foreach('db/eventData.csv', headers: true) do |row|
+  event = Event.find_by(name: row['name'])
+  if !event.nil?
+    event.update(
+      :place => row['place'],
+      :date => row['date'],
+      :pref => row['pref'],
+      :event_type => row['event_type'],
+      :status => row['status'].to_i,
+      :outline => row['outline'],
+      :otherinfo => row['otherinfo'],
+      :startTime => row['startTime'],
+      :finishTime => row['finishTime'],
+      :guestComp => row['guestComp'],
+      :target => row['target']
+    )
+  else
+    Event.create(
+      :name => row['name'],
+      :place => row['place'],
+      :date => row['date'],
+      :pref => row['pref'],
+      :event_type => row['event_type'],
+      :status => row['status'].to_i,
+      :outline => row['outline'],
+      :otherinfo => row['otherinfo'],
+      :startTime => row['startTime'],
+      :finishTime => row['finishTime'],
+      :guestComp => row['guestComp'],
+      :target => row['target']
+    )
+  end
+end

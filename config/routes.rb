@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   resources :univs #param: :name
   resources :faculties #param: :s_name
-
-  get '/career' => "career#index"
+  get '/career' => "top#coming_soon"
+  #get '/career' => "career#index"
   get '/transfer' => "transfer#index"
   post '/transfer' => "transfer#index"
   get '/news' => "news#index"
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/transfer/:name' => "transfer#show", as: :transfer_show
   get '/career/:name' => "career#show", as: :career_show
   get '/event/:name' => "event#show", as: :event_show
+  get '/news/:id' => "news#show", as: :news_show
 
   get '/coming_soon' => "top#coming_soon"
 

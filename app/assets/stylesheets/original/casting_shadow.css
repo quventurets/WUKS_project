@@ -70,6 +70,7 @@ a, a:visited, a:link, a:active {
 }
 
 .listTitle{
+  font-weight: bold;
   font-size: 25px;
   margin-bottom: 10px;
   line-height: 1.2;
@@ -82,7 +83,7 @@ a, a:visited, a:link, a:active {
 }
 .contentDetail{
   color: darkviolet;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   letter-spacing: 2px;
   margin-bottom: 2px;
