@@ -4,4 +4,8 @@ class NewsController < ApplicationController
     def index
         @news = News.all.order(date: :desc)
     end
+
+    def show
+        @news = News.find_by(id: params[:id])
+      end
 end

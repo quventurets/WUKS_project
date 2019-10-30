@@ -27,7 +27,11 @@
             <li>
                 <div>
                     <p class="date"><%= news.date %></p>
-                    <p class="title"><a href="/news"><%= news.content %></a></p>
+                    <p class="title">
+                        <%= link_to news_show_path(id:news.id) do %>
+                            <%= news.name %>
+                        <% end %>
+                    </p>
                 </div>
             </li>
             <% end %>

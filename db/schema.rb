@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_25_123459) do
+ActiveRecord::Schema.define(version: 2019_10_30_043224) do
 
   create_table "comps", force: :cascade do |t|
     t.string "name"
@@ -69,9 +69,10 @@ ActiveRecord::Schema.define(version: 2019_10_25_123459) do
 
   create_table "news", force: :cascade do |t|
     t.date "date"
-    t.string "content"
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "univs", force: :cascade do |t|
