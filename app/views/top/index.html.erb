@@ -31,13 +31,15 @@ WUKSproject
       <div class="row">
         <div class="col-md-6">
           <div class="card">
-            <div class="card-header card-header-text card-header-primary">
-              <div class="card-text">
-                <a href="transfer">
+            <a href="transfer">
+              <div class="card-header card-header-text card-header-primary">
+                <div class="card-text">
+
                   <h3 class><i class="material-icons">school</i>　編入する</h3>
-                </a>
+
+                </div>
               </div>
-            </div>
+            </a>
             <div class="card-body mt-2">
               <p>ここから、全国の編入を目指す高専生を見つけたり、進学した先輩の声を聞いたりしましょう。</p>
               <p>各大学の編入の日程なども確認できます。</p>
@@ -71,16 +73,16 @@ WUKSproject
         </div>
         <ul id="notic_list">
           <% @news.each do |news| %>
-           <li>
-             <div>
-               <p class="date"><%= news.date %></p>
-                <p class="title">
-                  <%= link_to news_show_path(id:news.id) do %>
-                    <%= news.name %>
-                  <% end %>
-                </p>
-             </div>
-           </li>
+          <li>
+            <div>
+              <p class="date"><%= news.date %></p>
+              <p class="title">
+                <%= link_to news_show_path(id:news.id) do %>
+                <%= news.name %>
+                <% end %>
+              </p>
+            </div>
+          </li>
           <% end %>
         </ul>
         <div class="text-center">
