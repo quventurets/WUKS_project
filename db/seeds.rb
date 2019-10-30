@@ -74,17 +74,23 @@ CSV.foreach('db/univData.csv', headers: true) do |row|
     end
     faculty.update(
       :date_general => get_faculty_date_text(row['date_general']),
+      :date_general_pass => get_faculty_date_text(row['date_general_pass']),
       :isThereRec => row['exam_types'],
-      :date_recomend => get_faculty_date_text(row['date_recommend'])
+      :date_recomend => get_faculty_date_text(row['date_recommend']),
+      :date_recomend_pass => get_faculty_date_text(row['date_recommend_pass']),
+      :url => row['url']
     )
   else
     Faculty.create(
       :s_name => row['name'],
       :f_name => row["faculty"],
       :date_general => get_faculty_date_text(row['date_general']),
+      :date_general_pass => get_faculty_date_text(row['date_general_pass']),
       :isThereRec => row['exam_types'] || 0,
       :date_recomend => get_faculty_date_text(row['date_recommend']),
-      :department => row['department']
+      :date_recomend_pass => get_faculty_date_text(row['date_recommend_pass']),
+      :department => row['department'],
+      :url => row['url']
     )
   end
 end
