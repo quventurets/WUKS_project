@@ -86,6 +86,7 @@ ol,ul {
     padding-inline-start: 0px;
 }
 
+
 ul#notic_list {
     display: block;
     clear: both;
@@ -221,4 +222,173 @@ ul#notic_list li>div .title a {
         font-size: 1.0rem;
     }
 
+}
+
+#newshead {
+    padding: 20px 40px 30px;
+    border-bottom: 1px dotted #333;
+    margin: 0 0 30px 0;
+}
+
+#newshead .date {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    line-height: 30px;
+    margin: 0 0 20px 0;
+}
+
+#newshead .date02 {
+    display: inline-block;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    margin: 0 20px 20px 0;
+}
+
+#newshead strong {
+    display: inline-block;
+    width: 110px;
+    height: 30px;
+    background: #3c3c3c;
+    text-align: center;
+    color: #FFF;
+    line-height: 30px;
+    letter-spacing: 3px;
+    vertical-align: top;
+}
+
+#newshead strong.ee {
+    border-left: 17px solid #3c6f3c;
+}
+
+#newshead strong.sdm {
+    border-left: 17px solid #004389;
+}
+
+#newshead strong.psi {
+    border-left: 17px solid #be0b3c;
+}
+
+#newshead strong.other {
+    border-left: 17px solid #a0a0a0;
+}
+
+#newshead h3 {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    margin: 0 0 20px 0;
+}
+
+#newsbody {
+    padding: 0 40px 30px;
+    border-bottom: 1px dotted #333;
+    margin: 0 0 30px 0;
+}
+
+#newsbody p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 0 0 30px 0;
+}
+
+#newsbody table {
+    margin: 0 0 30px 0;
+}
+
+#newsbody table td {
+    font-size: 1.8rem;
+    line-height: 1.8;
+    padding: 0 10px 10px 0;
+}
+
+#newsbody .overview{
+    font-weight: 600;
+}
+
+#newsbody .attention {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    padding: 0 0 40px 0;
+}
+
+@media screen and (min-width: 896px) and (max-width: 1279px) {
+
+    #newshead {
+        padding: 20px 30px 30px;
+        border-bottom: 1px dotted #333;
+        margin: 0 3% 30px;
+    }
+
+    #newsbody {
+        padding: 0 3% 20px;
+        margin: 0 0 20px 0;
+    }
+}
+
+@media screen and (max-width: 895px) {
+
+    #newshead {
+        padding: 10px 3% 20px;
+        margin: 0 0 20px 0;
+    }
+
+    #newshead .date {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+        margin: 0 0 10px 0;
+    }
+
+    #newshead .date02 {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+        margin: 0 8px 10px 0;
+        vertical-align: bottom;
+        line-height: 30px;
+    }
+
+    #newshead strong {
+        vertical-align: top;
+    }
+
+    #newshead h3 {
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+        margin: 0 0 0 0;
+    }
+
+    #newsbody {
+        padding: 0 3% 20px;
+        margin: 0 0 20px 0;
+    }
+
+    #newsbody p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        margin: 0 0 20px 0;
+    }
+
+    #newsbody table {
+        display: block;
+        margin: 0 0 20px 0;
+    }
+
+    #newsbody table tbody {
+        display: block;
+    }
+
+    #newsbody table tr {
+        display: block;
+    }
+
+    #newsbody table td {
+        display: block;
+        font-size: 1.2rem;
+        line-height: 1.8;
+        padding: 0 0 10px 0;
+    }
+
+    #newsbody .attention {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        padding: 0 0 0px 0;
+    }
 }
