@@ -6,6 +6,6 @@ class CareerController < ApplicationController
   end
 
   def show
-    @comp = Comp.find_by(name: params[:name])
+    @comp = Comp.find_by!(name: params[:name])
   end
 end

@@ -7,15 +7,15 @@ class LoginController < ApplicationController
     before_action :check_is_ready
 
     def show
-      @user = User.find_by(id: params[:id])
-      @kosen = Kosen.find_by(kosen_id: @user.kosen_id)
+      @user = User.find_by!(id: params[:id])
+      @kosen = Kosen.find_by!(kosen_id: @user.kosen_id)
     end
 
     def login_form
     end
     
     def login
-      @user = User.find_by(email: params[:email])
+      @user = User.find_by!(email: params[:email])
       if @user && @user.authenticate(params[:password])
           session[:user_id] = @user.id
           #flash[:notice] = "ログインしました"
