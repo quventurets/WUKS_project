@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   resources :univs #param: :name
   resources :faculties #param: :s_name
-
-  get '/career' => "career#index"
+  get '/career' => "top#coming_soon"
+  #get '/career' => "career#index"
   get '/transfer' => "transfer#index"
   post '/transfer' => "transfer#index"
   get '/news' => "news#index"
