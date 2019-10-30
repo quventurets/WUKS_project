@@ -59,18 +59,16 @@
                   <h4 class="sub">試験時期</h4>
                   <ul>
                     <% if facluties.isThereRec %>
-                    <% array_result_rec = facluties.date_recomend.split(",") %>
-                    <li>推薦入試：<%= array_result_rec[0] %></li>
+                    <li>推薦入試：<%= facluties.date_recomend %></li>
                     <% end %>
-                    <% array_result_gen = facluties.date_general.split(",") %>
-                    <li>一般入試：<%= array_result_gen[0] %></li>
+                    <li>一般入試：<%= facluties.date_general %></li>
                   </ul>
                   <h4 class="sub">合格発表</h4>
                   <ul>
                     <% if facluties.isThereRec %>
-                    <li>推薦入試：<%= array_result_rec[1] %></li>
+                    <li>推薦入試：<%= facluties.date_recomend_pass %></li>
                     <% end %>
-                    <li>一般入試：<%= array_result_gen[1] %></li>
+                    <li>一般入試：<%= facluties.date_general_pass %></li>
                   </ul>
                   <h4 class="sub">募集学科</h4>
                   <% array_department = facluties.department.split(",") %>
@@ -80,7 +78,7 @@
                     <% end %>
                   </ul>
                   <div class="text-center">
-                    <a href="/coming_soon">
+                    <a href= "<%= facluties.url %>">
                       <button class="btn btn-primary">もっと詳しく見る
                         <div class="ripple-container"></div>
                       </button>
@@ -92,18 +90,16 @@
                   <h4 class="sub">試験時期</h4>
                   <ul>
                     <% if facluties.isThereRec %>
-                    <% array_result_rec = facluties.date_recomend.split(",") %>
-                    <li>推薦入試：<%= array_result_rec[0] %> </li>
+                    <li>推薦入試：<%= facluties.date_recomend %> </li>
                     <% end %>
-                    <% array_result_gen = facluties.date_general.split(",") %>
-                    <li>一般入試：<%= array_result_gen[0] %></li>
+                    <li>一般入試：<%= facluties.date_general %></li>
                   </ul>
                   <h4 class="sub">合格発表</h4>
                   <ul class>
                     <% if facluties.isThereRec %>
-                    <li>推薦入試：<%= array_result_rec[1] %></li>
+                    <li>推薦入試：<%= facluties.date_recomend_pass %></li>
                     <% end %>
-                    <li>一般入試：<%= array_result_gen[1] %></li>
+                    <li>一般入試：<%= facluties.date_general_pass %></li>
                   </ul>
                   <h4 class="sub">募集学科</h4>
                   <% array_department = facluties.department.split(",") %>
@@ -113,7 +109,7 @@
                     <% end %>
                   </ul>
                   <div class="text-center">
-                    <a href="/coming_soon">
+                    <a href= "<%= facluties.url %>">
                       <button class="btn btn-primary">もっと詳しく見る
                         <div class="ripple-container"></div>
                       </button>

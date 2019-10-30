@@ -4,8 +4,8 @@
 
 <section class="py-5 bg-image-full" style="background-image: url(<%= asset_path('img/bg_news.jpg') %>);">
   <div style="height: 150px;">
-  <div class="pt-5">
-  </div>
+    <div class="pt-5">
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
@@ -20,16 +20,26 @@
   </div>
 </section>
 
-<div class ="container main-content">
+<div class="container main-content">
   <div class="pt-5">
-    <div class ="row">
+    <div class="row">
       <div class="container">
-        <h2 class="heading"> お知らせ</h2>
-          <div class="card-header card-header-primary">
-            <h4><%= @news.date %></h4>
+        <div class="card-header card-header-primary">
+          <div id="newshead">
+            <p class="date"><%= @news.date %></p>
             <h3><%= @news.name %></h3>
-              <%= simple_format(@news.content, {}, wrapper_tag: "div class='article'") %>
           </div>
+          <div id="newsbody">
+            <%= simple_format(@news.content, {}, wrapper_tag: "div class='article'") %>
+          </div>
+          <div class ="text-center">
+            <a id = "center" href="/news">
+              <button class="btn btn-primary btn-lg">お知らせ一覧へ戻る
+                <div class="ripple-container"></div>
+              </button>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
