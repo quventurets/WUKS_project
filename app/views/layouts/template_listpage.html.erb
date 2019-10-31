@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151197971-1"></script>
   <script>
@@ -18,6 +18,14 @@
   <title><%= content_for?(:title) ? yield(:title) : "デフォルトタイトル"%></title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
     name='viewport' />
+        
+  <!-- OPGの設定 -->
+  <meta property="og:image" content="	http://enm-wuks.com/assets/img/wuks-a9687e59bedf2e510c58cb97d695dc03dadb6cede550171b3f226a3d8cf3c62a.png" />
+  <meta property="og:description" content="高専生のための編入・就職支援サイト" />
+  <!-- ※Twitter共通設定 -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@eNM176" />
+
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css"
     href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
