@@ -23,7 +23,7 @@
 /* page topのボタン用 */
 #scrollTop {
     display: none;  /* 最初は非表示にしておく */
-    background: radial-gradient(deepskyblue,royalblue);
+    background: radial-gradient(purple,royalblue);
     border-radius: 40px;
     bottom: 10px;
     right: 10px;

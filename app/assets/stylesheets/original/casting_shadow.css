@@ -12,6 +12,10 @@ a, a:visited, a:link, a:active {
   box-shadow:0 3px 6px rgba(0,0,0,0.5);
 }
 
+.card#event {
+  height: 158px;
+}
+
 .link_to_top a{
   color: blue;
   text-decoration: underline;
@@ -22,6 +26,8 @@ a, a:visited, a:link, a:active {
   margin-top: 20px;
 }
 
+/* 企業情報をsukimaっぽく横に3つ並べるためのやつら */
+
 .topTitle{
   font-size: 30px;
   text-align: center;
@@ -29,7 +35,7 @@ a, a:visited, a:link, a:active {
 
 
 .listBlocks{
-  width: 90%;
+  width: 65%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -71,7 +77,7 @@ a, a:visited, a:link, a:active {
 
 .listTitle{
   font-weight: bold;
-  font-size: 25px;
+  font-size: 1.2em;
   margin-bottom: 10px;
   line-height: 1.2;
 }
@@ -82,10 +88,10 @@ a, a:visited, a:link, a:active {
   color: #333333;
 }
 .contentDetail{
-  color: darkviolet;
-  font-size: 16px;
+  color: #728b97;
+  font-size: 0.8em;
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   margin-bottom: 2px;
   text-overflow: ellipsis;
 }
@@ -99,7 +105,7 @@ a, a:visited, a:link, a:active {
 }
 
 .tagArea span{  
-  font-size: 12px;
+  font-size: 0.8em;
   font-weight: bold;
   box-shadow: #b2b1b1 2px 2px 3px;
   margin: 0px 3px 3px;
