@@ -2,7 +2,7 @@
 イベント | WUKS
 <% end %>
 
-<section class="py-5 bg-image-full" style="background-image: url(<%= asset_path('img/bg2.jpg') %>);">
+<section class="py-5 bg-image-full" style="background-image: url(<%= asset_path('img/bg_event.jpg') %>);">
   <div style="height: 150px;">
     <div class="pt-5">
     </div>
@@ -60,7 +60,7 @@
     <div class="container">
       <div class="row">
         <% @events.each do |events| %>
-        <div class="col-md-4 col-sm-6" style="margin-bottom: 15px;">
+        <div class="col-md-3 col-sm-6" style="margin-bottom: 15px;">
           <%= link_to event_show_path(name:events.name) do %>
           <div class="card" id="event" style="height: 90%; margin-bottom: 0px;">
             <div class="listImg">
