@@ -42,6 +42,11 @@ sub::after {
   line-height: 1.5;
 }
 
+.article#mission {
+  font-size: 22px;
+  font-weight: bold;
+}
+
 .card-doby{
     padding-bottom: 0px;
 }
