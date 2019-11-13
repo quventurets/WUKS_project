@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 before_action :set_current_user
-IS_READY = FALSE
+IS_READY = TRUE
 
     def set_current_user
       @current_user = User.find_by(id: session[:user_id])
@@ -31,4 +31,10 @@ IS_READY = FALSE
         redirect_to("/coming_soon")
       end
     end
+
+    #login/show.htmlから遷移したら登録情報変更の赤字を消すためのアクション
+    def kill_session_message
+      session[:message] = ""
+    end
+
 end

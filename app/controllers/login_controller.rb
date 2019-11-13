@@ -8,56 +8,43 @@ class LoginController < ApplicationController
 
     def show
       @user = User.find_by!(id: params[:id])
-      @kosen = Kosen.find_by!(kosen_id: @user.kosen_id)
+      @kosen = Kosen.all
+      @message = session[:message]
+    end
+
+    def update
+      @user = User.find_by!(id: params[:id])
+      @user.name = params[:name]
+      @user.kosen_id = params[:kosen_id]
+      @user.area = params[:area]
+      @user.future = params[:future]
+      
+      if @user.save
+        session[:message] = "変更を反映しました。"
+        redirect_to("/login/#{@user.id}")
+      else
+        session[:message] = "名前が未設定の状態では保存できません。"
+        redirect_to("/login/#{@user.id}")
+      end
     end
 
     def login_form
     end
     
-    def login
-      @user = User.find_by!(email: params[:email])
-      if @user && @user.authenticate(params[:password])
-          session[:user_id] = @user.id
-          #flash[:notice] = "ログインしました"
-          redirect_to("/")
-      else
-          @error_message = "※メールアドレスまたはパスワードが間違っています"
-          @email = params[:email]
-          @password = params[:password]
-          render("/login/login_form")
-      end
-    end
-
-    def new
-      @kosen = Kosen.all
-      @user = User.new
-    end
-
     def create
-      @kosen = Kosen.all
-      @user = User.new(
-        name: params[:name],
-        email: params[:email],
-        password: params[:password],
-        kosen_id: params[:kosen_id]
-      )
+       #OAuth認証で得られたデータをUserテーブルに追加する(from_omniauthメソッドはuser.rbに書いてある)
+      @user = User.from_omniauth(request.env["omniauth.auth"])
       if @user.save
         session[:user_id] = @user.id
-        #flash[:notice] = "ユーザー登録が完了しました"
         redirect_to("/")
       else
-        @error_message = "※不正な入力です"
-        @name = params[:name]
-        @email = params[:email]
-        @password = params[:password]
-        @kosen_id = params[:kosen_id]
-        render("/login/new")
+        @error_message = "※Googleとの連携に失敗しました"
+        render("/login")
       end
     end
     
     def logout
       session[:user_id] = nil
-      flash[:notice] = "ログアウトしました"
       redirect_to("/login")
     end
 

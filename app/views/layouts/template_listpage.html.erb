@@ -90,8 +90,9 @@
                <i class="material-icons">list_alt</i> News
              </a>
           </li>
-          <% isREADY = FALSE %>
+          <% isREADY = TRUE %>
           <% if isREADY %>
+          <!--
           <form class="form-inline mt-2 ml-4">
             <div class="form-group bmd-form-group">
               <input type="text" class="form-control" placeholder="Search">
@@ -100,6 +101,7 @@
               <i class="material-icons">search</i>
             </button>
           </form>
+          -->
           <li class="nav-item ml-5 mt-2">
             <% if @current_user==nil %>
             <a href="/login" class="btn btn-rose btn-raised">

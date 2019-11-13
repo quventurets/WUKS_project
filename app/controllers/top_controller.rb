@@ -1,5 +1,6 @@
 class TopController < ApplicationController
   layout 'template_top.html.erb'
+  before_action :kill_session_message
   
   def index
     #TOPには日時の新しいイベントから4つだけ表示する

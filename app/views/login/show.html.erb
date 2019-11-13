@@ -1,8 +1,131 @@
 <% content_for :title do %>
 <%= @user.name %>さんのマイページ
 <% end %>
+<section class="py-5 bg-image-full" style="background-image: url(<%= asset_path("img/bg7.jpg") %>);">
+  <div style="height: 0px;">
+  <div class="pt-5">
+  </div>
+  </div>
+</section>
 
-<%=@user.name %><br>
-<%=@user.email %><br>
-<%=@user.password %><br>
-<%=@kosen.kosen_name %><br>
+<div class="bg-image-full" style="background-image: url(<%= asset_path("img/bg7.jpg") %>);">
+  <div class="container">
+    <div style="margin-top: 0px;">
+      <div class="row">
+        <div class="col-lg-8 col-md-8 ml-auto mr-auto">
+          <div class="card card-login">
+            <div class="card-header card-header-primary text-center">
+              <div class="card-text"><h3><%= @user.name %>さんの登録情報</h3></div>
+            </div>
+            <div class="card-body">
+              <div class="text-center">
+                <% if @message %>
+                <h4 style="color:red;">
+                  <%= @message %>
+                </h4>
+                <% end %>
+              </div>
+              <%= form_tag("/login/#{@user.id}/update") do %>
+              <span class="bmd-form-group"><div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">face</i>
+                  </span>
+                </div>
+                <input name="name" type="text" class="form-control" value=<%= @user.name %>>
+              </div></span>
+
+              <span class="bmd-form-group"><div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">mail</i>
+                  </span>
+                </div>
+                <input name="email" type="email" class="form-control" value=<%= @user.email %> readonly>
+              </div></span>
+
+              <span class="bmd-form-group"><div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">school</i>
+                  </span>
+                </div>                    
+                <select name="kosen_id" class="form-control">
+                  <option disabled selected>（高専名を選択してください）</option>
+                  <% @kosen.each do |kosen| %>
+                    <% if @user.kosen_id == kosen.kosen_id %>
+                    <option value= "<%= kosen.kosen_id %>" selected><%= kosen.kosen_name %></option>
+                    <% else %>
+                    <option value= "<%= kosen.kosen_id %>"><%= kosen.kosen_name %></option>
+                    <% end %>
+                  <% end %>
+                </select>
+              </div></span>
+
+              <span class="bmd-form-group"><div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">star</i>
+                  </span>
+                </div>                    
+                <select name="area" class="form-control">
+                  <option disabled selected>（専門分野を選択してください）</option>
+                  <% if @user.area == "機械系" %>
+                  <option value="機械系" selected>機械系</option>
+                  <% else %>
+                  <option value="機械系">機械系</option>
+                  <% end %>
+                  <% if @user.area == "電気系" %>
+                  <option value="電気系" selected>電気系</option>
+                  <% else %>
+                  <option value="電気系">電気系</option>
+                  <% end %>
+                  <% if @user.area == "情報系" %>
+                  <option value="情報系" selected>情報系</option>
+                  <% else %>
+                  <option value="情報系">情報系</option>
+                  <% end %>
+                  <% if @user.area == "化学系" %>
+                  <option value="化学系" selected>化学系</option>
+                  <% else %>
+                  <option value="化学系">化学系</option>
+                  <% end %>
+                  <% if @user.area == "土木・建築系" %>
+                  <option value="土木・建築系" selected>土木・建築系</option>
+                  <% else %>
+                  <option value="土木・建築系">土木・建築系</option>
+                  <% end %>
+                </select>
+              </div></span>
+
+              <span class="bmd-form-group"><div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">emoji_flags</i>
+                  </span>
+                </div>                    
+                <select name="future" class="form-control">
+                  <option disabled selected>（進路希望を選択してください）</option>
+                  <% if @user.future == "進学" %>
+                  <option value="進学" selected>進学</option>
+                  <% else %>
+                  <option value="進学">進学</option>
+                  <% end %>
+                  <% if @user.future == "就職" %>
+                  <option value="就職" selected>就職</option>
+                  <% else %>
+                  <option value="就職">就職</option>
+                  <% end %>
+                </select>
+              </div></span>
+            </div>
+            <div class="footer text-center">
+              <input type="submit" value="変更を反映する" class="btn btn-primary">
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,50 +3,71 @@
 <% end %>
 
 
-<div class="page-header header-filter" style="background-image: url('./assets/img/bg7.jpg'); background-size: cover; background-position: top center;">
+<div class="page-header header-filter" style="background-image: url(<%= asset_path('img/bg7.jpg') %>); background-size: cover; background-position: top center;">
   <div class="container">
-    <div style="margin-top:80px;">
+    <div style="margin-top: 130px;">
       <div class="row">
-        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
-          <%= form_tag("/login") do %>
+        <div class="col-lg-10 col-md-10 ml-auto mr-auto">
           <div class="card card-login">
-            <form class="form" method="" action="">
-              <div class="card-header card-header-primary text-center">
-                <h3 class="card-title">WUKSにログイン</h3>
+            <div class="card-header card-header-primary text-center" id="login">
+              <div class="card-text"><h3>ログイン/ユーザ登録</h3></div>
+            </div>
+            <div class="card-body">
+            <div class="text-center">
+              <% if @error_message %>
+                <h4 style="color:red;">
+                  <%= @error_message %>
+                </h4>
+              <% end %>
+            </div>
+            <!--
+              <span class="bmd-form-group"><div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">person</i>
+                  </span>
+                </div>
+                <input name="name" class="form-control" placeholder="Name..." value="<%= @name %>">
+              </div></span>
+              <span class="bmd-form-group"><div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">mail</i>
+                  </span>
+                </div>
+                <input name="email" type="email" class="form-control" placeholder="Email..." value="<%= @email %>">
+              </div></span>
+            </div>
+            <div class="footer text-center">
+              <h4><input type="submit" value="ログイン" class="btn btn-primary"></h4>
+              <br>
+            </div>
+            -->
+            <div class="row">
+              <div class="col-lg-5 col-md-5 ml-auto mr-auto">
+                <div class="text-center">
+                  <h3><b>ログインするとできること</b>
+                </div>
+                <h4>
+                <ul style="list-style: disc; padding-left: 20px; line-height: 2;">
+                  <li>未登録ユーザに比べて多くの大学の情報を見ることができます</li>
+                  <li>ログインはGoogle認証なので簡単＆無料</li>
+                  <li>今後さらに貴重な情報を受け取れるかも</li>
+                </ul>
+                </h4>
               </div>
-              <div class="card-body">
-              <div class="text-center">
-                <% if @error_message %>
-                  <h4 style="color:red;">
-                    <%= @error_message %>
-                  </h4>
-                <% end %>
+              <div class="col-lg-5 col-md-5 ml-auto mr-auto">
+                <div class="text-center">
+                <h3><b>Googleアカウントを使ってWUKSにログインしよう</b></h3>
+                <h5>Googleにログインしてる場合、ワンクリックでWUKSにログインできます</h5>
+                <a href="/auth/google_oauth2">
+                  <img class="link_to_google" alt="" style="width: 220px; padding-bottom: 20px;">
+                </a>
+                </div>
               </div>
-               <span class="bmd-form-group"><div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="material-icons">mail</i>
-                    </span>
-                  </div>
-                  <input name="email" type="email" class="form-control" placeholder="Email..." value="<%= @email %>">
-                </div></span>
-                <span class="bmd-form-group"><div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="material-icons">lock_outline</i>
-                    </span>
-                  </div>
-                  <input name="password" type="password" class="form-control" placeholder="Password..." value="<%= @password %>">
-                </div></span>
-              </div>
-              <div class="footer text-center">
-                <h4><input type="submit" value="ログイン" class="btn btn-primary"></h4>
-                <br>
-                <a href="/registar" class="btn btn-primary btn-link btn-link btn-wd">新規登録</a>
-              </div>
-            </form>
+            </div>
+            </div>
           </div>
-          <% end %>
         </div>
       </div>
       </div>

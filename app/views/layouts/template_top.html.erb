@@ -107,30 +107,31 @@
               Contact Us
             </a>
           </li>
+          <% end %>
+          <li class="nav-item">
+            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/eNM176"
+              target="_blank">
+              <i class="fa fa-twitter"></i>Follow us
+            </a>
+          </li>
           <% if @current_user %>
           <li class="nav-item">
-            <div class="nav-link">
-              <%= link_to("My page", "/login/#{@current_user.id}") %>
-            </div>
+            <a href="/login/<%= @current_user.id %>" class="nav-link">
+              <i class="material-icons">person</i> Mypage
+            </a>
           </li>
           <li class="nav-item">
             <a href="/logout" class="nav-link">
-              Log Out
+              <i class="material-icons">vpn_key</i> LOGOUT
             </a>
           </li>
           <% else %>
           <li class="nav-item">
             <a href="/login" class="nav-link">
-              Log In
+              <i class="material-icons">person_add</i> Registar/LOGIN
             </a>
           </li>
-          <li class="nav-item">
-            <a href="/registar" class="nav-link">
-              Register
-            </a>
-          </li>
-          <% end %>
-          <% end %>        
+          <% end %>   
           <!--
           <li class="nav-item">
             <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
@@ -138,12 +139,6 @@
             </a>
           </li>
           -->
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/eNM176"
-              target="_blank">
-              <i class="fa fa-twitter"></i>Follow us
-            </a>
-          </li>
         </ul>
       </div>
     </div>
@@ -233,6 +228,31 @@
         }, 300);
       });
     });
+
+    //"Sign in with Google"の画像を、
+    //状況に応じて3種類(通常時、マウスオーバー時、クリック時)変えるためのスクリプト
+    $(function(){
+      //"Sign in with Google"の画像のHTML要素取得
+      let googleImg = $(".link_to_google");
+      //各状態でのsrc属性に入れるパスを用意しておく
+      let normal = "<%= asset_path("img/btn_google_signin_dark_normal_web@2x.png") %>";
+      let focus = "<%= asset_path("img/btn_google_signin_dark_focus_web@2x.png") %>";
+      let pressed = "<%= asset_path("img/btn_google_signin_dark_pressed_web@2x.png") %>";
+      //最初はnormal
+      googleImg.attr("src", normal );
+      //マウスオーバー時
+      googleImg.hover(function(){ 
+        googleImg.attr("src", focus);
+      },function(){
+        googleImg.attr("src", normal);
+      });
+      //クリック時
+      googleImg.click(function(){ 
+        googleImg.attr("src", pressed);
+      });
+    });
+
+
 
     $(document).ready(function () {
       //init DateTimePickers
