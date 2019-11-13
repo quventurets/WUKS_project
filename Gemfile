@@ -78,3 +78,9 @@ gem "administrate"
 gem 'bcrypt'
 
 gem 'mysql2'
+
+gem 'omniauth-google-oauth2'
+
+group :development, :test do
+  gem 'dotenv-rails'
+end

@@ -11,7 +11,7 @@
         <div class="col-md-8 ml-auto mr-auto">
           <div class="brand">
             <h2 class="forbadge">
-              <h1><%= @comp.name %></h1>
+              <h2><b><%= @comp.name %></b></h2>
             </h2>
           </div>
         </div>
@@ -47,7 +47,7 @@
                 return false;"><u><%= @comp.address %></u></a><br>
               </div>
             <div class ="text-center">
-              <a id = "center" href=<%= @comp.url %>>
+              <a id = "center" href=<%= @comp.url %> target="_blank">
                 <button class="btn btn-primary btn-lg">もっと詳しく見る
                   <div class="ripple-container"></div>
                 </button>

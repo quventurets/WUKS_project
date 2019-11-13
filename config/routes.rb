@@ -26,11 +26,12 @@ Rails.application.routes.draw do
 
   get '/coming_soon' => "top#coming_soon"
 
+  get '/auth/:provider/callback' => "login#create"
+  get '/auth/failure' => redirect('/')
+
+  post '/login/:id/update' => "login#update"
   get '/login/:id' => "login#show"
   get '/login' => "login#login_form"
-  post '/login' => "login#login"
-  get '/registar' => "login#new"
-  post '/registar' => "login#create"
   get '/logout' => "login#logout"
   
   root 'top#index'

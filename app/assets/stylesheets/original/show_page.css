@@ -47,6 +47,10 @@ sub::after {
   font-weight: bold;
 }
 
+.article li {
+  margin-bottom: 0;
+}
+
 .card-doby{
     padding-bottom: 0px;
 }

@@ -1,5 +1,6 @@
 class TransferController < ApplicationController
   layout 'template_listpage.html.erb'
+  before_action :kill_session_message
 
   HOKKAIDO = ["北海道"]
   TOHOKU = ["青森県", "岩手県", "秋田県", "宮城県", "山形県", "福島県"]
