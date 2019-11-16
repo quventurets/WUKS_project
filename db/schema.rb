@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_13_110700) do
+ActiveRecord::Schema.define(version: 2019_11_15_114320) do
 
   create_table "comps", force: :cascade do |t|
     t.string "name"
@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(version: 2019_11_13_110700) do
     t.string "uid"
     t.string "area"
     t.string "future"
+    t.integer "grad_year"
   end
 
 end

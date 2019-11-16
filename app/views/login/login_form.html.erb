@@ -1,25 +1,30 @@
 <% content_for :title do %>
 ログイン
 <% end %>
+<section class="py-5 bg-image-full" style="background-image: url(<%= asset_path("img/bg7.jpg") %>);">
+  <div style="height: 0px;">
+  <div class="pt-5">
+  </div>
+  </div>
+</section>
 
-
-<div class="page-header header-filter" style="background-image: url(<%= asset_path('img/bg7.jpg') %>); background-size: cover; background-position: top center;">
+<div class="bg-image-full" style="background-image: url(<%= asset_path("img/bg7.jpg") %>);">
   <div class="container">
-    <div style="margin-top: 130px;">
+    <div style="margin-top: 0px;">
       <div class="row">
-        <div class="col-lg-10 col-md-10 ml-auto mr-auto">
+        <div class="col-lg-9 col-md-9 ml-auto mr-auto">
           <div class="card card-login">
-            <div class="card-header card-header-primary text-center" id="login">
-              <div class="card-text"><h3>ログイン/ユーザ登録</h3></div>
+            <div class="text-center" style="border-bottom: dotted 1px gray;">
+              <h2><b style="color: royalblue;">ログイン/ユーザ登録</b></h2>
             </div>
             <div class="card-body">
-            <div class="text-center">
-              <% if @error_message %>
-                <h4 style="color:red;">
-                  <%= @error_message %>
-                </h4>
-              <% end %>
-            </div>
+              <div class="text-center">
+                <% if @error_message %>
+                  <h4 style="color:red;">
+                    <%= @error_message %>
+                  </h4>
+                <% end %>
+              </div>
             <!--
               <span class="bmd-form-group"><div class="input-group">
                 <div class="input-group-prepend">
@@ -44,26 +49,24 @@
             </div>
             -->
             <div class="row">
-              <div class="col-lg-5 col-md-5 ml-auto mr-auto">
+              <div class="col-lg-10 col-md-10 ml-auto mr-auto">
                 <div class="text-center">
-                  <h3><b>ログインするとできること</b>
+                  <h3><b style="background: linear-gradient(transparent 70%, yellow 70%);">Googleアカウントを使ってWUKSにログインしよう</b></h3>
+                <h5></h5>
+                <a href="/auth/google_oauth2">
+                  <img class="link_to_google" alt="" style="width: 300px; padding-bottom: 20px;">
+                </a>
+                </div>
+                <div class="text-center">
+                  <h3><b style="background: linear-gradient(transparent 70%, yellow 70%);">ログインするとできること</b></h3>
                 </div>
                 <h4>
-                <ul style="list-style: disc; padding-left: 20px; line-height: 2;">
+                <ul style="list-style: disc; padding-left: 100px; line-height: 2;">
                   <li>未登録ユーザに比べて多くの大学の情報を見ることができます</li>
                   <li>ログインはGoogle認証なので簡単＆無料</li>
                   <li>今後さらに貴重な情報を受け取れるかも</li>
                 </ul>
                 </h4>
-              </div>
-              <div class="col-lg-5 col-md-5 ml-auto mr-auto">
-                <div class="text-center">
-                <h3><b>Googleアカウントを使ってWUKSにログインしよう</b></h3>
-                <h5>Googleにログインしてる場合、ワンクリックでWUKSにログインできます</h5>
-                <a href="/auth/google_oauth2">
-                  <img class="link_to_google" alt="" style="width: 220px; padding-bottom: 20px;">
-                </a>
-                </div>
               </div>
             </div>
             </div>

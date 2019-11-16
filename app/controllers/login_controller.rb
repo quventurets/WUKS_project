@@ -9,15 +9,18 @@ class LoginController < ApplicationController
     def show
       @user = User.find_by!(id: params[:id])
       @kosen = Kosen.all
+      @current_year = Date.today.year
       @message = session[:message]
     end
 
     def update
+
       @user = User.find_by!(id: params[:id])
       @user.name = params[:name]
       @user.kosen_id = params[:kosen_id]
       @user.area = params[:area]
       @user.future = params[:future]
+      @user.grad_year = params[:grad_year]
       
       if @user.save
         session[:message] = "変更を反映しました。"
