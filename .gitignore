@@ -35,3 +35,6 @@
 /config/master.key
 public/budle.js
 public/budle.js.map
+
+#Ignore csv files
+db/compData.csv
