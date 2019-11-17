@@ -1,7 +1,7 @@
 
 
 .pad25 {
-        padding: 10px 0 25px 0;
+        padding: 25px 0 0 0;
 }
 
 .pad10 {
@@ -48,10 +48,21 @@
 /* --------------------------------------------------
  TOPページの動く背景のエリアのコード
  -------------------------------------------------- */
-
- .index-page .page-header {
-    height: 50vh;
+.index-page .page-header {
+    height: 66vh;
 }
+
+ @media screen and (min-width: 896px) and (max-width: 1279px) {
+     .index-page .page-header {
+         height: 55vh;
+     }
+ }
+
+ @media screen and (max-width: 895px) {
+     .index-page .page-header {
+         height: 50vh;
+     }
+ }
 
 .area {
     background: #4e54c8;
@@ -242,7 +253,7 @@
       }
 
       .contents_introduction h4 {
-          font-size: 0.8em;
+          font-size: 0.75em;
       }
   
 }
@@ -278,6 +289,7 @@
 
  .contents_list p {
      font-size: 1.3em;
+     color: #3C4858;
  }
 
  @media screen and (min-width: 896px) and (max-width: 1279px) {
@@ -301,12 +313,17 @@
     }
 
     .contents_list p {
-        font-size: 0.5em;
+        font-size: 0.8em;
     }
 
     .card .card-body,
     .card .card-footer {
         padding: 5px 0px 0px 5px;
+    }
+
+    .col-4.main-item{
+        padding-right: 0.3em;
+        padding-left: 0.3em;
     }
  }
 
@@ -438,7 +455,7 @@
           width: 180px;
           vertical-align: middle;
           text-align: center;
-          font-size: 1.4rem;
+          font-size: 1.2rem;
           letter-spacing: 1px;
           padding: 0 0 0 0;
       }
@@ -478,19 +495,19 @@
       ul#notic_list li>div .date {
           display: table-cell;
           width: 24%;
-          font-size: 1.0rem;
+          font-size: 0.8rem;
           letter-spacing: 0px;
       }
 
       ul#notic_list li>div .title {
           display: table-cell;
           padding: 12px 10px 12px 10px;
-          font-size: 1.0rem;
+          font-size: 0.9rem;
           letter-spacing: 1px
       }
 
       ul#notic_list li>div .title a {
-          font-size: 1.0rem;
+          font-size: 0.9rem;
       }
 
   }
