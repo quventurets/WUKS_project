@@ -111,19 +111,3 @@ a, a:visited, a:link, a:active {
   margin: 0px 3px 3px;
 }
 
-html {
-  font-size: 75%;
-}
-
-@media screen and (min-width: 768px) {
-  html {
-    font-size: 87.5%;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  html {
-    font-size: 100%;
-  }
-}
-
