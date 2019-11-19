@@ -19,7 +19,7 @@
 </section>
 <div class="container">
   <div class="pt-3">
-  <input type="button" value="絞り込み" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
+  <input type="button" value="絞り込み" class="btn btn-primary btn-lg" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
   <div class="collapse <% if @filtered %>show <% end %>" id="collapseFilter">
     <%= form_with(url: transfer_path) do |form| %>
       <h3 class="filter-type">表示条件</h3>

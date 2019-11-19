@@ -8,7 +8,9 @@
     "start:prd": "/bin/bash -c 'source .env.prd && rails server -e production'",
     "assets:precompile:prd": "/bin/bash -c 'source .env.prd && bundle exec rake --trace assets:precompile'",
     "db:migrate:prd": "/bin/bash -c 'source .env.prd && bundle exec rake db:migrate'",
-    "db:create:prd": "/bin/bash -c 'source .env.prd && bundle exec rake db:create'"
+    "db:seed:prd": "/bin/bash -c 'source .env.prd && bundle exec rake db:seed'",
+    "db:create:prd": "/bin/bash -c 'source .env.prd && bundle exec rake db:create'",
+    "loadComp:prd": "/bin/bash -c 'source .env.prd && mysql -h $MYSQLCONNSTR_HOST -u $MYSQLCONNSTR_USERNAME  -p$MYSQLCONNSTR_PASSWORD $MYSQLCONNSTR_DATABASE < ./db/compLoad.sql'"
   },
   "dependencies": {
     "@material-ui/core": "^4.0.2",

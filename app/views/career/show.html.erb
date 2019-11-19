@@ -27,7 +27,7 @@
         <h2 class="heading"> 企業情報</h2>
           <div class="card-header card-header-primary">
             <h3 class="sub">ミッション</h3>
-              <%= simple_format(@comp.mission, {}, wrapper_tag: "div class='article'") %>
+              <%= simple_format(@comp.mission, {}, wrapper_tag: "div class='article' id='mission'") %>
             <h3 class="sub">なにをやっているのか</h3>
               <%= simple_format(@comp.what, {}, wrapper_tag: "div class='article'") %>
             <h3 class="sub">職種</h3>
@@ -46,6 +46,13 @@
                 onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI(<%= @comp.address %>));
                 return false;"><u><%= @comp.address %></u></a><br>
               </div>
+            <div class ="text-center">
+              <a id = "center" href=<%= @comp.url %>>
+                <button class="btn btn-primary btn-lg">もっと詳しく見る
+                  <div class="ripple-container"></div>
+                </button>
+              </a>
+            </div>
           </div>
       </div>
     </div>

@@ -43,13 +43,12 @@
 </div>
 -->
 
-<div class="listBlocks">
+ <div class="container">
   <div class="row">
-
     <% @comps.each do |comps| %>
-      <div class="col-md-3 col-sm-6">
+      <div class="col-md-3 col-sm-6" style="margin-bottom: 15px;">
         <%= link_to career_show_path(name:comps.name) do %>
-          <div class="card" id="career">
+          <div class="card" id="career" style="height: 90%; margin-bottom: 0px;">
             <div class="listImg">
               <img src=<%= asset_path("img/comp/#{comps.name}.jpg") %> alt="">
             </div>
@@ -71,4 +70,4 @@
     <% end %>   
 
   </div>
-</div>
+ </div>

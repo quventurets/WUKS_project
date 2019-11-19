@@ -1,29 +1,24 @@
+/* --------------------------------------------------
+詳細ページ全般に関するCSS(?)
+ -------------------------------------------------- */
+
 .heading{
     padding: 10px;
     margin:0px;
     padding-left:20px;
     background: #f6f6f6;
-    border-left:10px solid #861273;
-}
-
-.nav-tabs .nav-item .nav-link {
-    color: #fff;
-    border: 0;
-    margin: 0;
-    border-radius: 3px;
-    line-height: 24px;
-    text-transform: uppercase;
-    font-size: 15px;
-    padding: 10px 15px;
-    background-color: transparent;
-    transition: 0.3s background-color 0s;
+    border-left:10px solid #4e54c8;
+    font-weight: 600;
 }
 
 .sub {
   position: relative;
-  padding: .25em 0 .5em .75em;
-  border-left: 6px solid #861273;
+  font-size: 2.0em;
+  padding: .25em 0 .25em .75em;
+  border-left: 7px solid #4e54c8;
+  color: #3C4858;
   background-color: #f6f6f6;
+  font-weight: 600;
 }
 
 sub::after {
@@ -36,10 +31,50 @@ sub::after {
   border-bottom: 1px solid #ccc;
 }
 
+/* --------------------------------------------------
+ 各大学情報に関するCSS(?)
+ -------------------------------------------------- */
+
+.card .card-header-primary,
+.card.bg-primary,
+.card.card-rotate.bg-primary .front,
+.card.card-rotate.bg-primary .back {
+  background: linear-gradient(60deg, #4e54c8, rgba(18, 18, 199, 0.733));
+}
+
+.card .card-header-primary {
+  box-shadow: 0 5px 20px 0px rgba(28, 88, 218, 0.2), 0 13px 24px -11px rgba(35, 16, 212, 0.6);
+  padding: 3px 3px 3px 3px;
+}
+
+.card .card-header{
+  padding: 5px,5px;
+}
+
+.nav-tabs .nav-item .nav-link {
+  font-size: 1.4em;
+}
+
+@media screen and (max-width: 895px) { 
+  .nav-tabs .nav-item .nav-link{
+    line-height: 2em;
+    font-size: 1.2em;
+    padding: 0.5em 0.8em;
+  }
+}
+/* --------------------------------------------------
+ 企業詳細画面に関するCSS(?)
+ -------------------------------------------------- */
+
 .article {
   padding-left: 25px;
   font-size: 18px;
   line-height: 1.5;
+}
+
+.article#mission {
+  font-size: 22px;
+  font-weight: bold;
 }
 
 .card-doby{
@@ -50,61 +85,7 @@ sub::after {
     margin-bottom: 0px;
 }
 
-.msr_box01 {
-  background-color: #1B73BA;
-  width: 230px;
-}
-.msr_box01 a{
-  background-color: #FFFFFF;
-  border: 1px solid #B9B9B9;
-  box-sizing: border-box;
-  color:#000000;
-  display:block;
-  padding: 8px;
-  transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
-  -moz-transition: 0.2s ease-in-out;
-  -webkit-transition: 0.2s ease-in-out;
-}
-.msr_box01 img{
-  margin:0 0 5px;
-}
-.msr_box01 .ttl {
-  font-size: 16px;
-  line-height: 1.6;
-}
-.msr_box01 p {
-  font-size: 13px;
-  line-height: 1.6;
-}
-.msr_box01 a:hover{
-  opacity: 0.8;
-}
-
 .main-content .content-area {
   padding: 20px 15px;
 }
 
-.sidebar aside {
-    padding: 20px;
-    margin-bottom: 20px;
-    padding-left: 0px;
-    padding-right: 0px;
-}
-
-
-html {
-  font-size: 75%;
-}
-
-@media screen and (min-width: 768px) {
-  html {
-    font-size: 87.5%;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  html {
-    font-size: 100%;
-  }
-}
