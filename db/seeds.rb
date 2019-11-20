@@ -180,7 +180,8 @@ CSV.foreach('db/eventData.csv', headers: true) do |row|
       :startTime => row['startTime'],
       :finishTime => row['finishTime'],
       :guestComp => row['guestComp'],
-      :target => row['target']
+      :target => row['target'],
+      :form => row['form']
     )
   else
     Event.create(
@@ -195,7 +196,8 @@ CSV.foreach('db/eventData.csv', headers: true) do |row|
       :startTime => row['startTime'],
       :finishTime => row['finishTime'],
       :guestComp => row['guestComp'],
-      :target => row['target']
+      :target => row['target'],
+      :form => row['form']
     )
   end
 end
