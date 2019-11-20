@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_07_013305) do
+ActiveRecord::Schema.define(version: 2019_11_20_024555) do
 
   create_table "comps", force: :cascade do |t|
     t.string "name"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2019_11_07_013305) do
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.string "place"
-    t.datetime "date"
+    t.date "date"
     t.string "pref"
     t.string "event_type"
     t.integer "status"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2019_11_07_013305) do
     t.string "finishTime"
     t.string "guestComp"
     t.string "target"
+    t.string "form"
   end
 
   create_table "faculties", force: :cascade do |t|
@@ -94,11 +95,15 @@ ActiveRecord::Schema.define(version: 2019_11_07_013305) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "email"
+    t.text "email"
+    t.integer "kosen_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
-    t.integer "kosen_id"
+    t.string "provider"
+    t.string "uid"
+    t.string "area"
+    t.string "future"
+    t.integer "grad_year"
   end
 
 end
