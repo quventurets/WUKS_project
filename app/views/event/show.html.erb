@@ -39,7 +39,7 @@
             <h3 class="sub">イベントの概要</h3>
               <%= simple_format(@event.outline, {}, wrapper_tag: "div class='article'") %>
               <!-- 申込フォームが存在し、かつ状態が「募集中」の時にフォームへのボタンを表示する -->
-              <% if @event.form? && @event.status == 1 %>
+              <% if @event.form? && (@event.date > Date.today) %>
               <div class="text-center">
                 <a href="<%= @event.form %>">
                   <button class="btn btn-primary btn-lg">申し込み用Googleフォームへ
