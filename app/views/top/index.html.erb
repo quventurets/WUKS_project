@@ -119,10 +119,11 @@
           <div class="card" id="event" style="height: 90%; margin-bottom: 0px;">
             <div class="listImg">
               <img src=<%= asset_path("img/event/#{events.name}.jpg") %> alt="">
-              <% if events.status == 0 %>
-              <span class="badge badge-pill badge-default">応募終了</span>
-              <% elsif events.status == 1 %>
+              <!-- イベント当日以降は応募終了、それ以前は募集中にする -->
+              <% if events.date > Date.today %>
               <span class="badge badge-pill badge-warning">募集中</span>
+              <% else %>
+              <span class="badge badge-pill badge-default">応募終了</span>
               <% end %>
             </div>
             <div class="listContent">

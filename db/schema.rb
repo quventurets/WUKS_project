@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_20_024555) do
+ActiveRecord::Schema.define(version: 2019_11_22_175501) do
 
   create_table "comps", force: :cascade do |t|
     t.string "name"
@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 2019_11_20_024555) do
     t.date "date"
     t.string "pref"
     t.string "event_type"
-    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "outline"
