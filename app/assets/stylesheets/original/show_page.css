@@ -6,19 +6,21 @@
     padding: 10px;
     margin:0px;
     padding-left:20px;
-    background: #f6f6f6;
-    border-left:10px solid #4e54c8;
     font-weight: 600;
+    text-align: center;
 }
 
 .sub {
   position: relative;
   font-size: 2.0em;
   padding: .25em 0 .25em .75em;
-  border-left: 7px solid #4e54c8;
+  border-left: 10px solid #4e54c8;
+  border-right: 10px solid #4e54c8;
   color: #3C4858;
-  background-color: #f6f6f6;
+  /*background-color: #f6f6f6;*/
+  background-color: #f9f9f9;
   font-weight: 600;
+  text-align: center;
 }
 
 sub::after {
@@ -67,13 +69,32 @@ sub::after {
  -------------------------------------------------- */
 
 .article {
-  padding-left: 25px;
-  font-size: 18px;
-  line-height: 1.5;
+  padding-left: 15px;
+  /* ------------------------------------------------
+    メモ: font-sizeの計算方法
+    (1)横幅が768px未満
+    100% + 0.5/100 * 横幅(px)
+    例)100%が16pxで横幅800pxならfont-sizeは20pxになる
+    (2)横幅が768px以上
+    768px,1024pxをブレークポイントとして%で指定(下のメディアクエリ参照)
+  ------------------------------------------------ */
+  font-size: calc(100% + 0.5vw);
+  line-height: 2em;
+}
+
+@media screen and (min-width: 768px) {
+  .article {
+    font-size: 87.5%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .article {
+    font-size: 100%;
+  }
 }
 
 .article#mission {
-  font-size: 22px;
+  font-size: calc(112.5% + 0.5vw);
   font-weight: bold;
 }
 
