@@ -3,70 +3,54 @@
 <% end %>
 
 <section class="py-5 bg-image-full" style="background-image: url(<%= asset_path("img/event/#{@event.name}.jpg") %>);">
-  <div style="height: 150px;">
-  <div class="pt-5">
-  </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 ml-auto mr-auto">
-          <div class="brand">
-            <h2 class="forbadge">
-              <h2><b><%= @event.name %></b></h2>
-            </h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div style="height: 150px;"></div>
 </section>
 
-<div class ="container main-content">
-  <div class="pt-5">
-    <div class ="row">
-      <div class="container">
-        <h2 class="heading"> イベント情報</h2>
-          <div class="card-header card-header-primary">
-            <h3><%= @event.name %></h3>
-            <!-- イベント当日以降は応募終了、それ以前は募集中にする -->
-            <% if @event.date > Date.today %>
-            <span class="badge badge-pill badge-warning">募集中</span>
-            <% else %>
-            <span class="badge badge-pill badge-default">応募終了</span>
-            <% end %>
-            <span class="badge badge-pill badge-rose"><%= @event.pref %></span>
-            <span class="badge badge-pill badge-info"><%= @event.event_type %></span>
-            <span class="badge badge-pill badge-danger">交通費支給</span>
-            <h3 class="sub">イベントの概要</h3>
-              <%= simple_format(@event.outline, {}, wrapper_tag: "div class='article'") %>
-              <!-- 申込フォームが存在し、かつ状態が「募集中」の時にフォームへのボタンを表示する -->
-              <% if @event.form? && (@event.date > Date.today) %>
-              <div class="text-center">
-                <a href="<%= @event.form %>">
-                  <button class="btn btn-primary btn-lg">申し込み用Googleフォームへ
-                    <div class="ripple-container"></div>
-                  </button>
-                </a>
-              </div>
-              <% end %>
-            <% if @event.event_type == "企業座談会" %>
-            <h3 class="sub">参加企業</h3>
-              <div class="article"><%= @event.guestComp %></div>
-            <% end %>
-            <h3 class="sub">対象</h3>
-              <div class="article"><%= @event.target %></div>
-            <h3 class="sub">日時・場所</h3>
-              <div class="article">
-                <%= @event.date.strftime("%Y年%m月%d日") %> <%= @event.startTime %>～<%= @event.finishTime %>
-                <br>
-                <a href="javascript:;" 
-                  onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @event.place %>'));
-                  return false;"><u><%= @event.place %></u>
-                </a>
-              </div>
-            <h3 class="sub">その他の情報</h3>
-              <%= simple_format(@event.otherinfo, {}, wrapper_tag: "div class='article'") %>
+<div class ="row">
+  <div class="container">
+    <h2 class="heading">イベント情報</h2>
+      <div class="card-header card-header-primary">
+        <div  style="text-align:center;">
+          <h3><%= @event.name %></h3>
+          <!-- イベント当日以降は応募終了、それ以前は募集中にする -->
+          <% if @event.date > Date.today %>
+          <span class="badge badge-pill badge-warning">募集中</span>
+          <% else %>
+          <span class="badge badge-pill badge-default">応募終了</span>
+          <% end %>
+          <span class="badge badge-pill badge-rose"><%= @event.pref %></span>
+          <span class="badge badge-pill badge-info"><%= @event.event_type %></span>
+          <span class="badge badge-pill badge-danger">交通費支給</span>
+        </div>
+        <h3 class="sub">イベントの概要</h3>
+          <%= simple_format(@event.outline, {}, wrapper_tag: "div class='article'") %>
+          <!-- 申込フォームが存在し、かつ状態が「募集中」の時にフォームへのボタンを表示する -->
+          <% if @event.form? && (@event.date > Date.today) %>
+          <div class="text-center">
+            <a href="<%= @event.form %>">
+              <button class="btn btn-primary btn-lg">申し込み用Googleフォームへ
+                <div class="ripple-container"></div>
+              </button>
+            </a>
           </div>
+          <% end %>
+        <% if @event.event_type == "企業座談会" %>
+        <h3 class="sub">参加企業</h3>
+          <div class="article"><%= @event.guestComp %></div>
+        <% end %>
+        <h3 class="sub">対象</h3>
+          <div class="article"><%= @event.target %></div>
+        <h3 class="sub">日時・場所</h3>
+          <div class="article">
+            <%= @event.date.strftime("%Y年%m月%d日") %> <%= @event.startTime %>～<%= @event.finishTime %>
+            <br>
+            <a href="javascript:;" 
+              onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @event.place %>'));
+              return false;"><u><%= @event.place %></u>
+            </a>
+          </div>
+        <h3 class="sub">その他の情報</h3>
+          <%= simple_format(@event.otherinfo, {}, wrapper_tag: "div class='article'") %>
       </div>
-    </div>
   </div>
 </div>
