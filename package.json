@@ -10,7 +10,8 @@
     "db:migrate:prd": "/bin/bash -c 'source .env.prd && bundle exec rake db:migrate'",
     "db:seed:prd": "/bin/bash -c 'source .env.prd && bundle exec rake db:seed'",
     "db:create:prd": "/bin/bash -c 'source .env.prd && bundle exec rake db:create'",
-    "loadComp:prd": "/bin/bash -c 'source .env.prd && mysql -h $MYSQLCONNSTR_HOST -u $MYSQLCONNSTR_USERNAME  -p$MYSQLCONNSTR_PASSWORD $MYSQLCONNSTR_DATABASE < ./db/compLoad.sql'"
+    "loadComp:prd": "/bin/bash -c 'source .env.prd && mysql -h $MYSQLCONNSTR_HOST -u $MYSQLCONNSTR_USERNAME  -p$MYSQLCONNSTR_PASSWORD $MYSQLCONNSTR_DATABASE < ./db/compLoad.sql'",
+    "loadEvent:prd": "/bin/bash -c 'source .env.prd && mysql -h $MYSQLCONNSTR_HOST -u $MYSQLCONNSTR_USERNAME  -p$MYSQLCONNSTR_PASSWORD $MYSQLCONNSTR_DATABASE < ./db/eventLoad.sql'"
   },
   "dependencies": {
     "@material-ui/core": "^4.0.2",

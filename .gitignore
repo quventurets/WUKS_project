@@ -38,3 +38,4 @@ public/budle.js.map
 
 #Ignore csv files
 db/compData.csv
+db/eventData.csv
