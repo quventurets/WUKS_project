@@ -54,13 +54,13 @@ sub::after {
 }
 
 .nav-tabs .nav-item .nav-link {
-  font-size: 1.4em;
+  font-size: 1em;
 }
 
 @media screen and (max-width: 895px) { 
   .nav-tabs .nav-item .nav-link{
     line-height: 2em;
-    font-size: 1.2em;
+    font-size: 1em;
     padding: 0.5em 0.8em;
   }
 }
