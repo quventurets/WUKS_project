@@ -75,7 +75,7 @@ CSV.foreach('db/univData.csv', headers: true) do |row|
     faculty.update(
       :date_general => get_faculty_date_text(row['date_general']),
       :date_general_pass => get_faculty_date_text(row['date_general_pass']),
-      :isThereRec => row['exam_types'],
+      :isThereRec => row['exam_types'] || 0,
       :date_recomend => get_faculty_date_text(row['date_recommend']),
       :date_recomend_pass => get_faculty_date_text(row['date_recommend_pass']),
       :url => row['url']
@@ -91,6 +91,52 @@ CSV.foreach('db/univData.csv', headers: true) do |row|
       :date_recomend_pass => get_faculty_date_text(row['date_recommend_pass']),
       :department => row['department'],
       :url => row['url']
+    )
+  end
+
+  department = Department.find_by(univ_name: row['name'], faculty_name: row["faculty"], name: row["department"])
+
+  if !department.nil?
+    department.update(
+      :univ_name => row['name'],
+      :faculty_name => row['faculty'],
+      :name => row['department'],
+      :date_general => get_faculty_date_text(row['date_general']),
+      :date_recomend => get_faculty_date_text(row['date_recommend']),
+      :date_general_pass => get_faculty_date_text(row['date_general_pass']),
+      :date_recomend_pass => get_faculty_date_text(row['date_recommend_pass']),
+      :math => row['math'] || 0,
+      :english => row['english'] || 0,
+      :physics => row['physics'] || 0,
+      :chemistry => row['chemistry'] || 0,
+      :biology => row['biology'] || 0,
+      :special => row['special'] || 0,
+      :paper => row['paper'] || 0,
+      :integration => row['integration'] || 0,
+      :practical => row['practical'] || 0,
+      :external_english => row['external_english'] || 0,
+      :interview => row['interview'] || 0
+    )
+  else
+    Department.create(
+      :univ_name => row['name'],
+      :faculty_name => row['faculty'],
+      :name => row['department'],
+      :date_general => get_faculty_date_text(row['date_general']),
+      :date_recomend => get_faculty_date_text(row['date_recommend']),
+      :date_general_pass => get_faculty_date_text(row['date_general_pass']),
+      :date_recomend_pass => get_faculty_date_text(row['date_recommend_pass']),
+      :math => row['math'] || 0,
+      :english => row['english'] || 0,
+      :physics => row['physics'] || 0,
+      :chemistry => row['chemistry'] || 0,
+      :biology => row['biology'] || 0,
+      :special => row['special'] || 0,
+      :paper => row['paper'] || 0,
+      :integration => row['integration'] || 0,
+      :practical => row['practical'] || 0,
+      :external_english => row['external_english'] || 0,
+      :interview => row['interview'] || 0
     )
   end
 end

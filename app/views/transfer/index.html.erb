@@ -61,6 +61,87 @@
       } %>
       <br />
       <hr/>
+      <h3 class="filter-type">科目</h3>
+     <!-- <ul class="nav nav-pills nav-pills-primary" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#exact" role="tablist" aria-expanded="true">
+              完全一致
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#partial" role="tablist" aria-expanded="false">
+              部分一致
+          </a>
+        </li>
+      </ul> -->
+      <div class="btn-group form-group col-md-3" data-toggle="buttons">
+          <label class="btn btn-dark btn-sm active">
+            <%= form.radio_button :subject, "none", {:autocomplete => "off", :class => "radio-order"}%>科目で絞り込まない
+          </label>
+          <label class="btn btn-dark btn-sm">
+            <%= form.radio_button :subject, "exact", {:autocomplete => "off", :class => "radio-order"}%>のみ
+          </label>
+          <label class="btn btn-dark btn-sm">
+            <%= form.radio_button :subject, "partial", {:autocomplete => "off", :class => "radio-order"}%>を必ず含む
+          </label>
+        </div>
+        <br >
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'math_e', badge_text: '数学', badge_class: 'badge-rose', id: 'labelMath', checked: !(params['math_e'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'english_e', badge_text: '英語', badge_class: 'badge-rose', id: 'labelEnglish', checked: !(params['english_e'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'physics_e', badge_text: '物理', badge_class: 'badge-rose', id: 'labelPhysics', checked: !(params['physics_e'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'chemistry_e', badge_text: '化学', badge_class: 'badge-rose', id: 'labelChemistry', checked: !(params['chemistry_e'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => {
+            name: 'biology_e', badge_text: '生物', badge_class: 'badge-rose', id: 'labelBiology', checked: !(params['biology_e'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => {
+            name: 'interview', badge_text: '面接', badge_class: 'badge-rose', id: 'labelInterview', checked: !(params['interview'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => {
+            name: 'other', badge_text: 'その他', badge_class: 'badge-rose', id: 'labelOther', checked: !(params['other'] == '0'), form: form
+          } %>
+     <!-- <div class="tab-content tab-space">
+        <div class="tab-pane active" id="exact" aria-expanded="true">
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'math_e', badge_text: '数学', badge_class: 'badge-rose', id: 'labelMath', checked: !(params['math_e'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'english_e', badge_text: '英語', badge_class: 'badge-rose', id: 'labelEnglish', checked: !(params['english_e'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'physics_e', badge_text: '物理', badge_class: 'badge-rose', id: 'labelPhysics', checked: !(params['physics_e'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'chemistry_e', badge_text: '化学', badge_class: 'badge-rose', id: 'labelChemistry', checked: !(params['chemistry_e'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => {
+            name: 'biology_e', badge_text: '生物', badge_class: 'badge-rose', id: 'labelBiology', checked: !(params['biology_e'] == '0'), form: form
+          } %>
+        </div>
+        <div class="tab-pane" id="partial" aria-expanded="false">
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'math', badge_text: '数学', badge_class: 'badge-rose', id: 'labelMath', checked: !(params['math'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'english', badge_text: '英語', badge_class: 'badge-rose', id: 'labelEnglish', checked: !(params['english'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'physics', badge_text: '物理', badge_class: 'badge-rose', id: 'labelPhysics', checked: !(params['physics'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'chemistry', badge_text: '化学', badge_class: 'badge-rose', id: 'labelChemistry', checked: !(params['chemistry'] == '0'), form: form
+          } %>
+        </div>
+      </div> -->
+      <br />
+      <hr/>
       <h3 class="filter-type">並び替え</h3>
       <div class="form-row">
         <div class="form-group col-md-3">
@@ -85,34 +166,57 @@
   <% end %>
 
   <% @univs.each do |univs| %>
-  <!--<a href ="/transfer/<%= univs.name %>"> -->
-  <%= link_to transfer_show_path(name:univs.name) do %>
-  <div class="row product border">
-    <div class="col-md-4">
+  <div class="univ-parent">
+    <!--<a href ="/transfer/<%= univs.name %>"> -->
+    <%= link_to transfer_show_path(name:univs.name) do %>
+    <div class="row product border">
+      <div class="col-md-4">
 
-      <img src=<%= asset_path("img/univ/#{univs.name}.jpg") %> alt="url('/assets/img/bg7.jpg');" class="img-thumbnail">
+        <img src=<%= asset_path("img/univ/#{univs.name}.jpg") %> alt="url('/assets/img/bg7.jpg');" class="img-thumbnail">
 
-      <!-- <img src="assets/img/wuks.png" alt="" class="img-thumbnail">
-          -->
-    </div>
-    <div class="col-md-8">
-      <h2 class="nameUni"><%= univs.name %></h2>
-      <h4 class="forbadge"><span class="badge badge-pill badge-rose"><%= univs.location %></span></h4>
-      <% if univs.examtypes == 1 %>
-        <h4 class="forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
-          <span class="badge badge-pill badge-success"><%= univs.date_recommend %></span>
-          <span class="badge badge-pill badge-info">推薦入試あり</span>
-      <% else %>
-        <h4 class="forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
-      <% end %>
-          <% if univs.otherFac == 1%>
-          <span class="badge badge-pill badge-warning">工学系以外も編入可</span>
+        <!-- <img src="assets/img/wuks.png" alt="" class="img-thumbnail">
+            -->
+      </div>
+      <div class="col-md-8">
+        <h2 class="nameUni"><%= univs.name %></h2>
+        <h4 class="forbadge"><span class="badge badge-pill badge-rose"><%= univs.location %></span></h4>
+        <% if univs.examtypes == 1 %>
+          <h4 class="forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
+            <span class="badge badge-pill badge-success"><%= univs.date_recommend %></span>
+            <span class="badge badge-pill badge-info">推薦入試あり</span>
+        <% else %>
+          <h4 class="forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
+        <% end %>
+            <% if univs.otherFac == 1%>
+            <span class="badge badge-pill badge-warning">工学系以外も編入可</span>
+            <% end %>
+          </h4>
+        <div class="collapse" id="collapseUniv<%= univs.id %>">
+          <% @facluties.select{|facluty| facluty.s_name == univs.name}.each do |facluty| %>
+            <li><%= facluty.f_name %></li>
+            <ul>
+              <% @departments.select{|department| department.univ_name == univs.name && department.faculty_name == facluty.f_name}.each do |department| %>
+                <li style="padding-left: 40px;" ><%= department.name %> 
+                <% if department.math %>(数)<% end %>
+                <% if department.english %>(英)<% end %>
+                <% if department.physics %>(物)<% end %>
+                <% if department.chemistry %>(化)<% end %>
+                <% if department.biology %>(生)<% end %>
+                <% if department.interview %>(面)<% end %>
+                <% if department.special || department.paper || department.integration || department.practical || department.external_english %>(他)<% end %>
+                </li>
+              <% end %>
+            </ul>
           <% end %>
-        </h4>
+        </div>
+      </div>
     </div>
-  </div>
-  <% end %>
-  <!--</a>-->
+    <% end %>
+    <!--</a>-->
+      <button class="expand-mark" type="button" data-toggle="collapse" data-target="#collapseUniv<%= univs.id %>" aria-expanded="true" aria-controls="collapseUniv<%= univs.id %>">
+        <i class="material-icons">expand_more</i>
+      </button>
+    </div>
   <% end %>
 </div>
 

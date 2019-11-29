@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  univ_name: MyString
+  faculty_name: MyString
+  name: MyString
+  date_general: 2019-11-22 16:12:09
+  date_recomend: 2019-11-22 16:12:09
+  date_general_pass: 2019-11-22 16:12:09
+  date_recomend_pass: MyString
+  math: false
+  english: false
+  physics: false
+  chemistry: false
+  biology: false
+  special: false
+  paper: false
+  integration: false
+  practical: false
+  external_english: false
+  interview: false
+
+two:
+  univ_name: MyString
+  faculty_name: MyString
+  name: MyString
+  date_general: 2019-11-22 16:12:09
+  date_recomend: 2019-11-22 16:12:09
+  date_general_pass: 2019-11-22 16:12:09
+  date_recomend_pass: MyString
+  math: false
+  english: false
+  physics: false
+  chemistry: false
+  biology: false
+  special: false
+  paper: false
+  integration: false
+  practical: false
+  external_english: false
+  interview: false
