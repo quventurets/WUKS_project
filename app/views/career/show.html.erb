@@ -13,7 +13,11 @@
         <div style="text-align:center;">
           <h3><%= @comp.name %></h3>
           <span class="badge badge-pill badge-rose"><%= @comp.place %></span>
-          <span class="badge badge-pill badge-success"><%= @comp.area %></span>
+          <% 5.times do |i| %>
+            <% if @comp.area[i] == 1 %>
+              <span class="badge badge-pill badge-success"><%= @areas[i] %></span>
+            <% end %>
+          <% end %>
           <span class="badge badge-pill badge-info"><%= @comp.scale %></span>
         </div>
         <h3 class="sub">ミッション</h3>
