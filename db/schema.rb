@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_22_175501) do
+ActiveRecord::Schema.define(version: 2019_12_05_213000) do
 
   create_table "comps", force: :cascade do |t|
     t.string "name"
-    t.string "area"
+    t.integer "area"
     t.string "scale"
     t.string "place"
     t.datetime "created_at", null: false

@@ -60,7 +60,11 @@
               </div>
               <div class="tagArea">
                 <span class="badge badge-pill badge-rose"><%= comps.place %></span>
-                <span class="badge badge-pill badge-success"><%= comps.area %></span>
+                <% 5.times do |i| %>
+                  <% if comps.area[i] == 1 %>
+                    <span class="badge badge-pill badge-success"><%= @areas[i] %></span>
+                  <% end %>
+                <% end %>
                 <span class="badge badge-pill badge-info"><%= comps.scale %></span>
               </div>
             </div>
