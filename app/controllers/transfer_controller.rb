@@ -1,29 +1,39 @@
 class TransferController < ApplicationController
   layout 'template_listpage.html.erb'
   
+  Attributes = [
+    ["examtypes", "0"],
+    ["otherFac", "0"],
+
+    ["hokkaido", "1"],
+    ["tohoku", "1"],
+    ["hokuriku", "1"],
+    ["chubu", "1"],
+    ["kanto", "1"],
+    ["kinki", "1"],
+    ["chugoku", "1"],
+    ["sikoku", "1"],
+    ["kyushu", "1"],
+
+    ["math", "1"],
+    ["english", "1"],
+    ["physics", "1"],
+    ["chemistry", "1"],
+    ["special", "1"],
+    ["external_english", "1"],
+    ["other", "1"],
+
+    ["order_by", "id"],
+    ["order", "ASC"]
+  ]
+
   def index
 
     @departments = Department.filter(params)
     @univs = Univ.filter(params, @departments)
     @facluties = Faculty.filter(params, @departments)
-   
 
-    @filtered = [
-      "examtypes", 
-      "otherFac", 
-      "hokkaido", 
-      "tohoku", 
-      "hokuriku", 
-      "chubu", 
-      "kanto", 
-      "kinki", 
-      "chugoku", 
-      "sikoku", 
-      "kyushu", 
-      "order_by", 
-      "order"
-    ].map{|attribute| params[attribute]}.any?
-    
+    @filtered = Attributes.map{|attribute, default| !(params[attribute].nil? || params[attribute] == default)}.any?
   end
 
   def show
