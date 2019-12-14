@@ -19,101 +19,229 @@
 </section>
 <div class="container">
   <div class="pt-3">
-  <input type="button" value="絞り込み" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
-  <div class="collapse <% if @filtered %>show <% end %>" id="collapseFilter">
-    <%= form_with(url: transfer_path) do |form| %>
-      <h3 class="filter-type">表示条件</h3>
-      <%= render :partial => "badge_checkbox", :locals => { 
-        name: 'examtypes', badge_text: '推薦入試あり', badge_class: 'badge-info', id: 'labelExamTypes', checked: (params['examtypes'] == '1'), form: form
-      } %>
-      <%= render :partial => "badge_checkbox", :locals => { 
-        name: 'otherFac', badge_text: '工学系以外も編入可', badge_class: 'badge-warning', id: 'labelOtherFac', checked: (params['otherFac'] == '1'), form: form
-      } %>
-      <br/>
-      <hr/>
-      <h3 class="filter-type">表示地域</h3>
-      <%= render :partial => "badge_checkbox", :locals => { 
-        name: 'hokkaido', badge_text: '北海道', badge_class: 'badge-rose', id: 'labelHokkaido', checked: !(params['hokkaido'] == '0'), form: form
-      } %>
-      <%= render :partial => "badge_checkbox", :locals => { 
-        name: 'tohoku', badge_text: '東北', badge_class: 'badge-rose', id: 'labelTohoku', checked: !(params['tohoku'] == '0'), form: form
-      } %>
-      <%= render :partial => "badge_checkbox", :locals => { 
-        name: 'hokuriku', badge_text: '北陸', badge_class: 'badge-rose', id: 'labelHokuriku', checked: !(params['hokuriku'] == '0'), form: form
-      } %>
-      <%= render :partial => "badge_checkbox", :locals => { 
-        name: 'kanto', badge_text: '関東', badge_class: 'badge-rose', id: 'labelKanto', checked: !(params['kanto'] == '0'), form: form
-      } %>
-      <%= render :partial => "badge_checkbox", :locals => { 
-        name: 'chubu', badge_text: '中部', badge_class: 'badge-rose', id: 'labelChubu', checked: !(params['chubu'] == '0'), form: form
-      } %>
-      <%= render :partial => "badge_checkbox", :locals => { 
-        name: 'kinki', badge_text: '近畿', badge_class: 'badge-rose', id: 'labelKinki', checked: !(params['kinki'] == '0'), form: form
-      } %>
-      <%= render :partial => "badge_checkbox", :locals => { 
-        name: 'chugoku', badge_text: '中国', badge_class: 'badge-rose', id: 'labelChugoku', checked: !(params['chugoku'] == '0'), form: form
-      } %>
-      <%= render :partial => "badge_checkbox", :locals => { 
-        name: 'sikoku', badge_text: '四国', badge_class: 'badge-rose', id: 'labelSikoku', checked: !(params['sikoku'] == '0'), form: form
-      } %>
-      <%= render :partial => "badge_checkbox", :locals => { 
-        name: 'kyushu', badge_text: '九州', badge_class: 'badge-rose', id: 'labelKyushu', checked: !(params['kyushu'] == '0'), form: form
-      } %>
-      <br />
-      <hr/>
-      <h3 class="filter-type">並び替え</h3>
-      <div class="form-row">
-        <div class="form-group col-md-3">
-          <%= form.select :order_by, [["デフォルト", "id"], ["試験日", "date_number"], ["名前", "rubi"]], {:selected => params["order_by"]?params["order_by"]:"id"}, {:class => "form-control"}%>
-        </div>
-        <div class="btn-group form-group col-md-3" data-toggle="buttons">
-          <label class="btn btn-dark btn-sm <% if !(params["order"] == "DESC")%>active<% end %>">
-            <%= form.radio_button :order, "ASC", {:checked => !(params["order"] == "DESC"), :autocomplete => "off", :class => "radio-order"}%>昇順
-          </label>
-          <label class="btn btn-dark btn-sm <% if (params["order"] == "DESC")%>active<% end %>">
-            <%= form.radio_button :order, "DESC", {:checked => (params["order"] == "DESC"), :autocomplete => "off", :class => "radio-order"}%>降順
-          </label>
-        </div>
-        
-      </div>
-      <input type="submit" value="絞り込む" class="btn btn-success btn">
-    <% end %>
-  </div>
+
   <div class ="pt-3">
   <% if @univs.length <= 0 %>
     <h2>条件に合致する大学はありません</h2>
   <% end %>
 
-  <% @univs.each do |univs| %>
-  <!--<a href ="/transfer/<%= univs.name %>"> -->
-  <%= link_to transfer_show_path(name:univs.name) do %>
-  <div class="row product border">
-    <div class="col-md-4">
-
-      <img src=<%= asset_path("img/univ/#{univs.name}.jpg") %> alt="url('/assets/img/bg7.jpg');" class="img-thumbnail">
-
-      <!-- <img src="assets/img/wuks.png" alt="" class="img-thumbnail">
-          -->
+  <div class="row">
+    <div class="col-md-3">
+        <%= form_with(url: transfer_path) do |form| %>
+          <h3 class="filter-type">表示条件</h3>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'examtypes', badge_text: '推薦入試あり', badge_class: 'badge-info', id: 'labelExamTypes', checked: (params['examtypes'] == '1'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'otherFac', badge_text: '工学系以外も編入可', badge_class: 'badge-warning', id: 'labelOtherFac', checked: (params['otherFac'] == '1'), form: form
+          } %>
+          <br/>
+          <hr/>
+          <h3 class="filter-type">表示地域</h3>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'hokkaido', badge_text: '北海道', badge_class: 'badge-rose', id: 'labelHokkaido', checked: !(params['hokkaido'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'tohoku', badge_text: '東北', badge_class: 'badge-rose', id: 'labelTohoku', checked: !(params['tohoku'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'hokuriku', badge_text: '北陸', badge_class: 'badge-rose', id: 'labelHokuriku', checked: !(params['hokuriku'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'kanto', badge_text: '関東', badge_class: 'badge-rose', id: 'labelKanto', checked: !(params['kanto'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'chubu', badge_text: '中部', badge_class: 'badge-rose', id: 'labelChubu', checked: !(params['chubu'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'kinki', badge_text: '近畿', badge_class: 'badge-rose', id: 'labelKinki', checked: !(params['kinki'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'chugoku', badge_text: '中国', badge_class: 'badge-rose', id: 'labelChugoku', checked: !(params['chugoku'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'sikoku', badge_text: '四国', badge_class: 'badge-rose', id: 'labelSikoku', checked: !(params['sikoku'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'kyushu', badge_text: '九州', badge_class: 'badge-rose', id: 'labelKyushu', checked: !(params['kyushu'] == '0'), form: form
+          } %>
+          <br />
+          <hr/>
+          <h3 class="filter-type">科目
+            <button type="button" class="btn btn-fab btn-fab-mini btn-round" data-toggle="modal" data-target="#subjectHelpModal">
+              <i class="material-icons">help_outline</i>
+            </button>
+          </h3>
+          <div class="modal fade" id="subjectHelpModal" tabindex="-1" role="">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <p>選択した科目のみで構成される大学の学部学科が表示されます。</p>
+                  <p>その他には「生物」、「国語」、「小論文」、「総合問題」、「実技」が含まれます。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'math', badge_text: '数学', badge_class: 'badge-rose', id: 'labelMath', checked: !(params['math'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'english', badge_text: '英語', badge_class: 'badge-rose', id: 'labelEnglish', checked: !(params['english'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'physics', badge_text: '物理', badge_class: 'badge-rose', id: 'labelPhysics', checked: !(params['physics'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'chemistry', badge_text: '化学', badge_class: 'badge-rose', id: 'labelChemistry', checked: !(params['chemistry'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => {
+            name: 'special', badge_text: '専門', badge_class: 'badge-rose', id: 'labelSpecial', checked: !(params['special'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'external_english', badge_text: '英語(外部試験)', badge_class: 'badge-rose', id: 'labelExternalEnglish', checked: !(params['external_english'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => {
+            name: 'other', badge_text: 'その他', badge_class: 'badge-rose', id: 'labelOther', checked: !(params['other'] == '0'), form: form
+          } %>
+          <br />
+          <hr/>
+          <h3 class="filter-type">並び替え</h3>
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <%= form.select :order_by, [["デフォルト", "id"], ["試験日", "date_number"], ["名前", "rubi"]], {:selected => params["order_by"]?params["order_by"]:"id"}, {:class => "form-control"}%>
+            </div>
+            <div class="btn-group form-group col-md-3" data-toggle="buttons">
+              <label class="btn btn-dark btn-sm <% if !(params["order"] == "DESC")%>active<% end %>">
+                <%= form.radio_button :order, "ASC", {:checked => !(params["order"] == "DESC"), :autocomplete => "off", :class => "radio-order"}%>昇順
+              </label>
+              <label class="btn btn-dark btn-sm <% if (params["order"] == "DESC")%>active<% end %>">
+                <%= form.radio_button :order, "DESC", {:checked => (params["order"] == "DESC"), :autocomplete => "off", :class => "radio-order"}%>降順
+              </label>
+            </div>
+            
+          </div>
+          <input type="submit" value="絞り込む" class="btn btn-success btn">
+          <!-- <input type="submit" value="デフォルトに戻す" class="btn btn-danger btn-default"> -->
+        <% end %>
     </div>
-    <div class="col-md-8">
-      <h2 class="nameUni"><%= univs.name %></h2>
-      <h4 class="forbadge"><span class="badge badge-pill badge-rose"><%= univs.location %></span></h4>
-      <% if univs.examtypes == 1 %>
-        <h4 class="forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
-          <span class="badge badge-pill badge-success"><%= univs.date_recommend %></span>
-          <span class="badge badge-pill badge-info">推薦入試あり</span>
-      <% else %>
-        <h4 class="forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
+    <div class="col-md-9">
+      <% @univs.each do |univs| %>
+      <div class="univ-parent">
+        <!--<a href ="/transfer/<%= univs.name %>"> -->
+        <%= link_to transfer_show_path(name:univs.name) do %>
+        <div class="row product border">
+          <div class="col-md-4">
+
+            <img src=<%= asset_path("img/univ/#{univs.name}.jpg") %> alt="url('/assets/img/bg7.jpg');" class="img-thumbnail">
+
+            <!-- <img src="assets/img/wuks.png" alt="" class="img-thumbnail">
+                -->
+          </div>
+          <div class="col-md-8">
+            <h2 class="nameUni"><%= univs.name %></h2>
+            <h4 class="forbadge"><span class="badge badge-pill badge-rose"><%= univs.location %></span></h4>
+            <% if univs.examtypes == 1 %>
+              <h4 class="forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
+                <span class="badge badge-pill badge-success"><%= univs.date_recommend %></span>
+                <span class="badge badge-pill badge-info">推薦入試あり</span>
+            <% else %>
+              <h4 class="forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
+            <% end %>
+                <% if univs.otherFac == 1%>
+                <span class="badge badge-pill badge-warning">工学系以外も編入可</span>
+                <% end %>
+              </h4>
+          </div>
+          <div class="collapse" id="collapseUniv<%= univs.id %>">
+              <% @facluties.select{|facluty| facluty.s_name == univs.name}.each do |facluty| %>
+                <li><%= facluty.f_name %></li>
+                <ul>
+                  <% @departments.select{|department| department.univ_name == univs.name && department.faculty_name == facluty.f_name}.each do |department| %>
+                    <li style="padding-left: 20px;margin-bottom: 10px;" ><%= department.name %> <br/>
+                      
+                      <span class="badge badge-pill subject-badge <% if department.math %>badge-rose<% else %>badge-secondary<% end %>">
+                        数
+                      </span>
+                      <span class="badge badge-pill subject-badge <% if department.english %>badge-rose<% else %>badge-secondary<% end %>">
+                        英
+                      </span>
+                      <span class="badge badge-pill subject-badge <% if department.physics %>badge-rose<% else %>badge-secondary<% end %>">
+                        物
+                      </span>
+                      <span class="badge badge-pill subject-badge <% if department.chemistry %>badge-rose<% else %>badge-secondary<% end %>">
+                        化
+                      </span>
+                      <span class="badge badge-pill subject-badge <% if department.special %>badge-rose<% else %>badge-secondary<% end %>">
+                        専
+                      </span>
+                      <span class="badge badge-pill subject-badge <% if department.external_english %>badge-rose<% else %>badge-secondary<% end %>">
+                        外
+                      </span>
+                      <span class="badge badge-pill subject-badge <% if department.interview %>badge-rose<% else %>badge-secondary<% end %>">
+                        面
+                      </span>
+                      <span class="badge badge-pill subject-badge <% if department.paper || department.integration || department.practical || department.biology %>badge-rose<% else %>badge-secondary<% end %>">
+                        他
+                      </span>
+                      
+                      <!--
+                      <% if department.math %> 
+                        <span class="badge badge-pill subject-badge math-badge">
+                          数
+                        </span>
+                      <% end %>
+                      <% if department.english %>
+                        <span class="badge badge-pill subject-badge english-badge">
+                          英
+                        </span>
+                      <% end %>
+                      <% if department.physics %>
+                        <span class="badge badge-pill subject-badge physics-badge">
+                          物
+                        </span>
+                      <% end %>
+                      <% if department.chemistry %>
+                        <span class="badge badge-pill subject-badge chemistry-badge">
+                          化
+                        </span>
+                      <% end %>
+                      <% if department.special %>
+                        <span class="badge badge-pill subject-badge special-badge">
+                        専
+                        </span>
+                      <% end %>
+                      <% if department.external_english %>
+                        <span class="badge badge-pill subject-badge external-english-badge">
+                          外
+                        </span>
+                      <% end %>
+                      <% if department.interview %>
+                        <span class="badge badge-pill subject-badge interview-badge">
+                          面
+                        </span>
+                      <% end %>
+                      <% if department.paper || department.integration || department.practical || department.biology %>
+                        <span class="badge badge-pill subject-badge other-badge">
+                          他
+                        </span>
+                      <% end %>
+                      -->
+                    </li>
+                  <% end %>
+                </ul>
+              <% end %>
+            </div>
+        </div>
+        <% end %>
+        <!--</a>-->
+          <button class="expand-mark" type="button" data-toggle="collapse" data-target="#collapseUniv<%= univs.id %>" aria-expanded="true" aria-controls="collapseUniv<%= univs.id %>">
+            <i class="material-icons">expand_more</i>
+          </button>
+        </div>
       <% end %>
-          <% if univs.otherFac == 1%>
-          <span class="badge badge-pill badge-warning">工学系以外も編入可</span>
-          <% end %>
-        </h4>
     </div>
   </div>
-  <% end %>
-  <!--</a>-->
-  <% end %>
 </div>
 
 <script>

@@ -55,6 +55,47 @@ sub::after {
   font-size: 1.4em;
 }
 
+.btn-default {
+  margin-left: 15%;
+}
+
+.subject-badge {
+  padding: 5px;
+  font-size: 11px;
+}
+
+.math-badge {
+  background-color: deepskyblue;
+}
+
+.english-badge {
+  background-color: green;
+}
+
+.physics-badge {
+  background-color: red;
+}
+
+.chemistry-badge {
+  background-color: yellow;
+}
+
+.special-badge {
+  background-color: purple;
+}
+
+.external-english-badge {
+  background-color: pink;
+}
+
+.interview-badge {
+  background-color: gold;
+}
+
+.other-badge {
+  background-color: gray;
+}
+
 @media screen and (max-width: 895px) { 
   .nav-tabs .nav-item .nav-link{
     line-height: 2em;
