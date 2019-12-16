@@ -2,7 +2,7 @@
 <%= @comp.name %> | 就職
 <% end %>
 
-<section class="py-5 bg-image-full" style="background-image: url(<%= asset_path("img/comp/#{@comp.name}.jpg") %>);">
+<section class="py-5 bg-image-full" style="background-image: url(<%= asset_path("img/comp/#{@comp.name}_back.jpg") %>);">
   <div style="height: 150px;"></div>
 </section>
 
@@ -20,6 +20,7 @@
           <% end %>
           <span class="badge badge-pill badge-info"><%= @comp.scale %></span>
         </div>
+        <% unless @comp.has_original_format?%>
         <h3 class="sub">ミッション</h3>
           <%= simple_format(@comp.mission, {}, wrapper_tag: "div class='article' id='mission'") %>
         <h3 class="sub">なにをやっているのか</h3>
@@ -30,6 +31,9 @@
           <%= simple_format(@comp.want, {}, wrapper_tag: "div class='article'") %>
         <h3 class="sub">高専生・高専卒に一言</h3>
           <%= simple_format(@comp.comment, {}, wrapper_tag: "div class='article'") %>
+        <% else %>
+          <%= simple_format(@comp.original_text, {}, wrapper_tag: "div") %>
+        <% end %>
         <h3 class="sub">その他の情報</h3>
           <div class="article">
             <%= @comp.name %><br>
