@@ -13,7 +13,7 @@
         <div style="text-align:center;">
           <h3><%= @comp.name %></h3>
           <span class="badge badge-pill badge-rose"><%= @comp.place %></span>
-          <% 5.times do |i| %>
+          <% 6.times do |i| %>
             <% if @comp.area[i] == 1 %>
               <span class="badge badge-pill badge-success"><%= @areas[i] %></span>
             <% end %>
@@ -32,7 +32,7 @@
         <h3 class="sub">高専生・高専卒に一言</h3>
           <%= simple_format(@comp.comment, {}, wrapper_tag: "div class='article'") %>
         <% else %>
-          <%= simple_format(@comp.original_text, {}, wrapper_tag: "div") %>
+          <%= simple_format(@comp.original_text, {}, wrapper_tag: "div", sanitize: false) %>
         <% end %>
         <h3 class="sub">その他の情報</h3>
           <div class="article">
