@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_05_213000) do
+ActiveRecord::Schema.define(version: 2019_12_14_012934) do
 
   create_table "comps", force: :cascade do |t|
     t.string "name"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2019_12_05_213000) do
     t.text "want"
     t.text "comment"
     t.string "url"
+    t.integer "has_original_format"
+    t.text "original_text"
   end
 
   create_table "events", force: :cascade do |t|
