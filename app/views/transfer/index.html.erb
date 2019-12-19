@@ -102,7 +102,33 @@
             name: 'external_english', badge_text: '英語(外部試験)', badge_class: 'badge-rose', id: 'labelExternalEnglish', checked: !(params['external_english'] == '0'), form: form
           } %>
           <%= render :partial => "badge_checkbox", :locals => {
-            name: 'other', badge_text: 'その他', badge_class: 'badge-rose', id: 'labelOther', checked: !(params['other'] == '0'), form: form
+            name: 'other_subject', badge_text: 'その他', badge_class: 'badge-rose', id: 'labelOtherSubject', checked: !(params['other_subject'] == '0'), form: form
+          } %>
+          <br />
+          <hr/>
+
+          <h3 class="filter-type">学部</h3>
+          
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'engineering', badge_text: '工学系', badge_class: 'badge-rose', id: 'labelEngineering', checked: !(params['engineering'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'science_and_engineering', badge_text: '理工学系', badge_class: 'badge-rose', id: 'labelScienceAndEngineering', checked: !(params['science_and_engineering'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'science', badge_text: '理学系', badge_class: 'badge-rose', id: 'labelScience', checked: !(params['science'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'economics', badge_text: '経済学系', badge_class: 'badge-rose', id: 'labelEconomics', checked: !(params['economics'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => {
+            name: 'law', badge_text: '法学系', badge_class: 'badge-rose', id: 'labelLaw', checked: !(params['law'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'literature', badge_text: '文学系', badge_class: 'badge-rose', id: 'labelLiterature', checked: !(params['literature'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'other_faculty_type', badge_text: 'その他', badge_class: 'badge-rose', id: 'labelOtherFacultyType', checked: !(params['other_faculty_type'] == '0'), form: form
           } %>
           <br />
           <hr/>

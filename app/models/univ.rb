@@ -10,7 +10,7 @@ class Univ < ApplicationRecord
   SIKOKU = ["徳島県", "香川県", "愛媛県", "高知県"]
   KYUSHU = ["福岡県", "長崎県", "佐賀県", "大分県", "宮崎県", "熊本県", "鹿児島県", "沖縄県"]
 
-  def self.filter(params, departments)
+  def self.filter(params, faculties, departments)
     examtypes = (params["examtypes"] == "1") ? [1] : [0,1]
     otherFac = (params["otherFac"] == "1") ? [1] : [0,1]
     
@@ -35,8 +35,10 @@ class Univ < ApplicationRecord
 
     order = !(params["order"] == "DESC")? "ASC" : "DESC"
     
+    names = departments.map{|department| department.univ_name}.uniq & faculties.map{|faculty| faculty.s_name}.uniq
+
     Univ.where(
-      name: departments.map{|department| department.univ_name}.uniq,
+      name: names,
       examtypes: examtypes, 
       otherFac: otherFac, 
       location: [hokkaido, tohoku, hokuriku, chubu, kanto, kinki, chugoku, sikoku, kyushu].reduce([], :concat)

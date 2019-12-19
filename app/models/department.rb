@@ -7,7 +7,7 @@ class Department < ApplicationRecord
     special = (params["special"] == "0") ? [0] : [0,1]
     external_english = (params["external_english"] == "0") ? [0]: [0,1]
     interview = (params["interview"] == "0") ? [0]: [0,1]
-    other = (params["other"] == "0") ? [0]: [0,1]
+    other = (params["other_subject"] == "0") ? [0]: [0,1]
 
     Department.where(
       math: math,
