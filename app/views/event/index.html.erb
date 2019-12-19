@@ -17,46 +17,7 @@
     </div>
   </div>
 </section>
-<!-- 
-<div class="listBlocks">
-  <div class="row">
-    <% @events.each do |events| %>
-      <div class="col-md-3 col-sm-6">
-        <%= link_to event_show_path(name:events.name) do %>
-          <div class="card" id="event" style="height: 90%;">
-            <div class="listImg">
-              <img src=<%= asset_path("img/event/#{events.name}.jpg") %> alt="">
-              <% if events.status == 0 %>
-                <span class="badge badge-pill badge-default">応募終了</span>
-              <% elsif events.status == 1 %>
-                <span class="badge badge-pill badge-warning">募集中</span>
-              <% end %>
-            </div>
-            <div class="listContent">
-              <div class="listTitle">
-                <%= events.name %>
-              </div>
-              <div class="contentDetail">
-                場所: 
-                <span class="eventPlace"><%= events.place %></span>
-                <br>
-                日時: 
-                <span class="eventDate"><%= events.date.strftime("%Y年%m月%d日")%></span>
-              </div>
-              <div class="tagArea">
-              <span class="badge badge-pill badge-rose"><%= events.pref %></span>
-              <span class="badge badge-pill badge-info"><%= events.event_type %></span>
-              <span class="badge badge-pill badge-danger">交通費支給</span>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
 
-  </div>
-</div>
--->
     <div class="container">
       <div class="row">
         <% @events.each do |events| %>
@@ -65,10 +26,11 @@
           <div class="card" id="event" style="height: 90%; margin-bottom: 0px;">
             <div class="listImg">
               <img src=<%= asset_path("img/event/#{events.name}.jpg") %> alt="">
-              <% if events.status == 0 %>
-              <span class="badge badge-pill badge-default">応募終了</span>
-              <% elsif events.status == 1 %>
+              <!-- イベント当日以降は応募終了、それ以前は募集中にする -->
+              <% if events.date > Date.today %>
               <span class="badge badge-pill badge-warning">募集中</span>
+              <% else %>
+              <span class="badge badge-pill badge-default">応募終了</span>
               <% end %>
             </div>
             <div class="listContent">

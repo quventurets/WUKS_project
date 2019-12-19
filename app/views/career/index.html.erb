@@ -50,7 +50,7 @@
         <%= link_to career_show_path(name:comps.name) do %>
           <div class="card" id="career" style="height: 90%; margin-bottom: 0px;">
             <div class="listImg">
-              <img src=<%= asset_path("img/comp/#{comps.name}.jpg") %> alt="">
+              <img src=<%= asset_path("img/comp/#{comps.name.gsub(" ", "")}_logo.jpg") %> alt="">
             </div>
             <div class="listContent">
               <div class="listTitle">
@@ -60,7 +60,11 @@
               </div>
               <div class="tagArea">
                 <span class="badge badge-pill badge-rose"><%= comps.place %></span>
-                <span class="badge badge-pill badge-success"><%= comps.area %></span>
+                <% 6.times do |i| %>
+                  <% if comps.area[i] == 1 %>
+                    <span class="badge badge-pill badge-success"><%= @areas[i] %></span>
+                  <% end %>
+                <% end %>
                 <span class="badge badge-pill badge-info"><%= comps.scale %></span>
               </div>
             </div>

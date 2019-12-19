@@ -10,11 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_11_22_083044) do
+=======
+ActiveRecord::Schema.define(version: 2019_12_14_012934) do
+>>>>>>> 90a870c401cf3b38203aeea58bbf74762554df9d
 
   create_table "comps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.string "area"
+    t.integer "area"
     t.string "scale"
     t.string "place"
     t.datetime "created_at", null: false
@@ -31,6 +35,8 @@ ActiveRecord::Schema.define(version: 2019_11_22_083044) do
     t.text "want"
     t.text "comment"
     t.string "url"
+    t.integer "has_original_format"
+    t.text "original_text"
   end
 
   create_table "departments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -59,10 +65,9 @@ ActiveRecord::Schema.define(version: 2019_11_22_083044) do
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "place"
-    t.datetime "date"
+    t.date "date"
     t.string "pref"
     t.string "event_type"
-    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "outline"
@@ -71,6 +76,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_083044) do
     t.string "finishTime"
     t.string "guestComp"
     t.string "target"
+    t.string "form"
   end
 
   create_table "faculties", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -118,11 +124,15 @@ ActiveRecord::Schema.define(version: 2019_11_22_083044) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.string "email"
+    t.text "email"
+    t.integer "kosen_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
-    t.integer "kosen_id"
+    t.string "provider"
+    t.string "uid"
+    t.string "area"
+    t.string "future"
+    t.integer "grad_year"
   end
 
 end

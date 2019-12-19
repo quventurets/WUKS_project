@@ -18,109 +18,105 @@
   </div>
 </section>
 
-<div class="container main-content">
-  <div class="pt-5">
-    <div class="row">
-      <div class="container">
-        <h2 class="heading">募集学部</h2>
-        <div class="card-header">
-          <!-- Card Start -->
-          <div class="card card-nav-tabs card-plain">
-            <!-- Card Headder -->
-            <div class="card-header card-header-primary">
-              <div class="nav-tabs-navigation">
-                <div class="nav-tabs-wrapper">
-                  <ul class="nav nav-tabs" data-tabs="tabs">
-                    <% @count = 0 %>
-                    <% @facluties.each do |facluties| %>
-                    <li class="nav-item">
-                      <% if @count == 0%>
-                      <a class="nav-link active" href="#<%= facluties.f_name %>"
-                        data-toggle="tab"><%= facluties.f_name %></a>
-                      <% else %>
-                      <a class="nav-link" href="#<%= facluties.f_name %>" data-toggle="tab"><%= facluties.f_name %></a>
-                      <% end %>
-                    </li>
-                    <% @count = @count + 1 %>
-                    <% end %>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- Card Headder End -->
-
-            <!-- Card Main Start -->
-            <div class="card-body">
-              <div class="tab-content">
+<div class="row">
+  <div class="container">
+    <h2 class="heading">募集学部</h2>
+    <div class="card-header">
+      <!-- Card Start -->
+      <div class="card card-nav-tabs card-plain">
+        <!-- Card Headder -->
+        <div class="card-header card-header-primary">
+          <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+              <ul class="nav nav-tabs" data-tabs="tabs">
                 <% @count = 0 %>
                 <% @facluties.each do |facluties| %>
-                <% if @count == 0 %>
-                <div class="tab-pane active" id="<%= facluties.f_name %>">
-                  <h3 class="sub">試験時期</h3>
-                  <ul>
-                    <% if facluties.isThereRec %>
-                    <li>　推薦入試：<%= facluties.date_recomend %></li>
-                    <% end %>
-                    <li>　一般入試：<%= facluties.date_general %></li>
-                  </ul>
-                  <h3 class="sub">合格発表</h3>
-                  <ul>
-                    <% if facluties.isThereRec %>
-                    <li>　推薦入試：<%= facluties.date_recomend_pass %></li>
-                    <% end %>
-                    <li>　一般入試：<%= facluties.date_general_pass %></li>
-                  </ul>
-                  <h3 class="sub">募集学科</h3>
-                  <% array_department = facluties.department.split(",") %>
-                  <ul class>
-                    <% array_department.each do |department| %>
-                    <li>・<%= department %></li>
-                    <% end %>
-                  </ul>
-                  <div class="text-center">
-                    <a href= "<%= facluties.url %>">
-                      <button class="btn btn-primary">もっと詳しく見る
-                        <div class="ripple-container"></div>
-                      </button>
-                    </a>
-                  </div>
-                </div>
-                <% else %>
-                <div class="tab-pane" id="<%= facluties.f_name %>">
-                  <h3 class="sub">試験時期</h3>
-                  <ul>
-                    <% if facluties.isThereRec %>
-                    <li>　推薦入試：<%= facluties.date_recomend %> </li>
-                    <% end %>
-                    <li>　一般入試：<%= facluties.date_general %></li>
-                  </ul>
-                  <h3 class="sub">合格発表</h3>
-                  <ul class>
-                    <% if facluties.isThereRec %>
-                    <li>　推薦入試：<%= facluties.date_recomend_pass %></li>
-                    <% end %>
-                    <li>　一般入試：<%= facluties.date_general_pass %></li>
-                  </ul>
-                  <h3 class="sub">募集学科</h3>
-                  <% array_department = facluties.department.split(",") %>
-                  <ul class>
-                    <% array_department.each do |department| %>
-                    <li>・<%= department %></li>
-                    <% end %>
-                  </ul>
-                  <div class="text-center">
-                    <a href= "<%= facluties.url %>">
-                      <button class="btn btn-primary">もっと詳しく見る
-                        <div class="ripple-container"></div>
-                      </button>
-                    </a>
-                  </div>
-                </div>
-                <% end %>
+                <li class="nav-item">
+                  <% if @count == 0%>
+                  <a class="nav-link active" href="#<%= facluties.f_name %>"
+                    data-toggle="tab"><%= facluties.f_name %></a>
+                  <% else %>
+                  <a class="nav-link" href="#<%= facluties.f_name %>" data-toggle="tab"><%= facluties.f_name %></a>
+                  <% end %>
+                </li>
                 <% @count = @count + 1 %>
                 <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Card Headder End -->
+
+        <!-- Card Main Start -->
+        <div class="card-body">
+          <div class="tab-content">
+            <% @count = 0 %>
+            <% @facluties.each do |facluties| %>
+            <% if @count == 0 %>
+            <div class="tab-pane active" id="<%= facluties.f_name %>">
+              <h3 class="sub">試験時期</h3>
+              <ul>
+                <% if facluties.isThereRec %>
+                <li>　推薦入試：<%= facluties.date_recomend %></li>
+                <% end %>
+                <li>　一般入試：<%= facluties.date_general %></li>
+              </ul>
+              <h3 class="sub">合格発表</h3>
+              <ul>
+                <% if facluties.isThereRec %>
+                <li>　推薦入試：<%= facluties.date_recomend_pass %></li>
+                <% end %>
+                <li>　一般入試：<%= facluties.date_general_pass %></li>
+              </ul>
+              <h3 class="sub">募集学科</h3>
+              <% array_department = facluties.department.split(",") %>
+              <ul class>
+                <% array_department.each do |department| %>
+                <li>・<%= department %></li>
+                <% end %>
+              </ul>
+              <div class="text-center">
+                <a href= "<%= facluties.url %>">
+                  <button class="btn btn-primary">もっと詳しく見る
+                    <div class="ripple-container"></div>
+                  </button>
+                </a>
               </div>
             </div>
+            <% else %>
+            <div class="tab-pane" id="<%= facluties.f_name %>">
+              <h3 class="sub">試験時期</h3>
+              <ul>
+                <% if facluties.isThereRec %>
+                <li>　推薦入試：<%= facluties.date_recomend %> </li>
+                <% end %>
+                <li>　一般入試：<%= facluties.date_general %></li>
+              </ul>
+              <h3 class="sub">合格発表</h3>
+              <ul class>
+                <% if facluties.isThereRec %>
+                <li>　推薦入試：<%= facluties.date_recomend_pass %></li>
+                <% end %>
+                <li>　一般入試：<%= facluties.date_general_pass %></li>
+              </ul>
+              <h3 class="sub">募集学科</h3>
+              <% array_department = facluties.department.split(",") %>
+              <ul class>
+                <% array_department.each do |department| %>
+                <li>・<%= department %></li>
+                <% end %>
+              </ul>
+              <div class="text-center">
+                <a href= "<%= facluties.url %>">
+                  <button class="btn btn-primary">もっと詳しく見る
+                    <div class="ripple-container"></div>
+                  </button>
+                </a>
+              </div>
+            </div>
+            <% end %>
+            <% @count = @count + 1 %>
+            <% end %>
           </div>
         </div>
       </div>
