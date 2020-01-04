@@ -20,7 +20,9 @@
           <% end %>
           <span class="badge badge-pill badge-rose"><%= @event.pref %></span>
           <span class="badge badge-pill badge-info"><%= @event.event_type %></span>
-          <span class="badge badge-pill badge-danger">交通費支給</span>
+          <% if @event.pref != "オンライン" %>
+            <span class="badge badge-pill badge-danger">交通費支給</span>
+          <% end %>
         </div>
         <h3 class="sub">イベントの概要</h3>
           <%= simple_format(@event.outline, {}, wrapper_tag: "div class='article'") %>
@@ -44,10 +46,15 @@
           <div class="article">
             <%= @event.date.strftime("%Y年%m月%d日") %> <%= @event.startTime %>～<%= @event.finishTime %>
             <br>
+            <% if @event.pref != "オンライン" %>
             <a href="javascript:;" 
               onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @event.place %>'));
               return false;"><u><%= @event.place %></u>
             </a>
+            <% else %>
+            <%= @event.place %>
+            <% end %>
+
           </div>
         <h3 class="sub">その他の情報</h3>
           <%= simple_format(@event.otherinfo, {}, wrapper_tag: "div class='article'") %>
