@@ -1,21 +1,21 @@
 <% content_for :title do %>
 <%= @user.name %>さんのマイページ
 <% end %>
-<section class="py-5 bg-image-full" style="background-image: url(<%= asset_path("img/bg7.jpg") %>);">
+<section class="py-5 bg-image-full" style="background-color: silver;">
   <div style="height: 0px;">
   <div class="pt-5">
   </div>
   </div>
 </section>
 
-<div class="bg-image-full" style="background-image: url(<%= asset_path("img/bg7.jpg") %>);">
+<div class="bg-image-full" style="background-color: silver;">
   <div class="container">
     <div style="margin-top: 0px;">
       <div class="row">
         <div class="col-lg-8 col-md-8 ml-auto mr-auto">
           <div class="card card-login">
               <div class="text-center" style="border-bottom: dotted 1px gray;">
-              <h2><b style="color: royalblue;"><%= @user.name %>さんの登録情報</b></h2>
+              <h2><b style="color: #4E54C8;"><%= @user.name %>さんの登録情報</b></h2>
               </div>
             <div class="card-body">
               <div class="text-center">
@@ -138,7 +138,7 @@
               </div></span>
             </div>
             <div class="footer text-center">
-              <input type="submit" value="変更を反映する" class="btn btn-primary">
+              <input type="submit" value="変更を反映する" class="btn btn-primary" style="background-color: #4E54C8;">
             </div>
             <% end %>
           </div>
