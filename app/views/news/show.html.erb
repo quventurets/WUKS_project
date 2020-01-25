@@ -30,7 +30,7 @@
             <h3><%= @news.name %></h3>
           </div>
           <div id="newsbody">
-            <%= simple_format(@news.content, {}, wrapper_tag: "div class='article'") %>
+            <%= simple_format(@news.content.gsub(/src=.*?"([^"]+)"/) {'src="' + asset_path($1) + '"'}, {}, wrapper_tag: "div class='article'", :sanitize => false) %>
           </div>
           <div class ="text-center">
             <a id = "center" href="/news">

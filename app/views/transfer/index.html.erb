@@ -145,6 +145,9 @@
               <h4 class="forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
                 <span class="badge badge-pill badge-success"><%= univs.date_recommend %></span>
                 <span class="badge badge-pill badge-info">推薦入試あり</span>
+            <% elsif  univs.examtypes == 2 %>
+              <h4 class="forbadge"><span class="badge badge-pill badge-success"><%= univs.date_recommend %></span>
+              <span class="badge badge-pill badge-info">推薦入試のみ</span>
             <% else %>
               <h4 class="forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
             <% end %>

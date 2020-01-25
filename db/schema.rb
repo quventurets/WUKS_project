@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2019_11_22_083044) do
-=======
-ActiveRecord::Schema.define(version: 2019_12_14_012934) do
->>>>>>> 90a870c401cf3b38203aeea58bbf74762554df9d
+ActiveRecord::Schema.define(version: 2020_01_25_180144) do
 
   create_table "comps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -65,7 +61,7 @@ ActiveRecord::Schema.define(version: 2019_12_14_012934) do
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "place"
-    t.date "date"
+    t.datetime "date"
     t.string "pref"
     t.string "event_type"
     t.datetime "created_at", null: false
@@ -83,14 +79,16 @@ ActiveRecord::Schema.define(version: 2019_12_14_012934) do
     t.string "s_name"
     t.string "f_name"
     t.string "date_general"
-    t.boolean "isThereRec"
+    t.boolean "is_there_recomend"
     t.string "date_recomend"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "department"
+    t.text "department"
     t.string "url"
     t.string "date_general_pass"
     t.string "date_recomend_pass"
+    t.string "faculty_type"
+    t.boolean "is_there_general"
   end
 
   create_table "kosens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -124,15 +122,11 @@ ActiveRecord::Schema.define(version: 2019_12_14_012934) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.text "email"
-    t.integer "kosen_id"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "provider"
-    t.string "uid"
-    t.string "area"
-    t.string "future"
-    t.integer "grad_year"
+    t.string "password_digest"
+    t.integer "kosen_id"
   end
 
 end
