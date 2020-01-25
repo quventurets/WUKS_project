@@ -3,109 +3,6 @@ body {
 }
 
 
-.bg-image-full {
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  position: relative;
-}
-
-.bg-image-full::before{
-    background-color: rgba(0,0,0,0.5);
-    /* どの範囲に重ねるかを指定 */
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    content: ' ';
-}
-
-.brand{
-    z-index:1;
-}
-
-.navbar {
-    border: 0;
-    border-radius: 3px;
-    padding: 0.625rem 0;
-    margin-bottom: 0px;
-    color: #555;
-    background-color: #fff !important;
-    box-shadow: 0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15);
-}
-
-.card#event, .card#career{
-  height: 90%;
-}
-
-.card#event:hover, .card#career:hover{
-  box-shadow:0 3px 6px rgba(0,0,0,0.5);
-}
-
-/*TO DISPLAY UNIVERSITYIES EACHES */
-
-.product {
-    /*
-    margin-bottom: 20px;
-    */
-    padding-top:20px;
-    padding-bottom:20px;
-}
-
-.img-thumbnail {
-    height: auto; 
-    max-width: 100%;
-}
-
-.product:hover{
-  box-shadow: 0px 0px 8px 3px #ccc;
-  color: red;
-}
-
-a, a:hover, a:visited, a:link, a:active {
-  color: black;
-}
-
-.forbadge{
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-.nameUni{
-  font-weight: 700;
-}
-
-.univ-parent{
-  position: relative;
-}
-
-.expand-mark{
-  font-size: 300%;
-  position: absolute;
-  right: 0;
-  bottom: 5%;
-}
-
-.nameCom{
-  font-weight: 700;
-}
-
-.label-checkbox {
-  user-select:none;
-  /*font-size: 100%;*/
-}
-
-.button-checkbox {
-  display: none
-}
-
-.radio-order {
-  display: none
-}
-
 /* 企業情報をsukimaっぽく横に3つ並べるためのやつら */
 .topTitle {
   font-size: 30px;
@@ -159,6 +56,7 @@ a, a:hover, a:visited, a:link, a:active {
   font-size: 1.2em;
   margin-bottom: 10px;
   line-height: 1.2;
+  color: #3C4858;
 }
 
 .listContent {

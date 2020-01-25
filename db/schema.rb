@@ -117,7 +117,6 @@ ActiveRecord::Schema.define(version: 2020_01_25_180144) do
     t.integer "otherFac"
     t.integer "examtypes"
     t.string "rubi"
-    t.index ["name"], name: "index_univs_on_name", unique: true
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
