@@ -123,6 +123,14 @@ sub::after {
   line-height: 2em;
 }
 
+.article::after {
+  content: "";
+  display: block;
+  clear: both;
+  height: 1px;
+  overflow: hidden;
+}
+
 @media screen and (min-width: 768px) {
   .article {
     font-size: 87.5%;
@@ -151,3 +159,26 @@ sub::after {
   padding: 20px 15px;
 }
 
+/* --------------------------------------------------
+ お知らせ画面に関するCSS(?)
+ -------------------------------------------------- */
+.right-img {
+  float: right;
+  margin-left: 36px;
+}
+
+@media screen and (max-width: 895px) {
+  .right-img {
+    display: block;
+    clear: both;
+    text-align: center;
+    float: none;
+    margin-left: 0;
+  }
+}
+
+.center-img {
+  display: block;
+  clear: both;
+  text-align: center;
+}
