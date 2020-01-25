@@ -1,17 +1,15 @@
-
+.pad50 {
+    padding: 50px 0px 0px 0px;
+}
 
 .pad25 {
-        padding: 25px 0 25px 0;
+        padding: 25px 0px 0px 0px;
 }
 
-.pad10 {
-    padding: 10px 0 0 0;
+.pad25_border {
+    padding: 25px 0px 0px 0px;
+    border-top-style: ridge;
 }
-
-.pad50 {
-    padding: 50px 0 0 0;
-}
-
 
 /* page topのボタン用 */
 #scrollTop {
@@ -231,6 +229,9 @@
 
 .contents_introduction h2 {
     font-size: 2.0em;
+    margin-bottom: 20px;
+    margin-top: 0px;
+
 }
 
 .contents_introduction h4 {
@@ -258,17 +259,6 @@
   
 }
 
-.contents_list a{
-    transition-property: color;
-    transition-duration: 0.3s;
-    transition-timing-function: ease;
-    transition-delay: 0s;
-}
-
-.contents_list a:hover{
-    color: indianRed;
-    text-decoration: inherit;
-}
 
 .contents_list i{
      font-family: 'Material Icons';
@@ -283,7 +273,6 @@
      white-space: nowrap;
      word-wrap: normal;
      direction: ltr;
-     -webkit-font-feature-settings: 'liga';
      -webkit-font-smoothing: antialiased;
  }
 
@@ -331,43 +320,6 @@
  お知らせ一覧に関するCSS
  -------------------------------------------------- */
 
- .content_news {
-     background: #ffffff;
- }
-
-  .wrap {
-      position: relative;
-      width: 100%;
-      margin-right: auto;
-      margin-left: auto;
-  }
-
-  #container {
-      position: relative;
-  }
-
-  @media screen and (min-width: 896px) and (max-width: 1279px) {
-      .wrap {
-          width: 100%;
-          margin-right: 0;
-          margin-left: 0;
-      }
-  }
-
-  @media screen and (max-width: 895px) {
-      .wrap {
-          width: 100%;
-          box-sizing: border-box;
-          padding: 0 3% 0;
-      }
-
-      .wrap02 {
-          width: 100%;
-          box-sizing: border-box;
-          padding: 0 3% 0;
-      }
-  }
-
   ol,
   ul {
       list-style: none;
@@ -395,25 +347,25 @@
   }
 
   ul#notic_list li>div .date {
-      display: table-cell;
-      width: 250px;
-      vertical-align: middle;
-      text-align: center;
-      font-size: 1.4rem;
+      display: block;
+      width: 100%;
+      text-align: left;
+      font-size: 1.0rem;
+      margin: 5px 0px 0px 0px;
       letter-spacing: 1px;
       padding: 0 0 0 0;
   }
 
   ul#notic_list li>div .title {
-      display: table-cell;
-      padding: 22px 60px 22px 0;
-      font-size: 1.4rem;
+      text-align: center;
+      display: block;
+      margin: 0px 0px 0px 0px;
       letter-spacing: 2px;
-      text-align: left;
+      padding-bottom: 20px;
   }
 
   ul#notic_list li>div .title a {
-      font-size: 1.2rem;
+      font-size: 1.0rem;
       color: #3C4858;
       font-family: "Roboto",
           "Helvetica",
@@ -451,26 +403,24 @@
       }
 
       ul#notic_list li>div .date {
-          display: table-cell;
-          width: 180px;
-          vertical-align: middle;
-          text-align: center;
-          font-size: 1.2rem;
-          letter-spacing: 1px;
-          padding: 0 0 0 0;
-      }
-
-      ul#notic_list li>div .title {
-          display: table-cell;
-          padding: 22px 20px 22px 0;
-          font-size: 1.2rem;
-          letter-spacing: 2px;
-          text-align: left;
-
-      }
+        display: block;
+        width: 100%;
+        text-align: left;
+        font-size: 0.8rem;
+        margin: 5px 0px 0px 0px;
+        letter-spacing: 1px;
+        padding: 0 0 0 0;
+    }
+  
+    ul#notic_list li>div .title {
+        text-align: center;
+        display: block;
+        margin: 0px 0px 0px 0px;
+        letter-spacing: 2px;
+    }
 
       ul#notic_list li>div .title a {
-          font-size: 1.2rem;
+          font-size: 0.8rem;
       }
   }
 
@@ -493,196 +443,26 @@
       }
 
       ul#notic_list li>div .date {
-          display: table-cell;
-          width: 24%;
+          text-align: left;
+          display: block;
+          width: 100%;
           font-size: 0.8rem;
           letter-spacing: 0px;
       }
 
       ul#notic_list li>div .title {
-          display: table-cell;
-          padding: 12px 10px 12px 10px;
-          font-size: 0.9rem;
+          display: block;
           letter-spacing: 1px
       }
 
       ul#notic_list li>div .title a {
-          font-size: 0.9rem;
+          font-size: 0.8rem;
       }
 
-  }
-
-  #newshead {
-      padding: 20px 40px 30px;
-      border-bottom: 1px dotted #333;
-      margin: 0 0 30px 0;
-  }
-
-  #newshead .date {
-      font-size: 1.8rem;
-      letter-spacing: 2px;
-      line-height: 30px;
-      margin: 0 0 20px 0;
-  }
-
-  #newshead .date02 {
-      display: inline-block;
-      font-size: 1.8rem;
-      letter-spacing: 2px;
-      margin: 0 20px 20px 0;
-  }
-
-  #newshead strong {
-      display: inline-block;
-      width: 110px;
-      height: 30px;
-      background: #3c3c3c;
-      text-align: center;
-      color: #FFF;
-      line-height: 30px;
-      letter-spacing: 3px;
-      vertical-align: top;
-  }
-
-  #newshead strong.ee {
-      border-left: 17px solid #3c6f3c;
-  }
-
-  #newshead strong.sdm {
-      border-left: 17px solid #004389;
-  }
-
-  #newshead strong.psi {
-      border-left: 17px solid #be0b3c;
-  }
-
-  #newshead strong.other {
-      border-left: 17px solid #a0a0a0;
-  }
-
-  #newshead h3 {
-      font-size: 2.2rem;
-      letter-spacing: 2px;
-      margin: 0 0 20px 0;
-  }
-
-  #newsbody {
-      padding: 0 40px 30px;
-      border-bottom: 1px dotted #333;
-      margin: 0 0 30px 0;
-  }
-
-  #newsbody p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      margin: 0 0 30px 0;
-  }
-
-  #newsbody table {
-      margin: 0 0 30px 0;
-  }
-
-  #newsbody table td {
-      font-size: 1.8rem;
-      line-height: 1.8;
-      padding: 0 10px 10px 0;
-  }
-
-  #newsbody .overview {
-      font-weight: 600;
-  }
-
-  #newsbody .attention {
-      font-size: 1.4rem;
-      line-height: 1.8;
-      padding: 0 0 40px 0;
-  }
-
-  @media screen and (min-width: 896px) and (max-width: 1279px) {
-
-      #newshead {
-          padding: 20px 30px 30px;
-          border-bottom: 1px dotted #333;
-          margin: 0 3% 30px;
-      }
-
-      #newsbody {
-          padding: 0 3% 20px;
-          margin: 0 0 20px 0;
-      }
-  }
-
-  @media screen and (max-width: 895px) {
-
-      #newshead {
-          padding: 10px 3% 20px;
-          margin: 0 0 20px 0;
-      }
-
-      #newshead .date {
-          font-size: 1.2rem;
-          letter-spacing: 2px;
-          margin: 0 0 10px 0;
-      }
-
-      #newshead .date02 {
-          font-size: 1.2rem;
-          letter-spacing: 2px;
-          margin: 0 8px 10px 0;
-          vertical-align: bottom;
-          line-height: 30px;
-      }
-
-      #newshead strong {
-          vertical-align: top;
-      }
-
-      #newshead h3 {
-          font-size: 1.6rem;
-          letter-spacing: 2px;
-          margin: 0 0 0 0;
-      }
-
-      #newsbody {
-          padding: 0 3% 20px;
-          margin: 0 0 20px 0;
-      }
-
-      #newsbody p {
-          font-size: 1.2rem;
-          line-height: 1.8;
-          margin: 0 0 20px 0;
-      }
-
-      #newsbody table {
-          display: block;
-          margin: 0 0 20px 0;
-      }
-
-      #newsbody table tbody {
-          display: block;
-      }
-
-      #newsbody table tr {
-          display: block;
-      }
-
-      #newsbody table td {
-          display: block;
-          font-size: 1.2rem;
-          line-height: 1.8;
-          padding: 0 0 10px 0;
-      }
-
-      #newsbody .attention {
-          font-size: 1.2rem;
-          line-height: 1.8;
-          padding: 0 0 0px 0;
-      }
   }
 
   /* --------------------------------------------------
- イベント一覧に関するCSS
+ イベント一覧に関するCSS（TOPページ）
  -------------------------------------------------- */
 
 @media screen and (max-width: 575px) {
@@ -690,3 +470,555 @@
       height: auto;
   }
 }
+
+
+.v2-event-list__item {
+    width: 100%;
+    min-height: 112px;
+    margin-bottom: 15px;
+    padding: 16px 20px 16px 17px;
+    background-color: #fff;
+    border-left: 3px solid #053053;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px 0 #e1e1e1;
+}
+
+.v2-event__logo {
+    float: right;
+    margin: 20px 8px 8px 8px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #F0F1F2;
+    border-radius: 2px;
+}
+
+.v2-event__title {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #053053;
+}
+
+.eventTags{
+    margin: 5px 0px 0px 14px;
+    font-size: 12px;
+    color: #8a8f9c;
+}
+
+.eventDate {
+    margin: 0px 0px 0px 14px;
+    font-size: 12px;
+    color: #8a8f9c;
+}
+
+.eventPlace {
+    margin: 0px 0px 0px 14px;
+    font-size: 12px;
+    color: #8a8f9c;
+}
+
+.eventTitle{
+    font-weight: bold;
+    font-size: 1.0em;
+    margin: 15px;
+    line-height: 1.2;
+    color: #3C4858;
+  }
+
+.badge {
+    padding: 4px 10px;
+    text-transform: uppercase;
+    /* font-size: 10px; */
+    font-size: 60%;
+    color: #fff;
+}
+
+.special_badge{
+    padding: 0px 0px 0px 15px;
+}
+
+img {
+    vertical-align: bottom;
+}
+
+/* --------------------------------------------------
+ 一覧ページ遷移用のCSS
+ -------------------------------------------------- */
+.nextArea{
+    text-align: right;
+}
+.go_list{
+     font-weight: 400;
+     color: #053053;
+ }
+
+
+   /* --------------------------------------------------
+ 一覧・詳細ページ全般に関するCSS
+ -------------------------------------------------- */
+
+  /* --------------------------------------------------
+ページ上部を画像にするコード
+ -------------------------------------------------- */
+ 
+.bg-image-full {
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    position: relative;
+  }
+  
+  .bg-image-full::before{
+      background-color: rgba(0,0,0,0.5);
+      /* どの範囲に重ねるかを指定 */
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: ' ';
+  }
+  
+  .brand{
+      z-index:1;
+  }
+  
+  .navbar {
+      border: 0;
+      border-radius: 3px;
+      padding: 0.625rem 0;
+      margin-bottom: 0px;
+      color: #555;
+      background-color: #fff !important;
+      box-shadow: 0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card#event, .card#career{
+    height: 90%;
+  }
+  
+  .card#event:hover, .card#career:hover{
+    box-shadow:0 3px 6px rgba(0,0,0,0.5);
+  }
+  
+  /*TO DISPLAY UNIVERSITYIES EACHES */
+  
+  .product {
+      /*
+      margin-bottom: 20px;
+      */
+      padding-top:20px;
+      padding-bottom:20px;
+  }
+  
+  .img-thumbnail {
+      height: auto; 
+      max-width: 100%;
+  }
+  
+  .product:hover{
+    box-shadow: 0px 0px 8px 3px #ccc;
+    color: red;
+  }
+  
+  a, a:hover, a:visited, a:link, a:active {
+    color: black;
+  }
+  
+  .forbadge{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .nameUni{
+    font-weight: 700;
+  }
+  
+  .univ-parent{
+    position: relative;
+  }
+  
+  .expand-mark{
+    font-size: 300%;
+    position: absolute;
+    right: 0;
+    bottom: 5%;
+  }
+  
+  .nameCom{
+    font-weight: 700;
+  }
+  
+  .label-checkbox {
+    user-select:none;
+    /*font-size: 100%;*/
+  }
+  
+  .button-checkbox {
+    display: none
+  }
+  
+  .radio-order {
+    display: none
+  }
+  
+
+  /* --------------------------------------------------
+ お知らせページ全般に関するCSS
+ -------------------------------------------------- */
+
+ .content_news {
+    background: #ffffff;
+}
+
+ .wrap {
+     position: relative;
+     width: 100%;
+     margin-right: auto;
+     margin-left: auto;
+ }
+
+ #container {
+     position: relative;
+ }
+
+ @media screen and (min-width: 896px) and (max-width: 1279px) {
+     .wrap {
+         width: 100%;
+         margin-right: 0;
+         margin-left: 0;
+     }
+ }
+
+ @media screen and (max-width: 895px) {
+     .wrap {
+         width: 100%;
+         box-sizing: border-box;
+         padding: 0 3% 0;
+     }
+
+     .wrap02 {
+         width: 100%;
+         box-sizing: border-box;
+         padding: 0 3% 0;
+     }
+ }
+
+ ol,
+ ul {
+     list-style: none;
+     padding-inline-start: 0px;
+ }
+
+
+ ul#notic_list_v2 {
+     display: block;
+     clear: both;
+     margin: 0 0 30px 0;
+     border-top: 1px dotted #666;
+ }
+
+ ul#notic_list_v2 li {
+     display: block;
+     border-bottom: 1px dotted #666;
+     position: relative;
+ }
+
+ ul#notic_list_v2 li>div {
+     display: table;
+     width: 100%;
+     text-decoration: none;
+ }
+
+ ul#notic_list_v2 li>div .date {
+     display: table-cell;
+     width: 250px;
+     vertical-align: middle;
+     text-align: center;
+     font-size: 1.4rem;
+     letter-spacing: 1px;
+     padding: 0 0 0 0;
+ }
+
+ ul#notic_list_v2 li>div .title {
+     display: table-cell;
+     padding: 22px 60px 22px 0;
+     font-size: 1.4rem;
+     letter-spacing: 2px;
+     text-align: left;
+ }
+
+ ul#notic_list_v2 li>div .title a {
+     font-size: 1.2rem;
+     color: #3C4858;
+     font-family: "Roboto",
+         "Helvetica",
+         "Arial",
+         sans-serif;
+     font-weight: 200;
+     margin: 0;
+     padding: 0;
+     vertical-align: baseline;
+     background: transparent;
+     transition: .2s;
+     text-decoration: underline;
+ }
+
+
+ @media screen and (min-width: 896px) and (max-width: 1279px) {
+     ul#notic_list_v2 {
+         display: block;
+         clear: both;
+         width: 100%;
+         margin: 0 auto 30px;
+         border-top: 1px dotted #666;
+     }
+
+     ul#notic_list_v2 li {
+         display: block;
+         border-bottom: 1px dotted #666;
+         position: relative;
+     }
+
+     ul#notic_list_v2 li>div {
+         display: table;
+         width: 100%;
+         text-decoration: none;
+     }
+
+     ul#notic_list_v2 li>div .date {
+         display: table-cell;
+         width: 180px;
+         vertical-align: middle;
+         text-align: center;
+         font-size: 1.2rem;
+         letter-spacing: 1px;
+         padding: 0 0 0 0;
+     }
+
+     ul#notic_list_v2 li>div .title {
+         display: table-cell;
+         padding: 22px 20px 22px 0;
+         font-size: 1.2rem;
+         letter-spacing: 2px;
+         text-align: left;
+
+     }
+
+     ul#notic_list_v2 li>div .title a {
+         font-size: 1.2rem;
+     }
+ }
+
+ @media screen and (max-width: 895px) {
+     ul#notic_list_v2 {
+         width: 100%;
+         margin: 0 auto 20px;
+     }
+
+     ul#notic_list_v2 li {
+         display: block;
+         border-bottom: 1px dotted #666;
+         position: relative;
+     }
+
+     ul#notic_list_v2 li>div {
+         display: table;
+         width: 100%;
+         text-decoration: none;
+     }
+
+     ul#notic_list_v2 li>div .date {
+         display: table-cell;
+         width: 24%;
+         font-size: 0.8rem;
+         letter-spacing: 0px;
+     }
+
+     ul#notic_list_v2 li>div .title {
+         display: table-cell;
+         padding: 12px 10px 12px 10px;
+         font-size: 0.9rem;
+         letter-spacing: 1px
+     }
+
+     ul#notic_list_v2 li>div .title a {
+         font-size: 0.9rem;
+     }
+
+ }
+
+ #newshead {
+     padding: 20px 40px 30px;
+     border-bottom: 1px dotted #333;
+     margin: 0 0 30px 0;
+ }
+
+ #newshead .date {
+     font-size: 1.8rem;
+     letter-spacing: 2px;
+     line-height: 30px;
+     margin: 0 0 20px 0;
+ }
+
+ #newshead .date02 {
+     display: inline-block;
+     font-size: 1.8rem;
+     letter-spacing: 2px;
+     margin: 0 20px 20px 0;
+ }
+
+ #newshead strong {
+     display: inline-block;
+     width: 110px;
+     height: 30px;
+     background: #3c3c3c;
+     text-align: center;
+     color: #FFF;
+     line-height: 30px;
+     letter-spacing: 3px;
+     vertical-align: top;
+ }
+
+ #newshead strong.ee {
+     border-left: 17px solid #3c6f3c;
+ }
+
+ #newshead strong.sdm {
+     border-left: 17px solid #004389;
+ }
+
+ #newshead strong.psi {
+     border-left: 17px solid #be0b3c;
+ }
+
+ #newshead strong.other {
+     border-left: 17px solid #a0a0a0;
+ }
+
+ #newshead h3 {
+     font-size: 2.2rem;
+     letter-spacing: 2px;
+     margin: 0 0 20px 0;
+ }
+
+ #newsbody {
+     padding: 0 40px 30px;
+     border-bottom: 1px dotted #333;
+     margin: 0 0 30px 0;
+ }
+
+ #newsbody p {
+     font-size: 1.1rem;
+     line-height: 1.8;
+     margin: 0 0 30px 0;
+ }
+
+ #newsbody table {
+     margin: 0 0 30px 0;
+ }
+
+ #newsbody table td {
+     font-size: 1.8rem;
+     line-height: 1.8;
+     padding: 0 10px 10px 0;
+ }
+
+ #newsbody .overview {
+     font-weight: 600;
+ }
+
+ #newsbody .attention {
+     font-size: 1.4rem;
+     line-height: 1.8;
+     padding: 0 0 40px 0;
+ }
+
+ @media screen and (min-width: 896px) and (max-width: 1279px) {
+
+     #newshead {
+         padding: 20px 30px 30px;
+         border-bottom: 1px dotted #333;
+         margin: 0 3% 30px;
+     }
+
+     #newsbody {
+         padding: 0 3% 20px;
+         margin: 0 0 20px 0;
+     }
+ }
+
+ @media screen and (max-width: 895px) {
+
+     #newshead {
+         padding: 10px 3% 20px;
+         margin: 0 0 20px 0;
+     }
+
+     #newshead .date {
+         font-size: 1.2rem;
+         letter-spacing: 2px;
+         margin: 0 0 10px 0;
+     }
+
+     #newshead .date02 {
+         font-size: 1.2rem;
+         letter-spacing: 2px;
+         margin: 0 8px 10px 0;
+         vertical-align: bottom;
+         line-height: 30px;
+     }
+
+     #newshead strong {
+         vertical-align: top;
+     }
+
+     #newshead h3 {
+         font-size: 1.6rem;
+         letter-spacing: 2px;
+         margin: 0 0 0 0;
+     }
+
+     #newsbody {
+         padding: 0 3% 20px;
+         margin: 0 0 20px 0;
+     }
+
+     #newsbody p {
+         font-size: 1.2rem;
+         line-height: 1.8;
+         margin: 0 0 20px 0;
+     }
+
+     #newsbody table {
+         display: block;
+         margin: 0 0 20px 0;
+     }
+
+     #newsbody table tbody {
+         display: block;
+     }
+
+     #newsbody table tr {
+         display: block;
+     }
+
+     #newsbody table td {
+         display: block;
+         font-size: 1.2rem;
+         line-height: 1.8;
+         padding: 0 0 10px 0;
+     }
+
+     #newsbody .attention {
+         font-size: 1.2rem;
+         line-height: 1.8;
+         padding: 0 0 0px 0;
+     }
+ }
+
+
+
+
+

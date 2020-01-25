@@ -56,17 +56,21 @@
             <div class="tab-pane active" id="<%= facluties.f_name %>">
               <h3 class="sub">試験時期</h3>
               <ul>
-                <% if facluties.isThereRec %>
+                <% if facluties.is_there_recomend %>
                 <li>　推薦入試：<%= facluties.date_recomend %></li>
                 <% end %>
+                <% if facluties.is_there_general %>
                 <li>　一般入試：<%= facluties.date_general %></li>
+                <% end %>
               </ul>
               <h3 class="sub">合格発表</h3>
               <ul>
-                <% if facluties.isThereRec %>
+                <% if facluties.is_there_recomend %>
                 <li>　推薦入試：<%= facluties.date_recomend_pass %></li>
                 <% end %>
+                <% if facluties.is_there_general %>
                 <li>　一般入試：<%= facluties.date_general_pass %></li>
+                <% end %>
               </ul>
               <h3 class="sub">募集学科</h3>
               <% array_department = facluties.department.split(",") %>
@@ -87,17 +91,21 @@
             <div class="tab-pane" id="<%= facluties.f_name %>">
               <h3 class="sub">試験時期</h3>
               <ul>
-                <% if facluties.isThereRec %>
+                <% if facluties.is_there_recomend %>
                 <li>　推薦入試：<%= facluties.date_recomend %> </li>
                 <% end %>
+                <% if facluties.is_there_general %>
                 <li>　一般入試：<%= facluties.date_general %></li>
+                <% end %>
               </ul>
               <h3 class="sub">合格発表</h3>
               <ul class>
-                <% if facluties.isThereRec %>
+                <% if facluties.is_there_recomend %>
                 <li>　推薦入試：<%= facluties.date_recomend_pass %></li>
                 <% end %>
+                <% if facluties.is_there_general %>
                 <li>　一般入試：<%= facluties.date_general_pass %></li>
+                <% end %>
               </ul>
               <h3 class="sub">募集学科</h3>
               <% array_department = facluties.department.split(",") %>

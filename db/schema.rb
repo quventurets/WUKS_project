@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_14_012934) do
+ActiveRecord::Schema.define(version: 2020_01_25_180144) do
 
-  create_table "comps", force: :cascade do |t|
+  create_table "comps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "area"
     t.string "scale"
@@ -35,10 +35,33 @@ ActiveRecord::Schema.define(version: 2019_12_14_012934) do
     t.text "original_text"
   end
 
-  create_table "events", force: :cascade do |t|
+  create_table "departments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "univ_name"
+    t.string "faculty_name"
+    t.string "name"
+    t.string "date_general"
+    t.string "date_recomend"
+    t.string "date_general_pass"
+    t.string "date_recomend_pass"
+    t.boolean "math"
+    t.boolean "english"
+    t.boolean "physics"
+    t.boolean "chemistry"
+    t.boolean "biology"
+    t.boolean "special"
+    t.boolean "paper"
+    t.boolean "integration"
+    t.boolean "practical"
+    t.boolean "external_english"
+    t.boolean "interview"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "place"
-    t.date "date"
+    t.datetime "date"
     t.string "pref"
     t.string "event_type"
     t.datetime "created_at", null: false
@@ -52,28 +75,30 @@ ActiveRecord::Schema.define(version: 2019_12_14_012934) do
     t.string "form"
   end
 
-  create_table "faculties", force: :cascade do |t|
+  create_table "faculties", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "s_name"
     t.string "f_name"
     t.string "date_general"
-    t.boolean "isThereRec"
+    t.boolean "is_there_recomend"
     t.string "date_recomend"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "department"
+    t.text "department"
     t.string "url"
     t.string "date_general_pass"
     t.string "date_recomend_pass"
+    t.string "faculty_type"
+    t.boolean "is_there_general"
   end
 
-  create_table "kosens", force: :cascade do |t|
+  create_table "kosens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "kosen_id"
     t.string "kosen_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "news", force: :cascade do |t|
+  create_table "news", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date"
     t.text "content"
     t.datetime "created_at", null: false
@@ -81,7 +106,7 @@ ActiveRecord::Schema.define(version: 2019_12_14_012934) do
     t.string "name"
   end
 
-  create_table "univs", force: :cascade do |t|
+  create_table "univs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -94,17 +119,13 @@ ActiveRecord::Schema.define(version: 2019_12_14_012934) do
     t.string "rubi"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.text "email"
-    t.integer "kosen_id"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "provider"
-    t.string "uid"
-    t.string "area"
-    t.string "future"
-    t.integer "grad_year"
+    t.string "password_digest"
+    t.integer "kosen_id"
   end
 
 end

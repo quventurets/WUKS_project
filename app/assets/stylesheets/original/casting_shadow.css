@@ -75,12 +75,6 @@ a, a:visited, a:link, a:active {
   box-shadow: #b2b1b1 2px 2px 3px;
 }
 
-.listTitle{
-  font-weight: bold;
-  font-size: 1.2em;
-  margin-bottom: 10px;
-  line-height: 1.2;
-}
 
 .listContent {
   padding: 12px;
