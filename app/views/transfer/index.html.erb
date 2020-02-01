@@ -132,11 +132,7 @@
         <%= link_to transfer_show_path(name:univs.name) do %>
         <div class="row product border">
           <div class="col-md-4">
-
             <img src=<%= asset_path("img/univ/#{univs.name}.jpg") %> alt="url('/assets/img/bg7.jpg');" class="img-thumbnail">
-
-            <!-- <img src="assets/img/wuks.png" alt="" class="img-thumbnail">
-                -->
           </div>
           <div class="col-md-8">
             <h2 class="nameUni"><%= univs.name %></h2>
@@ -156,13 +152,39 @@
                 <% end %>
               </h4>
           </div>
-          <div class="collapse" id="collapseUniv<%= univs.id %>">
+          <div class="collapse col-12" id="collapseUniv<%= univs.id %>">
               <% @facluties.select{|facluty| facluty.s_name == univs.name}.each do |facluty| %>
-                <li><%= facluty.f_name %></li>
-                <ul>
+                <li class ="fac_L"><%= facluty.f_name %></li>
+                <ul class ="dep_L">
                   <% @departments.select{|department| department.univ_name == univs.name && department.faculty_name == facluty.f_name}.each do |department| %>
-                    <li style="padding-left: 20px;margin-bottom: 10px;" ><%= department.name %> <br/>
-                      
+                    <li><%= department.name %> <br/>
+                    <p class = "subjects">
+                    <% if department.math %>
+                      数学
+                    <% end %>
+                    <% if department.english %>
+                      英語
+                    <% end %>
+                    <% if department.physics %>
+                      物理
+                    <% end %>
+                    <% if department.chemistry %>
+                      化学
+                    <% end %>
+                    <% if department.special %>
+                      専門
+                    <% end %>
+                    <% if department.external_english %>
+                      英語(外部)
+                    <% end %>
+                    <% if department.interview %>
+                      面接
+                    <% end %>
+                    <% if department.paper || department.integration || department.practical || department.biology %>
+                      その他
+                    <% end %>
+                    </p>
+                      <!--
                       <span class="badge badge-pill subject-badge <% if department.math %>badge-rose<% else %>badge-secondary<% end %>">
                         数
                       </span>
@@ -187,7 +209,8 @@
                       <span class="badge badge-pill subject-badge <% if department.paper || department.integration || department.practical || department.biology %>badge-rose<% else %>badge-secondary<% end %>">
                         他
                       </span>
-                      
+                      -->
+
                       <!--
                       <% if department.math %> 
                         <span class="badge badge-pill subject-badge math-badge">
@@ -234,10 +257,10 @@
                   <% end %>
                 </ul>
               <% end %>
-            </div>
-        </div>
+          </div>
+          
+          </div>
         <% end %>
-        <!--</a>-->
           <button class="expand-mark" type="button" data-toggle="collapse" data-target="#collapseUniv<%= univs.id %>" aria-expanded="true" aria-controls="collapseUniv<%= univs.id %>">
             <i class="material-icons">expand_more</i>
           </button>
