@@ -72,7 +72,7 @@
     </div>
 
   </div>
-  <div class ="pad25_border">
+  <div class ="pad_border">
   </div>
 
   <div class ="row">
@@ -88,7 +88,6 @@
             <% @events.each do |events| %>
             <div class ="v2-event-list__item">
               <%= link_to event_show_path(name:events.name) do %>
-             <!-- <a class="v2-event-list__item-link" href="/events/15967"> -->
               <img class="v2-event__logo lazyloaded" src = <%= asset_path("img/event/#{events.name}.jpg") %> alt="">
                 <div class ="badge_span">
                   <div class ="special_badge">
