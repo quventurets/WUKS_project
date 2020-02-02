@@ -10,28 +10,16 @@
     text-align: center;
 }
 
-.sub {
-  position: relative;
-  font-size: 2.0em;
-  padding: .25em 0 .25em .75em;
-  border-left: 10px solid #4e54c8;
-  border-right: 10px solid #4e54c8;
-  color: #3C4858;
-  /*background-color: #f6f6f6;*/
-  background-color: #f9f9f9;
-  font-weight: 600;
-  text-align: center;
+.sub{
+    padding: 8px 6px;
+    border-bottom: 1px solid;
+    letter-spacing: 2px;
+    font-size: 1.7em;
+    color: #455A64;
+    margin-bottom: 14px;
 }
 
-sub::after {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  content: '';
-  width: 100%;
-  height: 0;
-  border-bottom: 1px solid #ccc;
-}
+
 
 /* --------------------------------------------------
  各大学情報に関するCSS(?)
@@ -45,12 +33,17 @@ sub::after {
 }
 
 .card .card-header-primary {
-  box-shadow: 0 5px 20px 0px rgba(28, 88, 218, 0.2), 0 13px 24px -11px rgba(35, 16, 212, 0.6);
+  box-shadow: 0 0px 0px 0px rgba(28, 88, 218, 0.2), 0 0px 0px 0px rgba(35, 16, 212, 0.6);
   padding: 3px 3px 3px 3px;
 }
 
+
+.card-header{
+  padding: 0.0rem 0rem;
+}
+
 .card .card-header{
-  padding: 5px,5px;
+  border-radius: 0px;
 }
 
 .nav-tabs .nav-item .nav-link {
@@ -61,42 +54,6 @@ sub::after {
   margin-left: 15%;
 }
 
-.subject-badge {
-  padding: 5px;
-  font-size: 11px;
-}
-
-.math-badge {
-  background-color: deepskyblue;
-}
-
-.english-badge {
-  background-color: green;
-}
-
-.physics-badge {
-  background-color: red;
-}
-
-.chemistry-badge {
-  background-color: yellow;
-}
-
-.special-badge {
-  background-color: purple;
-}
-
-.external-english-badge {
-  background-color: pink;
-}
-
-.interview-badge {
-  background-color: gold;
-}
-
-.other-badge {
-  background-color: gray;
-}
 
 @media screen and (max-width: 895px) { 
   .nav-tabs .nav-item .nav-link{

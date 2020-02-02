@@ -18,9 +18,9 @@
   </div>
 </section>
 
+<h2 class="heading">募集学部</h2>
 <div class="row">
   <div class="container">
-    <h2 class="heading">募集学部</h2>
     <div class="card-header">
       <!-- Card Start -->
       <div class="card card-nav-tabs card-plain">
@@ -74,9 +74,9 @@
               </ul>
               <h3 class="sub">募集学科</h3>
               <% array_department = facluties.department.split(",") %>
-              <ul class>
+              <ul class ="dep_L">
                 <% array_department.each do |department| %>
-                <li>・<%= department %></li>
+                <li><%= department %></li>
                 <% end %>
               </ul>
               <div class="text-center">
@@ -109,9 +109,9 @@
               </ul>
               <h3 class="sub">募集学科</h3>
               <% array_department = facluties.department.split(",") %>
-              <ul class>
+              <ul class = "dep_L">
                 <% array_department.each do |department| %>
-                <li>・<%= department %></li>
+                <li><%= department %></li>
                 <% end %>
               </ul>
               <div class="text-center">
