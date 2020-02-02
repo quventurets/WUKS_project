@@ -644,13 +644,6 @@ img {
     position: relative;
   }
   
-  .expand-mark{
-    font-size: 300%;
-    position: absolute;
-    right: 0;
-    bottom: 5%;
-  }
-  
   .nameCom{
     font-weight: 700;
   }

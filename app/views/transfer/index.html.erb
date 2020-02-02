@@ -102,7 +102,33 @@
             name: 'external_english', badge_text: '英語(外部試験)', badge_class: 'badge-rose', id: 'labelExternalEnglish', checked: !(params['external_english'] == '0'), form: form
           } %>
           <%= render :partial => "badge_checkbox", :locals => {
-            name: 'other', badge_text: 'その他', badge_class: 'badge-rose', id: 'labelOther', checked: !(params['other'] == '0'), form: form
+            name: 'other_subject', badge_text: 'その他', badge_class: 'badge-rose', id: 'labelOtherSubject', checked: !(params['other_subject'] == '0'), form: form
+          } %>
+          <br />
+          <hr/>
+
+          <h3 class="filter-type">学部</h3>
+
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'engineering', badge_text: '工学系', badge_class: 'badge-rose', id: 'labelEngineering', checked: !(params['engineering'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'science_and_engineering', badge_text: '理工学系', badge_class: 'badge-rose', id: 'labelScienceAndEngineering', checked: !(params['science_and_engineering'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'science', badge_text: '理学系', badge_class: 'badge-rose', id: 'labelScience', checked: !(params['science'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'economics', badge_text: '経済学系', badge_class: 'badge-rose', id: 'labelEconomics', checked: !(params['economics'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => {
+            name: 'law', badge_text: '法学系', badge_class: 'badge-rose', id: 'labelLaw', checked: !(params['law'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'literature', badge_text: '文学系', badge_class: 'badge-rose', id: 'labelLiterature', checked: !(params['literature'] == '0'), form: form
+          } %>
+          <%= render :partial => "badge_checkbox", :locals => { 
+            name: 'other_faculty_type', badge_text: 'その他', badge_class: 'badge-rose', id: 'labelOtherFacultyType', checked: !(params['other_faculty_type'] == '0'), form: form
           } %>
           <br />
           <hr/>
@@ -129,141 +155,80 @@
       <% @univs.each do |univs| %>
       <div class="univ-parent">
         <!--<a href ="/transfer/<%= univs.name %>"> -->
-        <%= link_to transfer_show_path(name:univs.name) do %>
-        <div class="row product border">
-          <div class="col-md-4">
-            <img src=<%= asset_path("img/univ/#{univs.name}.jpg") %> alt="url('/assets/img/bg7.jpg');" class="img-thumbnail">
-          </div>
-          <div class="col-md-8">
-            <h2 class="nameUni"><%= univs.name %></h2>
-            <h4 class="forbadge"><span class="badge badge-pill badge-rose"><%= univs.location %></span></h4>
-            <% if univs.examtypes == 1 %>
-              <h4 class="forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
-                <span class="badge badge-pill badge-success"><%= univs.date_recommend %></span>
-                <span class="badge badge-pill badge-info">推薦入試あり</span>
-            <% elsif  univs.examtypes == 2 %>
-              <h4 class="forbadge"><span class="badge badge-pill badge-success"><%= univs.date_recommend %></span>
-              <span class="badge badge-pill badge-info">推薦入試のみ</span>
-            <% else %>
-              <h4 class="forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
-            <% end %>
-                <% if univs.otherFac == 1%>
-                <span class="badge badge-pill badge-warning">工学系以外も編入可</span>
+        <div class="product border">
+          <%= link_to transfer_show_path(name:univs.name) do %>
+            <div class="row">
+              <div class="col-md-4">
+                <img src=<%= asset_path("img/univ/#{univs.name}.jpg") %> alt="url('/assets/img/bg7.jpg');" class="img-thumbnail">
+              </div>
+              <div class="col-md-8">
+                <h2 class="nameUni"><%= univs.name %></h2>
+                <h4 class="forbadge"><span class="badge badge-pill badge-rose"><%= univs.location %></span></h4>
+                <% if univs.examtypes == 1 %>
+                  <h4 class="forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
+                    <span class="badge badge-pill badge-success"><%= univs.date_recommend %></span>
+                    <span class="badge badge-pill badge-info">推薦入試あり</span>
+                <% elsif  univs.examtypes == 2 %>
+                  <h4 class="forbadge"><span class="badge badge-pill badge-success"><%= univs.date_recommend %></span>
+                  <span class="badge badge-pill badge-info">推薦入試のみ</span>
+                <% else %>
+                  <h4 class="forbadge"><span class="badge badge-pill badge-success"><%= univs.date_general %></span>
                 <% end %>
-              </h4>
+                    <% if univs.otherFac == 1%>
+                    <span class="badge badge-pill badge-warning">工学系以外も編入可</span>
+                    <% end %>
+                  </h4>
+              </div>
+            </div>
+          <% end %>
+          <div class="faculty-show" data-toggle="collapse" data-target="#collapseUniv<%= univs.id %>" aria-expanded="true" aria-controls="collapseUniv<%= univs.id %>">
+            <i class="material-icons expand-mark">expand_more</i>
           </div>
-          <div class="collapse col-12" id="collapseUniv<%= univs.id %>">
-              <% @facluties.select{|facluty| facluty.s_name == univs.name}.each do |facluty| %>
-                <li class ="fac_L"><%= facluty.f_name %></li>
-                <ul class ="dep_L">
-                  <% @departments.select{|department| department.univ_name == univs.name && department.faculty_name == facluty.f_name}.each do |department| %>
-                    <li><%= department.name %> <br/>
-                    <p class = "subjects">
-                    <% if department.math %>
-                      数学
+          <div class="faculties-area collapse" id="collapseUniv<%= univs.id %>">
+            <% @facluties.select{|facluty| facluty.s_name == univs.name}.each do |facluty| %>
+              <div class="faculty-area" data-toggle="collapse" data-target="#collapseUniv<%= univs.id %>_<%= facluty.id %>" aria-expanded="true" aria-controls="collapseUniv<%= univs.id %>_<%= facluty.id %>">
+                <h4 class="faculty-title border">
+                  <%= facluty.f_name %>
+                  <i class="material-icons expand-mark-faculty">expand_more</i>
+                </h4>
+                <div class="collapse" id="collapseUniv<%= univs.id %>_<%= facluty.id %>">
+                  <ul class ="dep_L">
+                    <% @departments.select{|department| department.univ_name == univs.name && department.faculty_name == facluty.f_name}.each do |department| %>
+                      <li><%= department.name %> <br/>
+                        <p class = "subjects">
+                          <% if department.math %>
+                            数学
+                          <% end %>
+                          <% if department.english %>
+                            英語
+                          <% end %>
+                          <% if department.physics %>
+                            物理
+                          <% end %>
+                          <% if department.chemistry %>
+                            化学
+                          <% end %>
+                          <% if department.special %>
+                            専門
+                          <% end %>
+                          <% if department.external_english %>
+                            英語(外部)
+                          <% end %>
+                          <% if department.interview %>
+                            面接
+                          <% end %>
+                          <% if department.paper || department.integration || department.practical || department.biology %>
+                            その他
+                          <% end %>
+                        </p>
+                      </li>
                     <% end %>
-                    <% if department.english %>
-                      英語
-                    <% end %>
-                    <% if department.physics %>
-                      物理
-                    <% end %>
-                    <% if department.chemistry %>
-                      化学
-                    <% end %>
-                    <% if department.special %>
-                      専門
-                    <% end %>
-                    <% if department.external_english %>
-                      英語(外部)
-                    <% end %>
-                    <% if department.interview %>
-                      面接
-                    <% end %>
-                    <% if department.paper || department.integration || department.practical || department.biology %>
-                      その他
-                    <% end %>
-                    </p>
-                      <!--
-                      <span class="badge badge-pill subject-badge <% if department.math %>badge-rose<% else %>badge-secondary<% end %>">
-                        数
-                      </span>
-                      <span class="badge badge-pill subject-badge <% if department.english %>badge-rose<% else %>badge-secondary<% end %>">
-                        英
-                      </span>
-                      <span class="badge badge-pill subject-badge <% if department.physics %>badge-rose<% else %>badge-secondary<% end %>">
-                        物
-                      </span>
-                      <span class="badge badge-pill subject-badge <% if department.chemistry %>badge-rose<% else %>badge-secondary<% end %>">
-                        化
-                      </span>
-                      <span class="badge badge-pill subject-badge <% if department.special %>badge-rose<% else %>badge-secondary<% end %>">
-                        専
-                      </span>
-                      <span class="badge badge-pill subject-badge <% if department.external_english %>badge-rose<% else %>badge-secondary<% end %>">
-                        外
-                      </span>
-                      <span class="badge badge-pill subject-badge <% if department.interview %>badge-rose<% else %>badge-secondary<% end %>">
-                        面
-                      </span>
-                      <span class="badge badge-pill subject-badge <% if department.paper || department.integration || department.practical || department.biology %>badge-rose<% else %>badge-secondary<% end %>">
-                        他
-                      </span>
-                      -->
-
-                      <!--
-                      <% if department.math %> 
-                        <span class="badge badge-pill subject-badge math-badge">
-                          数
-                        </span>
-                      <% end %>
-                      <% if department.english %>
-                        <span class="badge badge-pill subject-badge english-badge">
-                          英
-                        </span>
-                      <% end %>
-                      <% if department.physics %>
-                        <span class="badge badge-pill subject-badge physics-badge">
-                          物
-                        </span>
-                      <% end %>
-                      <% if department.chemistry %>
-                        <span class="badge badge-pill subject-badge chemistry-badge">
-                          化
-                        </span>
-                      <% end %>
-                      <% if department.special %>
-                        <span class="badge badge-pill subject-badge special-badge">
-                        専
-                        </span>
-                      <% end %>
-                      <% if department.external_english %>
-                        <span class="badge badge-pill subject-badge external-english-badge">
-                          外
-                        </span>
-                      <% end %>
-                      <% if department.interview %>
-                        <span class="badge badge-pill subject-badge interview-badge">
-                          面
-                        </span>
-                      <% end %>
-                      <% if department.paper || department.integration || department.practical || department.biology %>
-                        <span class="badge badge-pill subject-badge other-badge">
-                          他
-                        </span>
-                      <% end %>
-                      -->
-                    </li>
-                  <% end %>
-                </ul>
-              <% end %>
+                  </ul>
+                </div>
+              </div>
+            <% end %>
           </div>
-          
           </div>
-        <% end %>
-          <button class="expand-mark" type="button" data-toggle="collapse" data-target="#collapseUniv<%= univs.id %>" aria-expanded="true" aria-controls="collapseUniv<%= univs.id %>">
-            <i class="material-icons">expand_more</i>
-          </button>
         </div>
       <% end %>
     </div>
@@ -272,6 +237,14 @@
 
 <script>
   const handleChangeBadge = (e,id,cl) => $(id).toggleClass("badge-secondary",!e.target.checked).toggleClass(cl,e.target.checked)
+  jQuery($ => {
+    $('.faculty-area').on('click', function(){
+      $(this).find('i').toggleClass('open')
+    })
+    $('.faculty-show').on('click', function(){
+      $(this).find('i').toggleClass('open')
+    })
+  })
 </script>
 
 </div>
