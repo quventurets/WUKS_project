@@ -5,13 +5,13 @@
 .heading{
     padding: 10px;
     margin:0px;
-    padding-left:20px;
     font-weight: 600;
     text-align: center;
 }
 
 .sub{
     padding: 8px 6px;
+    font-weight: 600;
     border-bottom: 1px solid;
     letter-spacing: 2px;
     font-size: 1.7em;
@@ -54,6 +54,9 @@
   margin-left: 15%;
 }
 
+.univ-padding{
+  padding: 0px 10px 30px 10px;
+}
 
 @media screen and (max-width: 895px) { 
   .nav-tabs .nav-item .nav-link{
@@ -67,7 +70,7 @@
  -------------------------------------------------- */
 
 .article {
-  padding-left: 15px;
+  padding-left: 5px;
   /* ------------------------------------------------
     メモ: font-sizeの計算方法
     (1)横幅が768px未満

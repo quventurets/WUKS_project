@@ -36,10 +36,11 @@
   <!-- CSS Files -->
   <%= stylesheet_link_tag "material-kit_css/material-kit.css?v=2.0.5",:media=> "all" %>
   <!-- CSS For List Pages -->
+  
+  <%= stylesheet_link_tag "original/top_page.css",:media=> "all" %> <!-- なんか見た目おかしくなったらこれが原因かも -->
   <%= stylesheet_link_tag "original/list_page.css", :media => "all"%>
   <%= stylesheet_link_tag "original/show_page.css", :media => "all"%>
   <%= stylesheet_link_tag "original/footer.css",:media=> "all" %>
-  <%= stylesheet_link_tag "original/top_page.css",:media=> "all" %> <!-- なんか見た目おかしくなったらこれが原因かも -->
   <!-- JS Files -->
   <%= javascript_include_tag "material-kit_js/core/jquery.min.js" %>
   <%= javascript_include_tag "material-kit_js/core/popper.min.js" %>

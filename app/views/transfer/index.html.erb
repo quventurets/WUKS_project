@@ -151,11 +151,11 @@
           <!-- <input type="submit" value="デフォルトに戻す" class="btn btn-danger btn-default"> -->
         <% end %>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-9 pad-zero">
       <% @univs.each do |univs| %>
       <div class="univ-parent">
         <!--<a href ="/transfer/<%= univs.name %>"> -->
-        <div class="product border">
+        <div class="product border container">
           <%= link_to transfer_show_path(name:univs.name) do %>
             <div class="row">
               <div class="col-md-4">
@@ -187,7 +187,7 @@
           <div class="faculties-area collapse" id="collapseUniv<%= univs.id %>">
             <% @facluties.select{|facluty| facluty.s_name == univs.name}.each do |facluty| %>
               <div class="faculty-area" data-toggle="collapse" data-target="#collapseUniv<%= univs.id %>_<%= facluty.id %>" aria-expanded="true" aria-controls="collapseUniv<%= univs.id %>_<%= facluty.id %>">
-                <h4 class="faculty-title border">
+                <h4 class="faculty-title">
                   <%= facluty.f_name %>
                   <i class="material-icons expand-mark-faculty">expand_more</i>
                 </h4>
@@ -233,19 +233,20 @@
       <% end %>
     </div>
   </div>
-</div>
-
-<script>
-  const handleChangeBadge = (e,id,cl) => $(id).toggleClass("badge-secondary",!e.target.checked).toggleClass(cl,e.target.checked)
-  jQuery($ => {
-    $('.faculty-area').on('click', function(){
-      $(this).find('i').toggleClass('open')
-    })
-    $('.faculty-show').on('click', function(){
-      $(this).find('i').toggleClass('open')
-    })
-  })
-</script>
 
 </div>
+
+  <script>
+    const handleChangeBadge = (e,id,cl) => $(id).toggleClass("badge-secondary",!e.target.checked).toggleClass(cl,e.target.checked)
+    jQuery($ => {
+      $('.faculty-area').on('click', function(){
+        $(this).find('i').toggleClass('open')
+      })
+      $('.faculty-show').on('click', function(){
+        $(this).find('i').toggleClass('open')
+      })
+    })
+  </script>
 </div>
+</div>
+<div class = "pt-5"></div>
