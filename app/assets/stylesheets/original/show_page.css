@@ -5,33 +5,21 @@
 .heading{
     padding: 10px;
     margin:0px;
-    padding-left:20px;
     font-weight: 600;
     text-align: center;
 }
 
-.sub {
-  position: relative;
-  font-size: 2.0em;
-  padding: .25em 0 .25em .75em;
-  border-left: 10px solid #4e54c8;
-  border-right: 10px solid #4e54c8;
-  color: #3C4858;
-  /*background-color: #f6f6f6;*/
-  background-color: #f9f9f9;
-  font-weight: 600;
-  text-align: center;
+.sub{
+    padding: 8px 6px;
+    font-weight: 600;
+    border-bottom: 1px solid;
+    letter-spacing: 2px;
+    font-size: 1.7em;
+    color: #455A64;
+    margin-bottom: 14px;
 }
 
-sub::after {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  content: '';
-  width: 100%;
-  height: 0;
-  border-bottom: 1px solid #ccc;
-}
+
 
 /* --------------------------------------------------
  各大学情報に関するCSS(?)
@@ -45,16 +33,29 @@ sub::after {
 }
 
 .card .card-header-primary {
-  box-shadow: 0 5px 20px 0px rgba(28, 88, 218, 0.2), 0 13px 24px -11px rgba(35, 16, 212, 0.6);
+  box-shadow: 0 0px 0px 0px rgba(28, 88, 218, 0.2), 0 0px 0px 0px rgba(35, 16, 212, 0.6);
   padding: 3px 3px 3px 3px;
 }
 
+
+.card-header{
+  padding: 0.0rem 0rem;
+}
+
 .card .card-header{
-  padding: 5px,5px;
+  border-radius: 0px;
 }
 
 .nav-tabs .nav-item .nav-link {
   font-size: 1em;
+}
+
+.btn-default {
+  margin-left: 15%;
+}
+
+.univ-padding{
+  padding: 0px 10px 30px 10px;
 }
 
 @media screen and (max-width: 895px) { 
@@ -69,7 +70,7 @@ sub::after {
  -------------------------------------------------- */
 
 .article {
-  padding-left: 15px;
+  padding-left: 5px;
   /* ------------------------------------------------
     メモ: font-sizeの計算方法
     (1)横幅が768px未満
@@ -80,6 +81,14 @@ sub::after {
   ------------------------------------------------ */
   font-size: calc(100% + 0.5vw);
   line-height: 2em;
+}
+
+.article::after {
+  content: "";
+  display: block;
+  clear: both;
+  height: 1px;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 768px) {
@@ -110,3 +119,26 @@ sub::after {
   padding: 20px 15px;
 }
 
+/* --------------------------------------------------
+ お知らせ画面に関するCSS(?)
+ -------------------------------------------------- */
+.right-img {
+  float: right;
+  margin-left: 36px;
+}
+
+@media screen and (max-width: 895px) {
+  .right-img {
+    display: block;
+    clear: both;
+    text-align: center;
+    float: none;
+    margin-left: 0;
+  }
+}
+
+.center-img {
+  display: block;
+  clear: both;
+  text-align: center;
+}

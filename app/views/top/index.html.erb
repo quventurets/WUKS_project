@@ -29,146 +29,136 @@
 
 
 <div class="container">
-  <div class="contents_list text-center pad25">
-      <div class="container">
-          <div class="contents_introduction">
-            <h2 style="font-weight: 700">全国の高専生と情報を共有しよう</h2>
-            <h4>高専生の進学・就職は情報戦。沢山の情報を見つけよう。</h4>
-          </div>
-
-          <div class = "row">
-             <div class="col-4 main-item">
-               <a href="transfer">
-                 <div class="card in_a">
-                   <div class="card-body mt-2">
-                     <i class="material-icons">school</i>
-                     <p class="pt-2"><b>編入情報</b>を探す</p>
-                   </div>
-                 </div>
-               </a>
-             </div>
-             <div class="col-4 main-item">
-               <a href="career">
-                 <div class="card in_a">
-                   <div class="card-body mt-2">
-                     <i class="material-icons">business</i>
-                     <p class="pt-2"><b>企業情報</b>を探す</p>
-                   </div>
-                 </div>
-               </a>
-             </div>
-             <div class="col-4 main-item">
-               <a href="event">
-                 <div class="card">
-                   <div class="card-body mt-2">
-                     <i class="material-icons">record_voice_over</i>
-                     <p class="pt-2"><b>イベント</b>を探す</p>
-                   </div>
-                 </div>
-               </a>
-             </div>
-           </div>
-
-      </div>
-
-  </div>
-</div>
-<div class="content_news pad25">
-  <div class="container">
-    <div class="wrap">
-      <div class="contents_introduction">
-        <h2><b>お知らせ</b></h2>
-      </div>
-      <div class="pad10">
-      </div>
-      <ul id="notic_list">
-        <% @news.each do |news| %>
-        <li>
-          <div>
-            <p class="date"><%= news.date %></p>
-            <p class="title">
-              <%= link_to news_show_path(id:news.id) do %>
-              <%= news.name %>
-              <% end %>
-            </p>
-          </div>
-        </li>
-        <% end %>
-      </ul>
-      <div class="text-center">
-        <a href="/news">
-          <button class="btn btn-primary">すべてのお知らせを見る
-            <div class="ripple-container"></div>
-          </button>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="pad25">
-  <!-- イベント情報を新しいものから3つ並べる -->
-  <div class=content_body>
-    <div class="contents_introduction">
-      <h2><b>イベント情報</b></h2>
-    </div>
+  <div class="contents_list text-center pad50">
     <div class="container">
-      <div class="row">
-        <% @events.each do |events| %>
-        <div class="col-md-3 col-sm-6" style="margin-bottom: 15px;">
-          <%= link_to event_show_path(name:events.name) do %>
-          <div class="card" id="event" style="height: 90%; margin-bottom: 0px;">
-            <div class="listImg">
-              <img src=<%= asset_path("img/event/#{events.name}.jpg") %> alt="">
-              <!-- イベント当日以降は応募終了、それ以前は募集中にする -->
-              <% if events.date > Date.today %>
-              <span class="badge badge-pill badge-warning">募集中</span>
-              <% else %>
-              <span class="badge badge-pill badge-default">応募終了</span>
-              <% end %>
-            </div>
-            <div class="listContent">
-              <div class="listTitle">
-                <!-- <% if events.name.length < 13 %> -->
-                <!-- <% else %> 
-                <%= events.name[0,12] %>
-                <% end %> -->
-                <%= events.name %>
-              </div>
-              <div class="contentDetail">
-                場所:
-                <span class="eventPlace"><%= events.place %></span>
-                <br>
-                日時:
-                <span class="eventDate"><%= events.date.strftime("%Y年%m月%d日") %></span>
-              </div>
-              <div class="tagArea">
-                <span class="badge badge-pill badge-rose"><%= events.pref %></span>
-                <span class="badge badge-pill badge-info"><%= events.event_type %></span>
-                <span class="badge badge-pill badge-danger">交通費支給</span>
-              </div>
-            </div>
-          </div>
-          <% end %>
-        </div>
-        <% end %>
+      <div class="contents_introduction">
+        <h2 style="font-weight: 700">全国の高専生と情報を共有しよう</h2>
+        <h4>高専生の進学・就職は情報戦。沢山の情報を見つけよう。</h4>
+      </div>
 
+      <div class="row">
+        <div class="col-4 main-item">
+          <a href="transfer">
+            <div class="card in_a">
+              <div class="card-body mt-2">
+                <i class="material-icons">school</i>
+                <p class="pt-2"><b>編入情報</b>を探す</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-4 main-item">
+          <a href="career">
+            <div class="card in_a">
+              <div class="card-body mt-2">
+                <i class="material-icons">business</i>
+                <p class="pt-2"><b>企業情報</b>を探す</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-4 main-item">
+          <a href="event">
+            <div class="card">
+              <div class="card-body mt-2">
+                <i class="material-icons">record_voice_over</i>
+                <p class="pt-2"><b>イベント</b>を探す</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class ="pad_border">
+  </div>
+
+  <div class ="row">
+  　<!-- イベントの方　-->
+    <div class ="col-md-8">
+      <!-- イベント情報を新しいものから3つ並べる -->
+      <div class=content_body>
+        <div class="contents_introduction">
+          <h2><b>イベント情報</b></h2>
+        </div>
+        <div class="container">
+          <div class ="row">
+            <% @events.each do |events| %>
+            <div class ="v2-event-list__item">
+              <%= link_to event_show_path(name:events.name) do %>
+              <img class="v2-event__logo lazyloaded" src = <%= asset_path("img/event/#{events.name}.jpg") %> alt="">
+                <div class ="badge_span">
+                  <div class ="special_badge">
+                  <% if events.date > Date.today %>
+                  <span class="badge badge-pill badge-warning">募集中</span>
+                  <% else %>
+                  <span class="badge badge-pill badge-default">応募終了</span>
+                  <% end %>
+                  </div>
+                  <p class = "eventTags">
+                  <%= events.pref %>　|　<%= events.event_type %>　|　交通費支給
+                  </p>
+                </div>
+                <p class="eventTitle">
+                <%= events.name %>
+                </p>
+                <p class="eventDate">
+                  場所：<%= events.date.strftime("%Y年%m月%d日") %>
+                </p>
+                <p class="eventPlace">
+                  日時：<%= events.place %>
+                </p>
+              <% end %>
+
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <div class = "nextArea">
+          <a href="/event">
+            <p class ="go_list">全てのイベントを見る
+            <i class="material-icons">arrow_forward</i></p>
+          </a>
+        </div>
       </div>
     </div>
-    <div class="text-center pad25">
-      <a href="event">
-        <button class="btn btn-primary">すべてのイベント情報を見る
-          <div class="ripple-container"></div>
-        </button>
-      </a>
+    <!-- お知らせの方　-->
+    <div class ="col-md-3">
+      <div class="content_body">
+        <div class="contents_introduction">
+          <h2><b>お知らせ</b></h2>
+        </div>
+        <div class="pad10">
+        </div>
+        <ul id="notic_list">
+          <% @news.each do |news| %>
+          <li>
+            <div>
+              <p class="date"><%= news.date %></p>
+              <p class="title">
+                <%= link_to news_show_path(id:news.id) do %>
+                <%= news.name %>
+                <% end %>
+              </p>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+        <div class="nextArea">
+          <a href="/news">
+            <p class ="go_list">全てのお知らせを見る
+            <i class="material-icons">arrow_forward</i></p>
+          </a>
+        </div>
+      </div>
+    
     </div>
+
   </div>
-</div>
-</div>
 
-
-<div class="pt-5"></div>
 </div>
 
-
-
-<div class="pt-3"></div>
+<div class ="pad50">
+</div>

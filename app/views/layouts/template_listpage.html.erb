@@ -31,13 +31,16 @@
   <link rel="stylesheet" type="text/css"
     href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <!-- CSS Files -->
   <%= stylesheet_link_tag "material-kit_css/material-kit.css?v=2.0.5",:media=> "all" %>
   <!-- CSS For List Pages -->
+  
+  <%= stylesheet_link_tag "original/top_page.css",:media=> "all" %> <!-- なんか見た目おかしくなったらこれが原因かも -->
   <%= stylesheet_link_tag "original/list_page.css", :media => "all"%>
   <%= stylesheet_link_tag "original/show_page.css", :media => "all"%>
   <%= stylesheet_link_tag "original/footer.css",:media=> "all" %>
-  <%= stylesheet_link_tag "original/top_page.css",:media=> "all" %> <!-- なんか見た目おかしくなったらこれが原因かも -->
   <!-- JS Files -->
   <%= javascript_include_tag "material-kit_js/core/jquery.min.js" %>
   <%= javascript_include_tag "material-kit_js/core/popper.min.js" %>
@@ -119,69 +122,53 @@
     </div>
   </nav>
   <%= yield %>
-  <div class="pt-5">
-    <div class="pt-5">
+  <div>
+    <div>
       <div id="scrollTop">
         <a href="/">
           <i class="material-icons">double_arrow</i>
         </a>
       </div>
-      <footer>
-        <div class="container">
-          <div class="row">
+<footer class = "footer_top">
+   <div class="container">
 
-            <div class="col-md-4 col-xs-12">
-              <img src=<%= asset_path('img/favicon.png') %> width="180" height="180">
-            </div>
+       <div class ="footer_top_link">
+         <ul class ="reset-ul">
+           <li>
+             <a href="/">Home</a>
+           </li>
 
-            <div class="col-md-4 col-xs-12">
-              <ul class="menu">
-                <span>Menu</span>
-                <li>
-                  <a href="/">Home</a>
-                </li>
+           <li>
+             <a href="/transfer">Transfer</a>
+           </li>
 
-                <li>
-                  <a href="/transfer">Transfer</a>
-                </li>
+           <li>
+             <a href="/career">Career</a>
+           </li>
 
-                <li>
-                  <a href="/career">Career</a>
-                </li>
-
-                <li>
-                  <a href="/event">Event</a>
-                </li>
-
-                <li>
-                  <a href="/coming_soon">About</a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="col-md-4 col-xs-12">
-              <ul class="address">
-                <span>Contact</span>
-                <li>
-                  <i class="fa fa-phone" aria-hidden="true"></i> <a href="#">Phone</a>
-                </li>
-                <li>
-                  <i class="fa fa-map-marker" aria-hidden="true"></i> <a href="#">Adress</a>
-                </li>
-                <li>
-                  <i class="fa fa-envelope" aria-hidden="true"></i> <a href="#">Email</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <h4 class="col-md-12 col-xs-12" style="color: white;">
-            このサイトは 
-            <a href="https://www.nhs.co.jp/" target="_blank" style="color: white; text-decoration: underline">日鉄日立システムエンジニアリング株式会社</a> 
-            の協賛により運営されています。
-          </h4>
-          <a href="https://www.vecteezy.com/free-vector/conference" target="_blank" style="font-size:10px; color: white;">Conference Vectors by Vecteezy</a> 
-        </div>
-      </footer>
+           <li>
+             <a href="/event">Event</a>
+           </li>
+           <li>
+             <a href="/news">NEWS</a>
+           </li>
+           <li>
+             <a href="/coming_soon">About</a>
+           </li>
+           <div style="clear: both;"></div>
+         </ul>
+       </div>
+       <div class ="footer_powerd_by">
+       <p>
+       <a href="https://www.nhs.co.jp/" rel ="nofollow" style="color: #ffffff;">日鉄日立システムエンジニアリング株式会社</a> の協力により運営されています
+       </p>
+       </div>
+       <div class ="fotter_top_copyright">
+          ⓒ2020 Inc. eNM All Rights Reserved.
+       </div>
+   </div>
+ </footer>
+ 
       <script>
         $(function () {
           // 上に戻るボタンの初期化

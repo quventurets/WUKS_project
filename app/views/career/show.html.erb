@@ -11,7 +11,8 @@
     <h2 class="heading">企業情報</h2>
       <div class="card-header card-header-primary">
         <div style="text-align:center;">
-          <h3><%= @comp.name %></h3>
+          <div class ="pt-3"></div>
+          <h3 class ="heading"><%= @comp.name %></h3>
           <span class="badge badge-pill badge-rose"><%= @comp.place %></span>
           <% 6.times do |i| %>
             <% if @comp.area[i] == 1 %>
@@ -20,6 +21,7 @@
           <% end %>
           <span class="badge badge-pill badge-info"><%= @comp.scale %></span>
         </div>
+        <div class ="container">
         <% unless @comp.has_original_format?%>
         <h3 class="sub">ミッション</h3>
           <%= simple_format(@comp.mission, {}, wrapper_tag: "div class='article' id='mission'") %>
@@ -31,8 +33,10 @@
           <%= simple_format(@comp.want, {}, wrapper_tag: "div class='article'") %>
         <h3 class="sub">高専生・高専卒に一言</h3>
           <%= simple_format(@comp.comment, {}, wrapper_tag: "div class='article'") %>
+
         <% else %>
           <%= simple_format(@comp.original_text, {}, wrapper_tag: "div", sanitize: false) %>
+
         <% end %>
         <h3 class="sub">その他の情報</h3>
           <div class="article">
@@ -42,13 +46,16 @@
             <i class="material-icons">place</i>
             <a href="http://maps.google.co.jp/maps/search/+<%= @comp.address %>" target="_blank"><u><%= @comp.address %></u></a><br>
           </div>
-        <div class ="text-center">
+        <div class ="text-center padding-res">
           <a id = "center" href=<%= @comp.url %> target="_blank">
             <button class="btn btn-primary btn-lg">もっと詳しく見る
               <div class="ripple-container"></div>
             </button>
           </a>
+          <div class ="pt-5"></div>
+        </div>
         </div>
       </div>
   </div>
 </div>
+<div class = "padding-res"></div>

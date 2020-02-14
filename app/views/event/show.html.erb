@@ -11,7 +11,8 @@
     <h2 class="heading">イベント情報</h2>
       <div class="card-header card-header-primary">
         <div  style="text-align:center;">
-          <h3><%= @event.name %></h3>
+        <div class ="pt-3"></div>
+          <h3 class ="heading"><%= @event.name %></h3>
           <!-- イベント当日以降は応募終了、それ以前は募集中にする -->
           <% if @event.date > Date.today %>
           <span class="badge badge-pill badge-warning">募集中</span>
@@ -24,6 +25,7 @@
             <span class="badge badge-pill badge-danger">交通費支給</span>
           <% end %>
         </div>
+        <div class ="container">
         <h3 class="sub">イベントの概要</h3>
           <%= simple_format(@event.outline, {}, wrapper_tag: "div class='article'") %>
           <!-- 申込フォームが存在し、かつ状態が「募集中」の時にフォームへのボタンを表示する -->
@@ -58,6 +60,10 @@
           </div>
         <h3 class="sub">その他の情報</h3>
           <%= simple_format(@event.otherinfo, {}, wrapper_tag: "div class='article'") %>
+        </div>
+        <div class ="pt-5">
+        </div>
       </div>
   </div>
 </div>
+<div class ="padding-res"></div>

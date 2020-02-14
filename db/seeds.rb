@@ -40,9 +40,28 @@ def get_date_num (num_texts)
   return num_texts.split(',')[0]
 end
 
+def get_is_there_recommend (row)
+  if row['is_there_recommend'] == "1" && row['is_there_general'] == "1"
+    return 1
+  end
+
+  if row['is_there_recommend'] == "0" && row['is_there_general'] == "1"
+    return 0
+  end
+
+  if row['is_there_recommend'] == "1" && row['is_there_general'] == "0"
+    return 2
+  end
+
+  return 3
+    
+end
+
 CSV.foreach('db/univData.csv', headers: true) do |row|
   if row['main'] == "1"
     univ = Univ.find_by(name: row['name'])
+    is_there_recommend = get_is_there_recommend(row)
+
     if !univ.nil?
       univ.update(
         :date_general => get_date_text(row['date_general']),
@@ -50,7 +69,7 @@ CSV.foreach('db/univData.csv', headers: true) do |row|
         :date_number => row['date_general'],
         :location => row['location'],
         :otherFac => row['other_faculty'] || 0,
-        :examtypes => row['exam_types'] || 0
+        :examtypes => row['is_there_recommend'] || 0
       )
     else
       Univ.create(
@@ -60,7 +79,7 @@ CSV.foreach('db/univData.csv', headers: true) do |row|
         :date_number => row['date_general'],
         :location => row['location'],
         :otherFac => row['other_faculty'] || 0,
-        :examtypes => row['exam_types'] || 0,
+        :examtypes => row['is_there_recommend'] || 0,
         :rubi => row['rubi']
       )
     end
@@ -73,9 +92,11 @@ CSV.foreach('db/univData.csv', headers: true) do |row|
       faculty.save
     end
     faculty.update(
+      :faculty_type => row["faculty_type"],
       :date_general => get_faculty_date_text(row['date_general']),
       :date_general_pass => get_faculty_date_text(row['date_general_pass']),
-      :isThereRec => row['exam_types'],
+      :is_there_recomend => row['is_there_recommend'] || 0,
+      :is_there_general => row['is_there_general'] || 0,
       :date_recomend => get_faculty_date_text(row['date_recommend']),
       :date_recomend_pass => get_faculty_date_text(row['date_recommend_pass']),
       :url => row['url']
@@ -84,13 +105,61 @@ CSV.foreach('db/univData.csv', headers: true) do |row|
     Faculty.create(
       :s_name => row['name'],
       :f_name => row["faculty"],
+      :faculty_type => row["faculty_type"],
       :date_general => get_faculty_date_text(row['date_general']),
       :date_general_pass => get_faculty_date_text(row['date_general_pass']),
-      :isThereRec => row['exam_types'] || 0,
+      :is_there_recomend => row['is_there_recommend'] || 0,
+      :is_there_general => row['is_there_general'] || 0,
       :date_recomend => get_faculty_date_text(row['date_recommend']),
       :date_recomend_pass => get_faculty_date_text(row['date_recommend_pass']),
       :department => row['department'],
       :url => row['url']
+    )
+  end
+
+  department = Department.find_by(univ_name: row['name'], faculty_name: row["faculty"], name: row["department"])
+
+  if !department.nil?
+    department.update(
+      :univ_name => row['name'],
+      :faculty_name => row['faculty'],
+      :name => row['department'],
+      :date_general => get_faculty_date_text(row['date_general']),
+      :date_recomend => get_faculty_date_text(row['date_recommend']),
+      :date_general_pass => get_faculty_date_text(row['date_general_pass']),
+      :date_recomend_pass => get_faculty_date_text(row['date_recommend_pass']),
+      :math => row['math'] || 0,
+      :english => row['english'] || 0,
+      :physics => row['physics'] || 0,
+      :chemistry => row['chemistry'] || 0,
+      :biology => row['biology'] || 0,
+      :special => row['special'] || 0,
+      :paper => row['paper'] || 0,
+      :integration => row['integration'] || 0,
+      :practical => row['practical'] || 0,
+      :external_english => row['external_english'] || 0,
+      :interview => row['interview'] || 0
+    )
+  else
+    Department.create(
+      :univ_name => row['name'],
+      :faculty_name => row['faculty'],
+      :name => row['department'],
+      :date_general => get_faculty_date_text(row['date_general']),
+      :date_recomend => get_faculty_date_text(row['date_recommend']),
+      :date_general_pass => get_faculty_date_text(row['date_general_pass']),
+      :date_recomend_pass => get_faculty_date_text(row['date_recommend_pass']),
+      :math => row['math'] || 0,
+      :english => row['english'] || 0,
+      :physics => row['physics'] || 0,
+      :chemistry => row['chemistry'] || 0,
+      :biology => row['biology'] || 0,
+      :special => row['special'] || 0,
+      :paper => row['paper'] || 0,
+      :integration => row['integration'] || 0,
+      :practical => row['practical'] || 0,
+      :external_english => row['external_english'] || 0,
+      :interview => row['interview'] || 0
     )
   end
 end
@@ -166,36 +235,36 @@ end
 #   ]
 # )
 
-CSV.foreach('db/eventData.csv', headers: true) do |row|
-  event = Event.find_by(name: row['name'])
-  if !event.nil?
-    event.update(
-      :place => row['place'],
-      :date => row['date'],
-      :pref => row['pref'],
-      :event_type => row['event_type'],
-      :outline => row['outline'],
-      :otherinfo => row['otherinfo'],
-      :startTime => row['startTime'],
-      :finishTime => row['finishTime'],
-      :guestComp => row['guestComp'],
-      :target => row['target'],
-      :form => row['form']
-    )
-  else
-    Event.create(
-      :name => row['name'],
-      :place => row['place'],
-      :date => row['date'],
-      :pref => row['pref'],
-      :event_type => row['event_type'],
-      :outline => row['outline'],
-      :otherinfo => row['otherinfo'],
-      :startTime => row['startTime'],
-      :finishTime => row['finishTime'],
-      :guestComp => row['guestComp'],
-      :target => row['target'],
-      :form => row['form']
-    )
-  end
-end
+# CSV.foreach('db/eventData.csv', headers: true) do |row|
+#   event = Event.find_by(name: row['name'])
+#   if !event.nil?
+#     event.update(
+#       :place => row['place'],
+#       :date => row['date'],
+#       :pref => row['pref'],
+#       :event_type => row['event_type'],
+#       :outline => row['outline'],
+#       :otherinfo => row['otherinfo'],
+#       :startTime => row['startTime'],
+#       :finishTime => row['finishTime'],
+#       :guestComp => row['guestComp'],
+#       :target => row['target'],
+#       :form => row['form']
+#     )
+#   else
+#     Event.create(
+#       :name => row['name'],
+#       :place => row['place'],
+#       :date => row['date'],
+#       :pref => row['pref'],
+#       :event_type => row['event_type'],
+#       :outline => row['outline'],
+#       :otherinfo => row['otherinfo'],
+#       :startTime => row['startTime'],
+#       :finishTime => row['finishTime'],
+#       :guestComp => row['guestComp'],
+#       :target => row['target'],
+#       :form => row['form']
+#     )
+#   end
+# end
