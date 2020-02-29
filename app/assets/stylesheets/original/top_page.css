@@ -620,6 +620,7 @@ img {
   .img-thumbnail {
       height: auto; 
       max-width: 100%;
+      border-radius: 0px;
   }
   
   .product:hover{
@@ -672,7 +673,9 @@ img {
 
 @media screen and (max-width: 574px) {
     .padding-res{
+        /*
         padding: 0px 0px 0px 0px;
+        */
     }
 }
   
