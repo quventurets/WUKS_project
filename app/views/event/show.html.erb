@@ -31,7 +31,7 @@
           <!-- 申込フォームが存在し、かつ状態が「募集中」の時にフォームへのボタンを表示する -->
           <% if @event.form? && (@event.date > Date.today) %>
           <div class="text-center">
-            <a href="<%= @event.form %>">
+            <a target="_blank" href="<%= @event.form %>">
               <button class="btn btn-primary btn-lg">申し込み用Googleフォームへ
                 <div class="ripple-container"></div>
               </button>
