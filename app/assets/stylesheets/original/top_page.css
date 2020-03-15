@@ -1034,7 +1034,78 @@ img {
      }
  }
 
+  /* --------------------------------------------------
+ Aboutページ全般に関するCSS
+ -------------------------------------------------- */
 
+ .about-tab-header {
+     padding: 6px;
+ }
 
+.about .nav-item {
+    width: calc(100% / 3);
+}
 
+.about .nav-link {
+    text-align: center;
+    font-size: 20px;
+}
 
+.three-arrow-img {
+    width: 100%;
+    position: relative;
+}
+
+.three-arrow-img::before {
+    content: "";
+    display: block;
+    padding-top: 80%;
+}
+
+.three-arrow-img img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+.about-section {
+    margin: 5% 0 0;
+}
+
+.about-content {
+    text-align: center;
+    padding: 0 3%;
+}
+
+.about-content span {
+    display: inline-block;
+}
+
+@media screen and (min-width: 896px) {
+    .information-table {
+        background-color: #f7f7f7;
+        border-collapse: collapse;
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    .information-table td {
+        border: solid 1px;
+    }
+}
+
+@media screen and (max-width: 895px) {
+    .information-table {
+        background-color: #f7f7f7;
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0;
+    }
+    
+    .information-table td {
+        border: solid 1px;
+    }
+}
