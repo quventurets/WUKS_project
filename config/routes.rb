@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   post '/transfer' => "transfer#index"
   get '/news' => "news#index"
   get '/event' => "event#index"
+  get '/about' => "about#index"
 
   get '/transfer/:name' => "transfer#show", as: :transfer_show
   get '/career/:name' => "career#show", as: :career_show
