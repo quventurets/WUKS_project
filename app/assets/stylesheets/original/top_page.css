@@ -1066,6 +1066,26 @@ img {
     display: inline-block;
 }
 
+.member-img {
+    width: 100%;
+    position: relative;
+}
+
+.member-img::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.member-img img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
 @media screen and (min-width: 896px) {
     .information-table {
         background-color: #f7f7f7;
