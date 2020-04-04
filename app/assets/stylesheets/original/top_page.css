@@ -1084,6 +1084,46 @@ img {
     top: 0;
     left: 0;
     object-fit: cover;
+    border-radius: 50%;
+}
+
+.float-member {
+    float: right;
+    width: 40%;
+}
+
+.float-clear {
+    clear: both;
+}
+
+.member-card .card-body {
+    padding: 8px;
+}
+
+.member-card {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.member-content {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.member-content h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.member-content p {
+    margin: 0;
+}
+
+.information-table td {
+    border: solid 1px;
 }
 
 @media screen and (min-width: 896px) {
@@ -1093,9 +1133,9 @@ img {
         width: 80%;
         margin: 0 auto;
     }
-    
-    .information-table td {
-        border: solid 1px;
+
+    .member {
+        max-width: 720px;
     }
 }
 
@@ -1106,8 +1146,16 @@ img {
         width: 100%;
         margin: 0;
     }
-    
-    .information-table td {
-        border: solid 1px;
+}
+
+@media screen and (min-width: 768px) {
+    .hidden-big {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .hidden-small {
+        display: none;
     }
 }
