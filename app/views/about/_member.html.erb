@@ -1,0 +1,92 @@
+<div class="container member">
+  <div class="row" id="accordionMember">
+    <div  class="col-4" data-toggle="collapse"
+          data-target="#collapse-miyazono" aria-expanded="true" 
+          aria-controls="#collapse-miyazono">
+      <div class="member-img">
+        <img src="<%= asset_path('img/about/member/Miyazono.jpg') %>" alt="宮薗大雅">
+      </div>
+      宮薗大雅
+    </div>
+    <div  class="col-4" data-toggle="collapse"
+          data-target="#collapse-tanaka" aria-expanded="false" 
+          aria-controls="#collapse-tanaka">
+      <div class="member-img">
+        <img src="<%= asset_path('img/about/member/Tanaka.jpg') %>" alt="田中敬佑">
+      </div>
+      田中敬佑
+    </div>
+    <div  class="col-4" data-toggle="collapse"
+          data-target="#collapse-ishimoto" aria-expanded="false" 
+          aria-controls="#collapse-ishimoto">
+      <div class="member-img">
+        <img src="<%= asset_path('img/about/member/Ishimoto.jpg') %>" alt="石本優太">
+      </div>
+      石本優太
+    </div>
+    <div class="col-12" role="tab">
+      <div class="collapse panel-collapse" role="tabpanel" id="collapse-miyazono" data-parent="#accordionMember">
+        <%= render :partial => "member_information", :locals => { 
+            name: '宮薗大雅', kosen: '鹿児島高専', kosen_department: '情報工学科',
+            univ: '九州大学', faculty: '工学部', department: '電気情報工学科', img: 'Miyazono'
+        } %>
+      </div>
+      <div class="collapse panel-collapse" role="tabpanel" id="collapse-tanaka" data-parent="#accordionMember">
+        <%= render :partial => "member_information", :locals => { 
+            name: '田中敬佑', kosen: '佐世保高専', kosen_department: '物質工学科',
+            univ: '九州大学', faculty: '工学部', department: '物質科学工学科', img: 'Tanaka'
+        } %>
+      </div>
+      <div class="collapse panel-collapse" role="tabpanel" id="collapse-ishimoto" data-parent="#accordionMember">
+        <%= render :partial => "member_information", :locals => { 
+            name: '石本優太', kosen: '福井高専', kosen_department: '電子情報工学科',
+            univ: '九州大学', faculty: '工学部', department: '電気情報工学科', img: 'Ishimoto'
+        } %>
+      </div>
+    </div>
+    <div  class="col-4" data-toggle="collapse"
+          data-target="#collapse-shimada" aria-expanded="false" 
+          aria-controls="#collapse-shimada">
+      <div class="member-img">
+        <img src="<%= asset_path('img/about/member/Shimada.jpg') %>" alt="島田明">
+      </div>
+      島田明
+    </div>
+    <div  class="col-4" data-toggle="collapse"
+          data-target="#collapse-matsumoto" aria-expanded="false" 
+          aria-controls="#collapse-matsumoto">
+      <div class="member-img">
+        <img src="<%= asset_path('img/about/member/Matsumoto.jpg') %>" alt="松本大輝">
+      </div>
+      松本大輝
+    </div>
+    <div  class="col-4" data-toggle="collapse"
+          data-target="#collapse-yunoue" aria-expanded="false" 
+          aria-controls="#collapse-yunoue">
+      <div class="member-img">
+        <img src="<%= asset_path('img/about/member/Yunoue.jpg') %>" alt="湯之上航">
+      </div>
+      湯之上航
+    </div>
+    <div class="col-12" role="tab">
+      <div class="collapse panel-collapse" role="tabpanel" id="collapse-shimada" data-parent="#accordionMember">
+        <%= render :partial => "member_information", :locals => { 
+            name: '島田明', kosen: '佐世保高専', kosen_department: '情報工学科',
+            univ: '九州大学', faculty: '工学部', department: '電気情報工学科', img: 'Shimada'
+        } %>
+      </div>
+      <div class="collapse panel-collapse" role="tabpanel" id="collapse-matsumoto" data-parent="#accordionMember">
+        <%= render :partial => "member_information", :locals => { 
+            name: '松本大輝', kosen: '福井高専', kosen_department: '電気電子工学科',
+            univ: '九州大学', faculty: '工学部', department: '電気情報工学科', img: 'Matsumoto'
+        } %>
+      </div>
+      <div class="collapse panel-collapse" role="tabpanel" id="collapse-yunoue" data-parent="#accordionMember">
+        <%= render :partial => "member_information", :locals => { 
+            name: '湯之上航', kosen: '鹿児島高専', kosen_department: '情報工学科',
+            univ: '九州大学', faculty: '理学部', department: '数学科', img: 'Yunoue'
+        } %>
+      </div>
+    </div>
+  </div>
+</div>
