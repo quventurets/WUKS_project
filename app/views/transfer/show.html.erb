@@ -18,9 +18,9 @@
   </div>
 </section>
 
+<h2 class="heading">募集学部</h2>
 <div class="row">
   <div class="container">
-    <h2 class="heading">募集学部</h2>
     <div class="card-header">
       <!-- Card Start -->
       <div class="card card-nav-tabs card-plain">
@@ -49,7 +49,7 @@
 
         <!-- Card Main Start -->
         <div class="card-body">
-          <div class="tab-content">
+          <div class="tab-content univ-padding">
             <% @count = 0 %>
             <% @facluties.each do |facluties| %>
             <% if @count == 0 %>
@@ -74,13 +74,13 @@
               </ul>
               <h3 class="sub">募集学科</h3>
               <% array_department = facluties.department.split(",") %>
-              <ul class>
+              <ul class ="dep_L">
                 <% array_department.each do |department| %>
-                <li>・<%= department %></li>
+                <li><%= department %></li>
                 <% end %>
               </ul>
               <div class="text-center">
-                <a href= "<%= facluties.url %>">
+                <a target="_blank" href= "<%= facluties.url %>">
                   <button class="btn btn-primary">もっと詳しく見る
                     <div class="ripple-container"></div>
                   </button>
@@ -109,9 +109,9 @@
               </ul>
               <h3 class="sub">募集学科</h3>
               <% array_department = facluties.department.split(",") %>
-              <ul class>
+              <ul class = "dep_L">
                 <% array_department.each do |department| %>
-                <li>・<%= department %></li>
+                <li><%= department %></li>
                 <% end %>
               </ul>
               <div class="text-center">
@@ -132,3 +132,4 @@
   </div>
 </div>
 </div>
+<div class = "padding-res"></div>

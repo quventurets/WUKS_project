@@ -1,7 +1,11 @@
 body {
   padding-top: 0px;
+  background-color: #fff;
 }
 
+.pad-zero{
+  padding: 0px 0px 0px 0px;
+}
 
 /* 企業情報をsukimaっぽく横に3つ並べるためのやつら */
 .topTitle {
@@ -116,9 +120,10 @@ ul.dep_L {
   margin-bottom: 0px;
 }
 ul.dep_L li {
+  font-size: 0.9em;
 	position: relative;
-	padding: 0.5em 1em 0.5em 2.7em;
-  margin-bottom:5px;
+	padding: 0.5em 0.0em 0.5em 2.7em;
+  margin-bottom:0px;
   color: #000;
 }
 ul.dep_L li:after,
@@ -179,7 +184,8 @@ ul.dep_L li:after {
 }
 
 .faculty-title{
-  font-size: 20px;
+  font-size: 1.0em;
+  color: #3C4858;
   padding: 3px 0 3px 3%;
   position: relative;
   margin: 0px;
@@ -187,7 +193,6 @@ ul.dep_L li:after {
 
 .faculty-area:hover>.faculty-title{
   background-color: #ccc;
-  color: red;
 }
 
 .expand-mark-faculty{

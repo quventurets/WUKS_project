@@ -313,7 +313,7 @@
 
     .card .card-body,
     .card .card-footer {
-        padding: 5px 0px 0px 5px;
+        padding: 5px 10px 10px 5px;
     }
 
     .col-4.main-item{
@@ -620,6 +620,7 @@ img {
   .img-thumbnail {
       height: auto; 
       max-width: 100%;
+      border-radius: 0px;
   }
   
   .product:hover{
@@ -638,6 +639,7 @@ img {
   
   .nameUni{
     font-weight: 700;
+    color: #3C4858;
   }
   
   .univ-parent{
@@ -660,6 +662,22 @@ img {
   .radio-order {
     display: none
   }
+  
+  .padding-res{
+    padding: 30px 0px 0px 0px;
+}
+
+.comp_name{
+    padding: 30px 0px 0px 0px;
+}
+
+@media screen and (max-width: 574px) {
+    .padding-res{
+        /*
+        padding: 0px 0px 0px 0px;
+        */
+    }
+}
   
 
   /* --------------------------------------------------

@@ -36,10 +36,11 @@
   <!-- CSS Files -->
   <%= stylesheet_link_tag "material-kit_css/material-kit.css?v=2.0.5",:media=> "all" %>
   <!-- CSS For List Pages -->
+  
+  <%= stylesheet_link_tag "original/top_page.css",:media=> "all" %> <!-- なんか見た目おかしくなったらこれが原因かも -->
   <%= stylesheet_link_tag "original/list_page.css", :media => "all"%>
   <%= stylesheet_link_tag "original/show_page.css", :media => "all"%>
   <%= stylesheet_link_tag "original/footer.css",:media=> "all" %>
-  <%= stylesheet_link_tag "original/top_page.css",:media=> "all" %> <!-- なんか見た目おかしくなったらこれが原因かも -->
   <!-- JS Files -->
   <%= javascript_include_tag "material-kit_js/core/jquery.min.js" %>
   <%= javascript_include_tag "material-kit_js/core/popper.min.js" %>
@@ -92,6 +93,11 @@
                <i class="material-icons">list_alt</i> News
              </a>
           </li>
+          <li class="nav-item mt-2">
+            <a href="/about" class="nav-link">
+              <i class="material-icons">group</i> About
+            </a>
+          </li>
           <% isREADY = FALSE %>
           <% if isREADY %>
           <form class="form-inline mt-2 ml-4">
@@ -121,14 +127,14 @@
     </div>
   </nav>
   <%= yield %>
-  <div class="pt-5">
-    <div class="pt-5">
+  <div>
+    <div>
       <div id="scrollTop">
         <a href="/">
           <i class="material-icons">double_arrow</i>
         </a>
       </div>
-      <footer class = "footer_top">
+<footer class = "footer_top">
    <div class="container">
 
        <div class ="footer_top_link">
@@ -167,7 +173,7 @@
        </div>
    </div>
  </footer>
- 
+      <!--
       <script>
         $(function () {
           // 上に戻るボタンの初期化
@@ -200,6 +206,7 @@
           }
         }
       </script>
+      -->
 </body>
 
 </html>
