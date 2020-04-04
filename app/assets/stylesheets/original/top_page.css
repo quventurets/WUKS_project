@@ -1024,6 +1024,12 @@ img {
      padding: 6px;
  }
 
+ .about-tab-header.card-header-primary {
+    background: linear-gradient(60deg, #4e54c8, rgba(18, 18, 199, 0.733));
+    box-shadow: 0 5px 20px 0px rgba(28, 88, 218, 0.2), 0 13px 24px -11px rgba(35, 16, 212, 0.6);
+    padding: 3px 3px 3px 3px;
+ }
+
 .about .nav-item {
     width: calc(100% / 3);
 }
