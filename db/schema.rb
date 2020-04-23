@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_01_061806) do
+ActiveRecord::Schema.define(version: 2020_04_23_135845) do
 
   create_table "comps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 2020_02_01_061806) do
     t.string "date_recomend_pass"
     t.boolean "is_there_general"
     t.string "faculty_type"
+    t.string "note"
   end
 
   create_table "kosens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -117,6 +118,7 @@ ActiveRecord::Schema.define(version: 2020_02_01_061806) do
     t.integer "otherFac"
     t.integer "examtypes"
     t.string "rubi"
+    t.index ["name"], name: "index_univs_on_name", unique: true
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
