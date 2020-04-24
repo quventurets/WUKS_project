@@ -77,4 +77,4 @@ gem "administrate"
 
 gem 'bcrypt'
 
-gem 'mysql2'
+gem 'mysql2', '~> 0.5.3'

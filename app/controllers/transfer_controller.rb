@@ -46,6 +46,6 @@ class TransferController < ApplicationController
 
   def show
     @univ = Univ.find_by!(name: params[:name])
-    @facluties = Faculty.where(s_name: params[:name])
+    @faculties = Faculty.where(s_name: params[:name])
   end
 end

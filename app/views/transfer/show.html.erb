@@ -30,13 +30,13 @@
             <div class="nav-tabs-wrapper">
               <ul class="nav nav-tabs" data-tabs="tabs">
                 <% @count = 0 %>
-                <% @facluties.each do |facluties| %>
+                <% @faculties.each do |faculty| %>
                 <li class="nav-item">
                   <% if @count == 0%>
-                  <a class="nav-link active" href="#<%= facluties.f_name %>"
-                    data-toggle="tab"><%= facluties.f_name %></a>
+                  <a class="nav-link active" href="#<%= faculty.f_name %>"
+                    data-toggle="tab"><%= faculty.f_name %></a>
                   <% else %>
-                  <a class="nav-link" href="#<%= facluties.f_name %>" data-toggle="tab"><%= facluties.f_name %></a>
+                  <a class="nav-link" href="#<%= faculty.f_name %>" data-toggle="tab"><%= faculty.f_name %></a>
                   <% end %>
                 </li>
                 <% @count = @count + 1 %>
@@ -51,36 +51,39 @@
         <div class="card-body">
           <div class="tab-content univ-padding">
             <% @count = 0 %>
-            <% @facluties.each do |facluties| %>
+            <% @faculties.each do |faculty| %>
             <% if @count == 0 %>
-            <div class="tab-pane active" id="<%= facluties.f_name %>">
+            <div class="tab-pane active" id="<%= faculty.f_name %>">
+              <% if faculty.note == "R2" %>
+                <p>※R3年度編入学の募集要項がまだ出ていないため、R2年度の情報を掲載しています。</p>
+              <% end %>
               <h3 class="sub">試験時期</h3>
               <ul>
-                <% if facluties.is_there_recomend %>
-                <li>　推薦入試：<%= facluties.date_recomend %></li>
+                <% if faculty.is_there_recomend %>
+                <li>　推薦入試：<%= faculty.date_recomend %></li>
                 <% end %>
-                <% if facluties.is_there_general %>
-                <li>　一般入試：<%= facluties.date_general %></li>
+                <% if faculty.is_there_general %>
+                <li>　一般入試：<%= faculty.date_general %></li>
                 <% end %>
               </ul>
               <h3 class="sub">合格発表</h3>
               <ul>
-                <% if facluties.is_there_recomend %>
-                <li>　推薦入試：<%= facluties.date_recomend_pass %></li>
+                <% if faculty.is_there_recomend %>
+                <li>　推薦入試：<%= faculty.date_recomend_pass %></li>
                 <% end %>
-                <% if facluties.is_there_general %>
-                <li>　一般入試：<%= facluties.date_general_pass %></li>
+                <% if faculty.is_there_general %>
+                <li>　一般入試：<%= faculty.date_general_pass %></li>
                 <% end %>
               </ul>
               <h3 class="sub">募集学科</h3>
-              <% array_department = facluties.department.split(",") %>
+              <% array_department = faculty.department.split(",") %>
               <ul class ="dep_L">
                 <% array_department.each do |department| %>
                 <li><%= department %></li>
                 <% end %>
               </ul>
               <div class="text-center">
-                <a target="_blank" href= "<%= facluties.url %>">
+                <a target="_blank" href= "<%= faculty.url %>">
                   <button class="btn btn-primary">もっと詳しく見る
                     <div class="ripple-container"></div>
                   </button>
@@ -88,34 +91,37 @@
               </div>
             </div>
             <% else %>
-            <div class="tab-pane" id="<%= facluties.f_name %>">
+            <div class="tab-pane" id="<%= faculty.f_name %>">
+              <% if faculty.note == "R2" %>
+                <p>※R3年度編入学の募集要項がまだ出ていないため、R2年度の情報を掲載しています。</p>
+              <% end %>
               <h3 class="sub">試験時期</h3>
               <ul>
-                <% if facluties.is_there_recomend %>
-                <li>　推薦入試：<%= facluties.date_recomend %> </li>
+                <% if faculty.is_there_recomend %>
+                <li>　推薦入試：<%= faculty.date_recomend %> </li>
                 <% end %>
-                <% if facluties.is_there_general %>
-                <li>　一般入試：<%= facluties.date_general %></li>
+                <% if faculty.is_there_general %>
+                <li>　一般入試：<%= faculty.date_general %></li>
                 <% end %>
               </ul>
               <h3 class="sub">合格発表</h3>
               <ul class>
-                <% if facluties.is_there_recomend %>
-                <li>　推薦入試：<%= facluties.date_recomend_pass %></li>
+                <% if faculty.is_there_recomend %>
+                <li>　推薦入試：<%= faculty.date_recomend_pass %></li>
                 <% end %>
-                <% if facluties.is_there_general %>
-                <li>　一般入試：<%= facluties.date_general_pass %></li>
+                <% if faculty.is_there_general %>
+                <li>　一般入試：<%= faculty.date_general_pass %></li>
                 <% end %>
               </ul>
               <h3 class="sub">募集学科</h3>
-              <% array_department = facluties.department.split(",") %>
+              <% array_department = faculty.department.split(",") %>
               <ul class = "dep_L">
                 <% array_department.each do |department| %>
                 <li><%= department %></li>
                 <% end %>
               </ul>
               <div class="text-center">
-                <a href= "<%= facluties.url %>">
+                <a href= "<%= faculty.url %>">
                   <button class="btn btn-primary">もっと詳しく見る
                     <div class="ripple-container"></div>
                   </button>
