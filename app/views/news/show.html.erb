@@ -31,6 +31,14 @@
           </div>
           <div id="newsbody">
             <%= simple_format(@news.content.gsub(/src=.*?"([^"]+)"/) {'src="' + asset_path($1) + '"'}, {}, wrapper_tag: "div class='article'", :sanitize => false) %>
+            <%# content %>
+            <p>今回は、高専から九大工学部に3年次編入した学生の時間割をまとめます。<br>九大に編入した後、授業がどれくらい忙しいのかイメージがつかない方や、不安な方は是非参考にしてみてください。<br>※ 2019年度に編入した学生の3年次の時間割になります。</p><h3>目次</h3><a href="#ms">・物質科学工学科 : k さんの時間割</a><br><a href="#ei">・電気情報工学科 : y さんの時間割</a><br><a href="#ee">・地球環境工学科: k さんの時間割</a><br><a href="#es">・エネルギー科学科 : f さんの時間割</a><br><a href="#ma">・機械航空工学科: s さんの時間割</a>
+            <%# 各学課の時間割をrender %>
+            <%= render 'schedule', key: 'ms' %>
+            <%= render 'schedule', key: 'ei' %>
+            <%= render 'schedule', key: 'ee' %>
+            <%= render 'schedule', key: 'es' %>
+            <%= render 'schedule', key: 'ma' %>
           </div>
           <div class ="text-center">
             <a id = "center" href="/news">

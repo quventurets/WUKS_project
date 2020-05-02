@@ -1,0 +1,42 @@
+<%# 時間割の表の部分テンプレート 
+  学科名の略称（ei, msなど）を変数keyに渡して呼び出す
+  データの中身はコントローラの中で定義しておく
+  %>   
+
+<div class="pt-5" id=<%= key %>></div>
+<h4 style="margin:3em 0 0; font-weight:bold;"><%= major_name(key) %> : <%= sched_name(key) %> さんの時間割</h4>
+<div class="table-r" id="sched">
+<table class="table-scroll">
+<tr>
+<% ['前期', '後期'].each do |term|  %>
+  <td class="root" width="50%" style="vertical-align:top;">
+
+  <h4><b>3年<%= term %>の時間割</b></h4>
+    <table style="table-layout: fixed;">
+      <tr style="font-size:0.6em;">
+        <th rowspan="2"></th><th colspan="2">月</th><th colspan="2">火</th><th colspan="2">水</th><th colspan="2">木</th><th colspan="2">金</th>
+      </tr>
+      <tr style="font-size:0.6em;">
+        <% 5.times do %>
+          <% if term == '前期' %>
+            <th>春</th><th>夏</th>
+          <% else %>
+          <th>秋</th><th>冬</th>
+        <% end %>
+      <% end %>
+    </tr> 
+    <% get_sched(term, key).each_with_index do |s, i| %>
+    <tr>
+      <td style="font-size:0.5em; font-weight:bold; padding:10px;"><%= i+1 %></td>
+      <% s.each do |item| %>
+        <td class="items" style="background-color:<%= get_bgcolor(item) %>;"><%= item %></td>
+      <% end %>
+    </tr>
+    <% end %>
+    </table>
+    
+  </td>
+<% end %>
+</tr>
+</table>
+</div>
