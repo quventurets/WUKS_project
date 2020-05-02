@@ -1,0 +1,43 @@
+<% content_for :title do %>
+ニュース追加
+<% end %>
+
+<section class="py-5 bg-image-full" style="background-image: url(<%= asset_path('img/bg_news.jpg') %>);">
+  <div style="height: 150px;">
+    <div class="pt-5">
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <div class="brand">
+            <h2 class="forbadge">
+              <h2><b>新規ニュース</b></h2>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container pt-3">
+
+  <% if params[:notice]%>
+    <p><%= params[:notice] %></p>
+  <% end %>
+  
+  <%= form_with(url: add_news_path, multipart: true) do |f| %>
+    <div>
+      タイトル：<%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.file_field :upload %>
+    </div>
+    <div class="action">
+      <%= f.submit "プレビュー", name: "preview", formtarget: "_blank" %>
+    </div>
+    <div class="action">
+      <%= f.submit "投稿" %>
+    </div>
+  <% end %>
+</div>
