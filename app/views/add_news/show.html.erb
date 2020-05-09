@@ -32,7 +32,7 @@
           <div id="newsbody">
             <%=
               raw @news_content.gsub(/src=.*?"([^"]+)"/) {
-                'src="' + asset_path("img/news/Dummy.png") + '"'
+                'src="' + asset_path(@dummy? "img/news/Dummy.png":$1) + '"'
               }.gsub(/<%=.*?render.*?'([^']+)'.*?,.*?key.*?:.*?'([^']+)'.*?>/) {
                 render $1, key: $2
               } 

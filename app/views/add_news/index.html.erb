@@ -33,11 +33,32 @@
     <div>
       <%= f.file_field :upload %>
     </div>
+    <label>
+      <%= f.check_box :dummy, {:checked => true, :autocomplete => 'off'}%>ダミー画像を表示する
+    </label>
     <div class="action">
       <%= f.submit "プレビュー", name: "preview", formtarget: "_blank" %>
     </div>
+    <br />
+    <br />
+    <div class="btn-group form-group col-md-3" data-toggle="buttons">
+      <label class="btn btn-dark btn-sm active">
+        <%= f.radio_button :upload_type, "new", {:checked => true, :autocomplete => "off"}%>新規
+      </label>
+      <label class="btn btn-dark btn-sm">
+        <%= f.radio_button :upload_type, "upload", {:autocomplete => "off"}%>更新
+      </label>
+      <label class="btn btn-dark btn-sm">
+        <%= f.radio_button :upload_type, "disable", {:autocomplete => "off"}%>削除
+      </label>
+    </div>
     <div class="action">
-      <%= f.submit "投稿" %>
+      <%= f.submit "決定" %>
+    </div>
+    <div>
+      <% @news.each_with_index do |news, index| %>
+        <%= f.radio_button :news_id, news.id, {:checked => index == 0, :autocomplete => "off"}%> <%= news.name%> <br/>
+      <% end %>
     </div>
   <% end %>
 </div>
