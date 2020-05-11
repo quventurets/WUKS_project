@@ -30,7 +30,15 @@
             <h3><%= @news.name %></h3>
           </div>
           <div id="newsbody">
-            <%= simple_format(@news.content.gsub(/src=.*?"([^"]+)"/) {'src="' + asset_path($1) + '"'}, {}, wrapper_tag: "div class='article'", :sanitize => false) %>
+            <div class='article'>
+              <%=
+                raw @news.content.gsub(/src=.*?"([^"]+)"/) {
+                  'src="' + asset_path($1) + '"'
+                }.gsub(/<%=.*?render.*?'([^']+)'.*?,.*?key.*?:.*?'([^']+)'.*?>/) {
+                  render $1, key: $2
+                }
+              %>
+            </div>
           </div>
           <div class ="text-center">
             <a id = "center" href="/news">

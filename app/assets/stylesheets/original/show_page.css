@@ -303,3 +303,46 @@ u {
   clear: both;
   text-align: center;
 }
+
+/*----------------------
+ 時間割の表に関するCSS
+ ----------------------*/
+#sched table td.items {
+  color: black;
+  font-size: 0.3em;
+  padding: 0.3em;
+  width: 100px;
+  height: 30px;
+}
+
+
+#sched table th,
+#sched table td {
+  border: 1px solid #333333;
+  text-align: center;
+}
+
+#sched table th {
+  padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+#sched td.root {
+  border: none;
+  padding: 10px;
+}
+
+
+/* 表を横にスクロールできるようにする */
+.table-scroll {
+  display: block;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* スクロールできることを表記する */
+@media screen and (max-width:991px) {
+  .table-r::before {
+    content: "※この表は横にスクロールできます。";
+    color: #ff0000;
+  }
+}

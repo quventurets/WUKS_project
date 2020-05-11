@@ -951,6 +951,16 @@ img {
      padding: 0 0 40px 0;
  }
 
+ #newsbody a {
+   color: #053053;
+   display: block;
+ }
+
+#newsbody a:hover {
+  text-decoration: underline;
+  text-decoration-color: #053053;
+}
+
  @media screen and (min-width: 896px) and (max-width: 1279px) {
 
      #newshead {
@@ -1005,26 +1015,6 @@ img {
          font-size: 1.2rem;
          line-height: 1.8;
          margin: 0 0 20px 0;
-     }
-
-     #newsbody table {
-         display: block;
-         margin: 0 0 20px 0;
-     }
-
-     #newsbody table tbody {
-         display: block;
-     }
-
-     #newsbody table tr {
-         display: block;
-     }
-
-     #newsbody table td {
-         display: block;
-         font-size: 1.2rem;
-         line-height: 1.8;
-         padding: 0 0 10px 0;
      }
 
      #newsbody .attention {
