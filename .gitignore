@@ -33,7 +33,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-# /public/assets
+/public/assets
 public/budle.js
 public/budle.js.map
 
