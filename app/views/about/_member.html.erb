@@ -1,6 +1,36 @@
 <div class="container member">
   <div class="row" id="accordionMember">
     <div  class="col-4" data-toggle="collapse"
+          data-target="#collapse-koga" aria-expanded="true" 
+          aria-controls="#collapse-koga">
+      <div class="member-img">
+        <img src="<%= asset_path('img/about/member/Koga.jpg') %>" alt="古賀信幸">
+      </div>
+      古賀信幸
+    </div>
+    <div  class="col-4" data-toggle="collapse"
+          data-target="#collapse-shiraishi" aria-expanded="false" 
+          aria-controls="#collapse-shiraishi">
+      <div class="member-img">
+        <img src="<%= asset_path('img/about/member/Shiraishi.jpg') %>" alt="白石哲平">
+      </div>
+      白石哲平
+    </div>
+    <div class="col-12" role="tab">
+      <div class="collapse panel-collapse" role="tabpanel" id="collapse-koga" data-parent="#accordionMember">
+        <%= render :partial => "member_information", :locals => { 
+            name: '古賀信幸', kosen: '佐世保高専', kosen_department: '物質工学科',
+            univ: '九州大学', faculty: '経済学部', department: '経済工学科', img: 'Koga'
+        } %>
+      </div>
+      <div class="collapse panel-collapse" role="tabpanel" id="collapse-shiraishi" data-parent="#accordionMember">
+        <%= render :partial => "member_information", :locals => { 
+            name: '白石哲平', kosen: '新居浜高専', kosen_department: '機械工学科',
+            univ: '九州大学', faculty: '経済学部', department: '経済工学科', img: 'Shiraishi'
+        } %>
+      </div>
+    </div>
+    <div  class="col-4" data-toggle="collapse"
           data-target="#collapse-miyazono" aria-expanded="true" 
           aria-controls="#collapse-miyazono">
       <div class="member-img">
@@ -71,7 +101,7 @@
     <div class="col-12" role="tab">
       <div class="collapse panel-collapse" role="tabpanel" id="collapse-shimada" data-parent="#accordionMember">
         <%= render :partial => "member_information", :locals => { 
-            name: '島田明', kosen: '佐世保高専', kosen_department: '情報工学科',
+            name: '島田明', kosen: '佐世保高専', kosen_department: '電気電子工学科',
             univ: '九州大学', faculty: '工学部', department: '電気情報工学科', img: 'Shimada'
         } %>
       </div>
